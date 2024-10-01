@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SERVPRO.API.Data;
+using SERVPRO.API.Helpers;
 using SERVPRO.API.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,55 +12,35 @@ namespace SERVPRO.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // GET: api/<UserController>
+        private readonly WebDbContext _context;
+
+        public UserController(WebDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/User
         [HttpGet]
-        public IEnumerable<UserModel> Get()
+        public async Task<ActionResult<IEnumerable<UserModel>>> Get()
         {
-            List<UserModel> userModels = new List<UserModel>();
-            userModels.Add(new UserModel() { Id = 1, Name = "Ellen Peixoto", Email = "ellen_SERVPRO@gmail.com" });
-            return userModels;
+            return await _context.Users.ToListAsync();
         }
 
-        // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public UserModel Get(int id)
-        {
-           UserModel user = new UserModel() { Id = 1, Name = "Ellen Peixoto", Email = "ellen_SERVPRO@gmail.com" };
-            return user;
-        }
-
-        // POST api/<UserController>
+        // POST api/User
         [HttpPost]
-        public void Post([FromBody] UserModel user)
+        public async Task<ActionResult<UserModel>> Post([FromBody] UserModel user)
         {
-        }
-
-        // POST api/<LoginController>
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] UserLoginModel loginModel)
-        {
-            var users = new List<UserLoginModel>
-    {
-        new UserLoginModel { Username = "AdmSERVPRO", Password = "Senha@123" }
-    };
-            var user = users.SingleOrDefault(u => u.Username == loginModel.Username && u.Password == loginModel.Password);
             if (user == null)
             {
-                return Unauthorized("Usuário ou senha inválidos.");
+                return BadRequest("Usuário inválido.");
             }
-            return Ok("Login realizado com sucesso.");
-        }
 
-        // PUT api/<UserController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] UserModel user)
-        {
-        }
+            // Hash da senha
+            user.Password = PasswordHelper.HashPassword(user.Password);
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
 
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
     }
 }
