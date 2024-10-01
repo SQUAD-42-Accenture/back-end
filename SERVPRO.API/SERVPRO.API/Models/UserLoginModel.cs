@@ -2,7 +2,7 @@
 {
     public class UserLoginModel
     {
-        public required string Cpf { get; set; }
-        public required string Password{ get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
