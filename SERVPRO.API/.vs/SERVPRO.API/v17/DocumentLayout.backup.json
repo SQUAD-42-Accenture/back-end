@@ -1,71 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\workspace\\back-end\\SERVPRO.API\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{D0E9AD4A-4BBA-4DBF-8A6A-D43520904727}|SERVPRO.API\\SERVPRO.API.csproj|c:\\workspace\\back-end\\servpro.api\\servpro.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0E9AD4A-4BBA-4DBF-8A6A-D43520904727}|SERVPRO.API\\SERVPRO.API.csproj|solutionrelative:servpro.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0E9AD4A-4BBA-4DBF-8A6A-D43520904727}|SERVPRO.API\\SERVPRO.API.csproj|c:\\workspace\\back-end\\servpro.api\\servpro.api\\models\\userloginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0E9AD4A-4BBA-4DBF-8A6A-D43520904727}|SERVPRO.API\\SERVPRO.API.csproj|solutionrelative:servpro.api\\models\\userloginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D0E9AD4A-4BBA-4DBF-8A6A-D43520904727}|SERVPRO.API\\SERVPRO.API.csproj|c:\\workspace\\back-end\\servpro.api\\servpro.api\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D0E9AD4A-4BBA-4DBF-8A6A-D43520904727}|SERVPRO.API\\SERVPRO.API.csproj|solutionrelative:servpro.api\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserLoginModel.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO.API\\SERVPRO.API\\Models\\UserLoginModel.cs",
-              "RelativeDocumentMoniker": "SERVPRO.API\\Models\\UserLoginModel.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO.API\\SERVPRO.API\\Models\\UserLoginModel.cs",
-              "RelativeToolTip": "SERVPRO.API\\Models\\UserLoginModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T02:35:04.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO.API\\SERVPRO.API\\Models\\UserModel.cs",
-              "RelativeDocumentMoniker": "SERVPRO.API\\Models\\UserModel.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO.API\\SERVPRO.API\\Models\\UserModel.cs",
-              "RelativeToolTip": "SERVPRO.API\\Models\\UserModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T01:34:45.596Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO.API\\SERVPRO.API\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "SERVPRO.API\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO.API\\SERVPRO.API\\Controllers\\UserController.cs*",
-              "RelativeToolTip": "SERVPRO.API\\Controllers\\UserController.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T01:28:20.672Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

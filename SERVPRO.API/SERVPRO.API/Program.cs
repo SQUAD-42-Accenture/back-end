@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using SERVPRO.API.Data;
+using SERVPRO.API.Repository;
+using SERVPRO.API.Repository.Interface;
+
 namespace SERVPRO.API
 {
     public class Program
@@ -13,6 +18,12 @@ namespace SERVPRO.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddEntityFrameworkSqlServer()
+                .AddDbContext<ApplicationDBContext>(
+                    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DAtaBase"))
+                );
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             var app = builder.Build();
 

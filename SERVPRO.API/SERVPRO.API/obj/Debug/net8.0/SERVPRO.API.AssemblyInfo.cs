@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SERVPRO.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd27943c11b17c676cb2765a64addc0dfd2448d6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad50d9488611d39f471f400cdcfefed63f18c13c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SERVPRO.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SERVPRO.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
