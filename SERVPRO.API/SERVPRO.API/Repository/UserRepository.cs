@@ -1,59 +1,45 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SERVPRO.API.Data;
 using SERVPRO.API.Models;
-using SERVPRO.API.Repository.Interface;
+using SERVPRO.API.User.Models;
+using SERVPRO.API.User.Repository;
 
-namespace SERVPRO.API.Repository
+namespace SERVPRO.API.UserRepository
 {
     public class UserRepository : IUserRepository
     {
-        private readonly ApplicationDBContext _dbContext;
-        public UserRepository(ApplicationDBContext applicationDBContext) 
+        private readonly AppDbContext _context;
+
+        public UserRepository(AppDbContext context)
         {
-            _dbContext = applicationDBContext;
-        }
-        public async Task<List<UserModel>> SearchAllUser()
-        {
-            return await _dbContext.Users.ToListAsync();
+            _context = context;
         }
 
-        public async Task<UserModel> SearchForCpf(string cpf)
+        public async Task<UserModel> CreateUserAsync(UserModel user)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Cpf == cpf);
-        }
-        public async Task<UserModel> Add(UserModel user)
-        {
-            await _dbContext.Users.AddAsync(user);
-             await _dbContext.SaveChangesAsync();
-
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
             return user;
         }
-        public async Task<UserModel> Update(UserModel user, string cpf)
-        {
-            UserModel userForCpf = await SearchForCpf(cpf);
-            if (userForCpf == null)
-            {
-                throw new Exception($"Usuário com CPF: {cpf} não foi encontrado.");
-            }
-            userForCpf.Name = user.Name;
-            userForCpf.Name = user.Email;
-            userForCpf.Name = user.Cpf;
-            _dbContext.Users.Update(userForCpf);
-            await _dbContext.SaveChangesAsync();
 
-            return userForCpf;
+        public async Task<UserModel> GetUserByIdAsync(int id)
+        {
+            return await _context.Users.FindAsync(id);
         }
 
-        public async Task<bool> Delete(string cpf)
+        public async Task UpdateUserAsync(UserModel user)
         {
-            UserModel userForCpf = await SearchForCpf(cpf);
-            if (userForCpf == null)
+            _context.Entry(user).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteUserAsync(int id)
+        {
+            var user = await GetUserByIdAsync(id);
+            if (user != null)
             {
-                throw new Exception($"Usuário com CPF: {cpf} não foi encontrado.");
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
             }
-            _dbContext.Users.Remove(userForCpf);
-            await _dbContext.SaveChangesAsync();
-            return true;
         }
     }
 }

@@ -1,47 +1,30 @@
-
 using Microsoft.EntityFrameworkCore;
-using SERVPRO.API.Data;
-using SERVPRO.API.Repository;
-using SERVPRO.API.Repository.Interface;
+using SERVPRO.API;
+using SERVPRO.API.User.Repository;
+using SERVPRO.API.UserRepository;
 
-namespace SERVPRO.API
+var builder = WebApplication.CreateBuilder(args);
+
+// Configuração do banco de dados
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Injeção de dependência
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
-            builder.Services.AddEntityFrameworkSqlServer()
-                .AddDbContext<ApplicationDBContext>(
-                    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DAtaBase"))
-                );
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
-        }
-    }
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseAuthorization();
+app.MapControllers();
+
+app.Run();

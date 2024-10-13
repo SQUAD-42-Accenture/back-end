@@ -1,29 +1,72 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SERVPRO.API.Models;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using SERVPRO.API.User.Models;
+using SERVPRO.API.User.Repository;
 
 namespace SERVPRO.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<List<UserModel>> SearchForCpf(string Cpf)
+        private readonly IUserRepository _userRepository;
+
+        public UserController(IUserRepository userRepository)
         {
-            return Ok();
+            _userRepository = userRepository;
         }
 
-        [HttpGet]
-        public ActionResult<List<UserModel>> SearchAllUser(string Cpf)
+        [HttpPost]
+        public async Task<IActionResult> CreateUser([FromBody] UserModel user)
         {
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                var createdUser = await _userRepository.CreateUserAsync(user);
+                return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
+            }
+
+            return BadRequest(ModelState);
         }
 
-        //[HttpPut]
-        //public ActionResult Update(UserModel user, string cpf)
-        //{ 
-        //}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UserModel updatedUser)
+        {
+            if (id != updatedUser.Id)
+            {
+                return BadRequest("ID mismatch.");
+            }
+
+            var existingUser = await _userRepository.GetUserByIdAsync(id);
+            if (existingUser == null)
+            {
+                return NotFound();
+            }
+
+            await _userRepository.UpdateUserAsync(updatedUser);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            await _userRepository.DeleteUserAsync(id);
+            return NoContent();
+        }
     }
 }

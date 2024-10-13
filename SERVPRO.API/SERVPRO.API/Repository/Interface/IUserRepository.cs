@@ -1,13 +1,12 @@
-﻿using SERVPRO.API.Models;
+﻿using SERVPRO.API.User.Models;
 
-namespace SERVPRO.API.Repository.Interface
+namespace SERVPRO.API.User.Repository
 {
     public interface IUserRepository
     {
-        Task<List<UserModel>> SearchAllUser();
-        Task<UserModel> SearchForCpf(string cpf);
-        Task<UserModel> Add(UserModel user);
-        Task<UserModel> Update(UserModel user, string cpf);
-        Task<bool> Delete(string cpf);
+        Task<UserModel> CreateUserAsync(UserModel user);
+        Task<UserModel> GetUserByIdAsync(int id);
+        Task UpdateUserAsync(UserModel user);
+        Task DeleteUserAsync(int id);
     }
 }
