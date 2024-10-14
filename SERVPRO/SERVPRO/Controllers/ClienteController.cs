@@ -48,7 +48,7 @@ namespace SERVPRO.Controllers
 
         public async Task<ActionResult<Cliente>> Atualizar([FromBody] Cliente clienteModel, string cpf)
         {
-            clienteModel.ClienteCPF = cpf;
+            clienteModel.CPF = cpf;
             Cliente cliente = await _clienteRepositorio.Atualizar(clienteModel, cpf);
 
             return Ok(cliente);

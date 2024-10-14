@@ -22,41 +22,6 @@ namespace SERVPRO.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SERVPRO.Models.Cliente", b =>
-                {
-                    b.Property<string>("ClienteCPF")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.HasKey("ClienteCPF");
-
-                    b.ToTable("Clientes");
-                });
-
             modelBuilder.Entity("SERVPRO.Models.Equipamento", b =>
                 {
                     b.Property<string>("Serial")
@@ -88,6 +53,76 @@ namespace SERVPRO.Migrations
                     b.HasIndex("ClienteCPF");
 
                     b.ToTable("Equipamentos");
+                });
+
+            modelBuilder.Entity("SERVPRO.Models.Usuario", b =>
+                {
+                    b.Property<string>("CPF")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("TipoUsuario")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
+                    b.HasKey("CPF");
+
+                    b.ToTable("Usuario");
+
+                    b.HasDiscriminator<string>("TipoUsuario").HasValue("Usuario");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("SERVPRO.Models.Administrador", b =>
+                {
+                    b.HasBaseType("SERVPRO.Models.Usuario");
+
+                    b.HasDiscriminator().HasValue("Administrador");
+                });
+
+            modelBuilder.Entity("SERVPRO.Models.Cliente", b =>
+                {
+                    b.HasBaseType("SERVPRO.Models.Usuario");
+
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasDiscriminator().HasValue("Cliente");
+                });
+
+            modelBuilder.Entity("SERVPRO.Models.Tecnico", b =>
+                {
+                    b.HasBaseType("SERVPRO.Models.Usuario");
+
+                    b.Property<string>("Especialidade")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasDiscriminator().HasValue("Tecnico");
                 });
 
             modelBuilder.Entity("SERVPRO.Models.Equipamento", b =>
