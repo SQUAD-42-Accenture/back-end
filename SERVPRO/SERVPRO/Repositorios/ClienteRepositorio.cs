@@ -16,7 +16,7 @@ namespace SERVPRO.Repositorios
         {
             return await _dbContext.Clientes
                 .Include(x => x.Equipamentos)
-                .FirstOrDefaultAsync(x => x.ClienteCPF == cpf);
+                .FirstOrDefaultAsync(x => x.CPF == cpf);
         }
 
         public async Task<List<Cliente>> BuscarTodosClientes()

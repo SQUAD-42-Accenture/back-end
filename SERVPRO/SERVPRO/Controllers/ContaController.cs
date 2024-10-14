@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SERVPRO.Data;
@@ -26,10 +27,22 @@ namespace SERVPRO.Controllers
         public IActionResult Login([FromBody] Login login)
         {
 
-            var usuario = _dbContext.Clientes.FirstOrDefault(x => x.ClienteCPF == login.login && x.Senha == login.senha);
+            //var cliente = _dbContext.Clientes.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
+            //var tecnico = _dbContext.Tecnicos.SingleOrDefault(t => t.CPF == login.login && t.Senha == login.senha);
+            //var administrador = _dbContext.Administradores.SingleOrDefault(a => a.CPF == login.login && a.Senha == login.senha);
+
+            //Usuario usuario = cliente ?? (Usuario)tecnico ?? administrador;
+
+            //var usuario = _dbContext.Clientes.SingleOrDefault(x => x.CPF == login.login && x.Senha == login.senha);
+
+            var usuario = _dbContext.Set<Usuario>()
+                .FirstOrDefault(x => x.CPF == login.login && x.Senha == login.senha);
 
             if (usuario != null && usuario.Senha == login.senha)
             {
+                /*var tipoUsuario = usuario is Cliente ? "Cliente" :
+                      usuario is Tecnico ? "Tecnico" :
+                      "Administrador";*/
                 var token = GerarTokenJWT(usuario);
                 return Ok(new { token });
             }
@@ -42,7 +55,7 @@ namespace SERVPRO.Controllers
             return BadRequest(new { mensagem = "Credenciais inválidades."});
         }
 
-        private string GerarTokenJWT(Cliente cliente)
+        private string GerarTokenJWT(Usuario usuario)
         {
             string chaveSecreta = "3c728fbf-7290-4087-b180-7fead6e5bbe6";
 
@@ -51,9 +64,10 @@ namespace SERVPRO.Controllers
 
             var claims = new[]
             {
-                new Claim("nome", cliente.Nome),
-                new Claim("email", cliente.Email),
-                new Claim("cpf", cliente.ClienteCPF)
+                new Claim(ClaimTypes.Name, usuario.Nome),
+                new Claim(ClaimTypes.Email, usuario.Email),
+                new Claim("cpf", usuario.CPF),
+                new Claim("tipoUsuario", usuario.TipoUsuario.ToString())
 
             };
 

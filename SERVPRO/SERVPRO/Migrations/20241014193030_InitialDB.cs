@@ -12,19 +12,21 @@ namespace SERVPRO.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Usuario",
                 columns: table => new
                 {
-                    ClienteCPF = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Endereco = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Telefone = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Senha = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                    Senha = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    TipoUsuario = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: false),
+                    Endereco = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    Telefone = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    Especialidade = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.ClienteCPF);
+                    table.PrimaryKey("PK_Usuario", x => x.CPF);
                 });
 
             migrationBuilder.CreateTable(
@@ -42,10 +44,10 @@ namespace SERVPRO.Migrations
                 {
                     table.PrimaryKey("PK_Equipamentos", x => x.Serial);
                     table.ForeignKey(
-                        name: "FK_Equipamentos_Clientes_ClienteCPF",
+                        name: "FK_Equipamentos_Usuario_ClienteCPF",
                         column: x => x.ClienteCPF,
-                        principalTable: "Clientes",
-                        principalColumn: "ClienteCPF",
+                        principalTable: "Usuario",
+                        principalColumn: "CPF",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -62,7 +64,7 @@ namespace SERVPRO.Migrations
                 name: "Equipamentos");
 
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "Usuario");
         }
     }
 }
