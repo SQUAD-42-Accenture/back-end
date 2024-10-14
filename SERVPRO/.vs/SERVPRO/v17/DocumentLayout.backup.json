@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\migrations\\20241014002634_initialdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\migrations\\20241014002634_initialdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -64,7 +68,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 339,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -72,7 +76,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\appsettings.json",
+              "RelativeDocumentMoniker": "SERVPRO\\appsettings.json",
+              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\appsettings.json",
+              "RelativeToolTip": "SERVPRO\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-14T15:42:01.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EquipamentoMap.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\EquipamentoMap.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Data\\Map\\EquipamentoMap.cs",
@@ -84,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IClienteRepositorio.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IClienteRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IClienteRepositorio.cs",
@@ -96,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ClienteMap.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\ClienteMap.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Data\\Map\\ClienteMap.cs",
@@ -108,20 +125,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "20241014002634_InitialDB.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241014002634_InitialDB.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Migrations\\20241014002634_InitialDB.cs",
               "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241014002634_InitialDB.cs",
               "RelativeToolTip": "SERVPRO\\Migrations\\20241014002634_InitialDB.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T00:26:34.385Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ContaController.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ContaController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ContaController.cs",
@@ -133,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Program.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Program.cs",
@@ -145,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Login.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Login.cs",
@@ -157,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Equipamento.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Equipamento.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Equipamento.cs",
@@ -169,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Tecnico.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Tecnico.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Tecnico.cs",
@@ -181,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "StatusOS.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Enums\\StatusOS.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Enums\\StatusOS.cs",
@@ -193,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "20241013212143_InitialDb.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\source\\repos\\SERVPRO\\SERVPRO\\Migrations\\20241013212143_InitialDb.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\SERVPRO\\SERVPRO\\Migrations\\20241013212143_InitialDb.cs",
@@ -204,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "ServproDBContext.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Data\\ServproDBContext.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Data\\ServproDBContext.cs",
@@ -216,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "20241013201412_InitialDb.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\source\\repos\\SERVPRO\\SERVPRO\\Migrations\\20241013201412_InitialDb.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\source\\repos\\SERVPRO\\SERVPRO\\Migrations\\20241013201412_InitialDb.cs",
@@ -233,7 +250,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ClienteRepositorio.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\ClienteRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\ClienteRepositorio.cs",
