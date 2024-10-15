@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SERVPRO.Data;
 
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241015174445_AdicaoHistorico")]
+    partial class AdicaoHistorico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,10 @@ namespace SERVPRO.Migrations
                     b.Property<DateTime>("DataAtualizacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("OrdemDeServicoId")
+                    b.Property<string>("OrdemDeServicoId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OrdemDeServicoId1")
                         .HasColumnType("int");
 
                     b.Property<string>("TecnicoCPF")
@@ -78,7 +84,7 @@ namespace SERVPRO.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrdemDeServicoId");
+                    b.HasIndex("OrdemDeServicoId1");
 
                     b.HasIndex("TecnicoCPF");
 
@@ -211,7 +217,7 @@ namespace SERVPRO.Migrations
                 {
                     b.HasOne("SERVPRO.Models.OrdemDeServico", "OrdemDeServico")
                         .WithMany()
-                        .HasForeignKey("OrdemDeServicoId");
+                        .HasForeignKey("OrdemDeServicoId1");
 
                     b.HasOne("SERVPRO.Models.Tecnico", "Tecnico")
                         .WithMany()
