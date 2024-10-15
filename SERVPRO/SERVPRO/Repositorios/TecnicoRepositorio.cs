@@ -15,14 +15,14 @@ namespace SERVPRO.Repositorios
         public async Task<Tecnico> BuscarPorCPF(string cpf)
         {
             return await _dbContext.Tecnicos
-                //.Include(x => x.Equipamentos)
+                .Include(x => x.OrdensDeServico)
                 .FirstOrDefaultAsync(x => x.CPF == cpf);
         }
 
         public async Task<List<Tecnico>> BuscarTodosTecnicos()
         {
             return await _dbContext.Tecnicos
-                //.Include(x => x.Equipamentos)
+                .Include(x => x.OrdensDeServico)
                 .ToListAsync();
         }
         public async Task<Tecnico> Adicionar(Tecnico tecnico)

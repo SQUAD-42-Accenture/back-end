@@ -9,7 +9,7 @@
 
 
         public List<Equipamento> Equipamentos { get; set; }
-        // public List<OrdemDeServico> OrdensDeServico { get; set; }
+        public List<OrdemDeServico> OrdensDeServico { get; set; }
     }
 
 }

@@ -4,14 +4,14 @@ namespace SERVPRO.Enums
 {
     public enum StatusOS
     {
-        [Description("Aberto")]
-        Aberto = 0,
-        [Description("Em andamento")]
+        [Description("Aberta")]
+        Aberta = 0,
+        [Description("Em Andamento")]
         EmAndamento = 1,
-        [Description("Concluido")]
-        Concluido = 2,
-        [Description("Pendente")]
-        Pendente = 3
+        [Description("Concluida")]
+        Concluida = 2,
+        [Description("Cancelada")]
+        Cancelada = 3
 
     }
 }

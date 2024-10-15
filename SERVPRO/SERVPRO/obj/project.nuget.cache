@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+c39UraaEps=",
+  "dgSpecHash": "2fRBjxW6ji8=",
   "success": true,
   "projectFilePath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
   "expectedPackageFiles": [
@@ -55,6 +55,8 @@
     "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\olt.core.common\\8.3.1\\olt.core.common.8.3.1.nupkg.sha512",
     "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\olt.core.common.abstractions\\8.3.1\\olt.core.common.abstractions.8.3.1.nupkg.sha512",
     "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\olt.extensions.general\\8.3.1\\olt.extensions.general.8.3.1.nupkg.sha512",
+    "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\stackexchange.redis\\2.8.16\\stackexchange.redis.2.8.16.nupkg.sha512",
     "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\swashbuckle.aspnetcore\\6.8.1\\swashbuckle.aspnetcore.6.8.1.nupkg.sha512",
     "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.8.1\\swashbuckle.aspnetcore.swagger.6.8.1.nupkg.sha512",
     "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.8.1\\swashbuckle.aspnetcore.swaggergen.6.8.1.nupkg.sha512",

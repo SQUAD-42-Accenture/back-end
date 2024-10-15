@@ -19,7 +19,7 @@ namespace SERVPRO.Data
         public DbSet<Tecnico> Tecnicos { get; set; }
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Equipamento> Equipamentos { get; set; }
-        //public DbSet<OrdemDeServico> OrdensDeServico { get; set; }
+        public DbSet<OrdemDeServico> OrdensDeServico { get; set; }
         //public DbSet<HistoricoOS> HistoricosOS { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,6 +36,7 @@ namespace SERVPRO.Data
             modelBuilder.ApplyConfiguration(new AdministradorMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
             modelBuilder.ApplyConfiguration(new EquipamentoMap());
+            modelBuilder.ApplyConfiguration(new OrdemDeServicoMap());
 
             base.OnModelCreating(modelBuilder);
         }

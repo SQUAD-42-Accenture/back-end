@@ -55,6 +55,48 @@ namespace SERVPRO.Migrations
                     b.ToTable("Equipamentos");
                 });
 
+            modelBuilder.Entity("SERVPRO.Models.OrdemDeServico", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClienteCPF")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("SerialEquipamento")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TecnicoCPF")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("dataAbertura")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("dataConclusao")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteCPF");
+
+                    b.HasIndex("SerialEquipamento");
+
+                    b.HasIndex("TecnicoCPF");
+
+                    b.ToTable("OrdensDeServico");
+                });
+
             modelBuilder.Entity("SERVPRO.Models.Usuario", b =>
                 {
                     b.Property<string>("CPF")
@@ -133,6 +175,30 @@ namespace SERVPRO.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("SERVPRO.Models.OrdemDeServico", b =>
+                {
+                    b.HasOne("SERVPRO.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteCPF")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("SERVPRO.Models.Equipamento", "Equipamento")
+                        .WithMany()
+                        .HasForeignKey("SerialEquipamento")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("SERVPRO.Models.Tecnico", "Tecnico")
+                        .WithMany()
+                        .HasForeignKey("TecnicoCPF")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Equipamento");
+
+                    b.Navigation("Tecnico");
                 });
 
             modelBuilder.Entity("SERVPRO.Models.Cliente", b =>
