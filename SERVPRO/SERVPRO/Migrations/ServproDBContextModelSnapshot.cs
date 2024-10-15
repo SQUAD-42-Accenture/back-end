@@ -68,6 +68,7 @@ namespace SERVPRO.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataAtualizacao")
+                        .HasMaxLength(255)
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("OrdemDeServicoId")
@@ -211,11 +212,13 @@ namespace SERVPRO.Migrations
                 {
                     b.HasOne("SERVPRO.Models.OrdemDeServico", "OrdemDeServico")
                         .WithMany()
-                        .HasForeignKey("OrdemDeServicoId");
+                        .HasForeignKey("OrdemDeServicoId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SERVPRO.Models.Tecnico", "Tecnico")
                         .WithMany()
-                        .HasForeignKey("TecnicoCPF");
+                        .HasForeignKey("TecnicoCPF")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("OrdemDeServico");
 

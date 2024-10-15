@@ -24,12 +24,6 @@ namespace SERVPRO.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Usuario>()
-        .HasDiscriminator<string>("TipoUsuario")
-        .HasValue<Cliente>("Cliente")
-        .HasValue<Tecnico>("Tecnico")
-        .HasValue<Administrador>("Administrador");
-
 
             modelBuilder.ApplyConfiguration(new ClienteMap());
             modelBuilder.ApplyConfiguration(new TecnicoMap());
@@ -37,7 +31,7 @@ namespace SERVPRO.Data
             modelBuilder.ApplyConfiguration(new UsuarioMap());
             modelBuilder.ApplyConfiguration(new EquipamentoMap());
             modelBuilder.ApplyConfiguration(new OrdemDeServicoMap());
-            modelBuilder.ApplyConfiguration(new OrdemDeServicoMap());
+            modelBuilder.ApplyConfiguration(new HistoricoOsMap());
 
             base.OnModelCreating(modelBuilder);
         }
