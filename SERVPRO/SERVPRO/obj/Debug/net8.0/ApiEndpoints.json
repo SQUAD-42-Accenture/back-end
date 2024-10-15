@@ -274,6 +274,135 @@
     ]
   },
   {
+    "ContainingType": "SERVPRO.Controllers.HistoricoOsController",
+    "Method": "BuscarTodoshistoricos",
+    "RelativePath": "api/HistoricoOs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SERVPRO.Models.HistoricoOS, SERVPRO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.HistoricoOsController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/HistoricoOs",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "historicoOsModel",
+        "Type": "SERVPRO.Models.HistoricoOS",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.HistoricoOS",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.HistoricoOsController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/HistoricoOs/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.HistoricoOS",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.HistoricoOsController",
+    "Method": "Atualizar",
+    "RelativePath": "api/HistoricoOs/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "historicoOsModel",
+        "Type": "SERVPRO.Models.HistoricoOS",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.HistoricoOS",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.HistoricoOsController",
+    "Method": "Apagar",
+    "RelativePath": "api/HistoricoOs/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.HistoricoOS",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
     "Method": "BuscarTodasOS",
     "RelativePath": "api/OrdemDeServico",
