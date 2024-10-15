@@ -274,6 +274,135 @@
     ]
   },
   {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "BuscarTodasOS",
+    "RelativePath": "api/OrdemDeServico",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SERVPRO.Models.OrdemDeServico, SERVPRO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/OrdemDeServico",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordemDeServicoModel",
+        "Type": "SERVPRO.Models.OrdemDeServico",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.OrdemDeServico",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/OrdemDeServico/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.OrdemDeServico",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/OrdemDeServico/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ordemDeServicoModel",
+        "Type": "SERVPRO.Models.OrdemDeServico",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.OrdemDeServico",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "Apagar",
+    "RelativePath": "api/OrdemDeServico/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.OrdemDeServico",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.TecnicoController",
     "Method": "BuscarTodosTecnicos",
     "RelativePath": "api/Tecnico",

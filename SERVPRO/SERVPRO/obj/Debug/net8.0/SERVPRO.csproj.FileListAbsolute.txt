@@ -347,3 +347,5 @@ C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\r
 C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.pdb
 C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.genruntimeconfig.cache
 C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\ref\SERVPRO.dll
+C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\StackExchange.Redis.dll

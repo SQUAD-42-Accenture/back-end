@@ -63,6 +63,7 @@ builder.Services.AddEntityFrameworkSqlServer()
 builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
 builder.Services.AddScoped<ITecnicoRepositorio, TecnicoRepositorio>();
 builder.Services.AddScoped<IEquipamentoRepositorio, EquipamentoRepositorio>();
+builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemdeServicoRepositorio>();
 
 builder.Services.AddAuthentication(options =>
 {
