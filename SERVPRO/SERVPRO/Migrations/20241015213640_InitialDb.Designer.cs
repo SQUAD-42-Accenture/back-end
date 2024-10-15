@@ -12,8 +12,8 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    [Migration("20241015180412_HistoricoUpdate")]
-    partial class HistoricoUpdate
+    [Migration("20241015213640_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,6 +71,7 @@ namespace SERVPRO.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataAtualizacao")
+                        .HasMaxLength(255)
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("OrdemDeServicoId")
@@ -214,11 +215,13 @@ namespace SERVPRO.Migrations
                 {
                     b.HasOne("SERVPRO.Models.OrdemDeServico", "OrdemDeServico")
                         .WithMany()
-                        .HasForeignKey("OrdemDeServicoId");
+                        .HasForeignKey("OrdemDeServicoId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SERVPRO.Models.Tecnico", "Tecnico")
                         .WithMany()
-                        .HasForeignKey("TecnicoCPF");
+                        .HasForeignKey("TecnicoCPF")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("OrdemDeServico");
 

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SERVPRO.Migrations
 {
     /// <inheritdoc />
-    public partial class InitiaolDB : Migration
+    public partial class InitialDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -88,10 +88,48 @@ namespace SERVPRO.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "HistoricosOS",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DataAtualizacao = table.Column<DateTime>(type: "datetime2", maxLength: 255, nullable: false),
+                    Comentario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrdemDeServicoId = table.Column<int>(type: "int", nullable: true),
+                    TecnicoCPF = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HistoricosOS", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_HistoricosOS_OrdensDeServico_OrdemDeServicoId",
+                        column: x => x.OrdemDeServicoId,
+                        principalTable: "OrdensDeServico",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_HistoricosOS_Usuario_TecnicoCPF",
+                        column: x => x.TecnicoCPF,
+                        principalTable: "Usuario",
+                        principalColumn: "CPF",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Equipamentos_ClienteCPF",
                 table: "Equipamentos",
                 column: "ClienteCPF");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HistoricosOS_OrdemDeServicoId",
+                table: "HistoricosOS",
+                column: "OrdemDeServicoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HistoricosOS_TecnicoCPF",
+                table: "HistoricosOS",
+                column: "TecnicoCPF");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrdensDeServico_ClienteCPF",
@@ -112,6 +150,9 @@ namespace SERVPRO.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "HistoricosOS");
+
             migrationBuilder.DropTable(
                 name: "OrdensDeServico");
 
