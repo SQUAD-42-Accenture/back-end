@@ -532,6 +532,22 @@
     ]
   },
   {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "GerarPdf",
+    "RelativePath": "api/OrdemDeServico/{id}/gerar-pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.TecnicoController",
     "Method": "BuscarTodosTecnicos",
     "RelativePath": "api/Tecnico",
