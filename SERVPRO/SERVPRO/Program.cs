@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,7 @@ using SERVPRO.Repositorios.interfaces;
 using System;
 using System.Text;
 using System.Text.Json.Serialization;
+using System.Runtime.Loader;
 
 
 
@@ -25,6 +27,9 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // Ignorar ciclos de referência
         options.JsonSerializerOptions.PropertyNamingPolicy = null; // Usar nomes de propriedade como estão
     });
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
@@ -65,6 +70,8 @@ builder.Services.AddScoped<ITecnicoRepositorio, TecnicoRepositorio>();
 builder.Services.AddScoped<IEquipamentoRepositorio, EquipamentoRepositorio>();
 builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemdeServicoRepositorio>();
 builder.Services.AddScoped<IHistoricoOsRepositorio, HistoricoOsRepositorio>();
+builder.Services.AddScoped<PdfServiceRepositorio>();
+
 
 builder.Services.AddAuthentication(options =>
 {
@@ -86,6 +93,7 @@ builder.Services.AddAuthentication(options =>
 });
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

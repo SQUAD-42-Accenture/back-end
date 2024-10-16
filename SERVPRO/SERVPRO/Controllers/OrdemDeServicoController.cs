@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SERVPRO.Models;
+using SERVPRO.Repositorios;
 using SERVPRO.Repositorios.interfaces;
+using System;
 using System.Globalization;
 
 namespace SERVPRO.Controllers
@@ -14,10 +18,15 @@ namespace SERVPRO.Controllers
     {
 
         private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
+        private readonly PdfServiceRepositorio _pdfServiceRepositorio;
 
-        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio)
+
+        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio)
         {
             _ordemDeServicoRepositorio = ordemDeServicoRepositorio;
+            _pdfServiceRepositorio = pdfServiceRepositorio; 
+
+
         }
 
         [HttpGet]
@@ -63,6 +72,21 @@ namespace SERVPRO.Controllers
 
             return Ok(apagado);
         }
+        [HttpGet("{id}/gerar-pdf")]
+        public async Task<IActionResult> GerarPdf(int id)
+        {
+            var ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
+
+            if (ordemDeServico == null)
+                return NotFound("Ordem de serviço não encontrada.");
+
+            var pdf = _pdfServiceRepositorio.GeneratePdf(ordemDeServico);
+
+            return File(pdf, "application/pdf", $"ordem_servico_{id}.pdf");
+        }
+
+
+
 
 
     }
