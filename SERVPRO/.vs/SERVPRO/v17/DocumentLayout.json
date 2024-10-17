@@ -75,8 +75,7 @@
               "RelativeToolTip": "SERVPRO\\Models\\Login.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T17:52:12.296Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T17:52:12.296Z"
             },
             {
               "$type": "Document",
@@ -88,21 +87,19 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\PdfServiceRepositorio.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAQwGEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T12:06:34.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T12:06:34.36Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SERVPRO",
+              "Title": "SERVPRO.csproj",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
               "RelativeDocumentMoniker": "SERVPRO\\SERVPRO.csproj",
               "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
               "RelativeToolTip": "SERVPRO\\SERVPRO.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-16T11:54:55.958Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T11:54:55.958Z"
             },
             {
               "$type": "Document",
@@ -114,8 +111,7 @@
               "RelativeToolTip": "SERVPRO\\Controllers\\OrdemDeServicoController.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAcwBoAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:23:26.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T00:23:26.743Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "RelativeToolTip": "SERVPRO\\Program.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAlwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:00:24.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T00:00:24.129Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:30:05.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T00:30:05.062Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:32:06.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T00:32:06.572Z"
             },
             {
               "$type": "Document",
@@ -166,8 +159,7 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\interfaces\\ITecnicoRepositorio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T00:11:58.252Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T00:11:58.252Z"
             }
           ]
         }
