@@ -18,6 +18,7 @@ namespace SERVPRO.Repositorios
                 .Include(x => x.Cliente)
                 .Include(e => e.Equipamento)
                 .Include(t => t.Tecnico)
+                .Include(t => t.Historicos)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
@@ -27,6 +28,7 @@ namespace SERVPRO.Repositorios
                 .Include(x => x.Cliente)
                 .Include(x => x.Equipamento)
                 .Include(x => x.Tecnico)
+                .Include(t => t.Historicos)
                 .ToListAsync();
         }
         public async Task<OrdemDeServico> Adicionar(OrdemDeServico ordemDeServico)

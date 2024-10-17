@@ -21,7 +21,7 @@ namespace SERVPRO.Models
 
         public StatusOS Status { get; set; }
 
-       // public List<HistoricoOS> Historico { get; set; }
+       public List<HistoricoOS> Historicos { get; set; }
     }
 
 }

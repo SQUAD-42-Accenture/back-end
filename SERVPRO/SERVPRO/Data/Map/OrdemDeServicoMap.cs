@@ -34,6 +34,8 @@ namespace SERVPRO.Data.Map
               .HasForeignKey(x => x.TecnicoCPF)
               .OnDelete(DeleteBehavior.Restrict);
 
+
+
             
 
 
