@@ -22,9 +22,10 @@ namespace SERVPRO.Data.Map
               .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.OrdemDeServico)
-              .WithMany()
+              .WithMany(x => x.Historicos)
               .HasForeignKey(x => x.OrdemDeServicoId)
               .OnDelete(DeleteBehavior.Restrict);
+
 
             
 
