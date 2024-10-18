@@ -8,8 +8,9 @@ namespace SERVPRO.Data.Map
     {
         public void Configure(EntityTypeBuilder<Tecnico> builder)
         {
+            builder.ToTable("Tecnicos");
             //builder.HasKey(x => x.CPF);
-           // builder.Property(x => x.Nome).IsRequired().HasMaxLength(255);
+            // builder.Property(x => x.Nome).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Especialidade).IsRequired().HasMaxLength(255);
            // builder.Property(x => x.Email).IsRequired().HasMaxLength(255);
             //builder.Property(x => x.Senha).IsRequired().HasMaxLength(255);

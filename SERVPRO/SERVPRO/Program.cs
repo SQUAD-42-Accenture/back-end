@@ -60,9 +60,8 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddEntityFrameworkSqlServer()
-    .AddDbContext<ServproDBContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("conexaopadrao"))
+builder.Services.AddDbContext<ServproDBContext>(options => 
+options.UseNpgsql(builder.Configuration.GetConnectionString("conexaopadrao"))
     );
 
 builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
