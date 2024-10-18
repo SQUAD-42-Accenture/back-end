@@ -9,22 +9,16 @@ namespace SERVPRO.Data.Map
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
+            builder.ToTable("Usuarios");
+
             builder.HasKey(x => x.CPF);
-            builder.Property(x => x.Nome).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.Email).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.Senha).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.Nome).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Email).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Senha).IsRequired().HasMaxLength(16);
             builder.Property(x => x.TipoUsuario).IsRequired();
 
-            builder.HasDiscriminator<string>("TipoUsuario")
-              .HasValue<Cliente>("Cliente")
-              .HasValue<Tecnico>("Tecnico")
-              .HasValue<Administrador>("Administrador");
 
             //builder.Property(x => x.TipoUsuario).IsRequired();
-
-
-
-
 
         }
     }
