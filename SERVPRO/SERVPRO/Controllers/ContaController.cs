@@ -27,33 +27,21 @@ namespace SERVPRO.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] Login login)
         {
+            var padrao = _dbContext.Usuarios.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
+            var cliente = _dbContext.Clientes.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
+            var tecnico = _dbContext.Tecnicos.SingleOrDefault(t => t.CPF == login.login && t.Senha == login.senha);
+            var administrador = _dbContext.Administradores.SingleOrDefault(a => a.CPF == login.login && a.Senha == login.senha);
 
-            //var cliente = _dbContext.Clientes.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
-            //var tecnico = _dbContext.Tecnicos.SingleOrDefault(t => t.CPF == login.login && t.Senha == login.senha);
-            //var administrador = _dbContext.Administradores.SingleOrDefault(a => a.CPF == login.login && a.Senha == login.senha);
+            Usuario usuario = padrao ?? (Usuario)cliente ?? (Usuario)tecnico ?? administrador;
 
-            //Usuario usuario = cliente ?? (Usuario)tecnico ?? administrador;
-
-            //var usuario = _dbContext.Clientes.SingleOrDefault(x => x.CPF == login.login && x.Senha == login.senha);
-
-            var usuario = _dbContext.Set<Usuario>()
-                .FirstOrDefault(x => x.CPF == login.login && x.Senha == login.senha);
-
-            if (usuario != null && usuario.Senha == login.senha)
+            if (usuario != null)
             {
-                /*var tipoUsuario = usuario is Cliente ? "Cliente" :
-                      usuario is Tecnico ? "Tecnico" :
-                      "Administrador";*/
+
                 var token = GerarTokenJWT(usuario);
                 return Ok(new { token });
             }
-            /*if(login.login == "admin" && login.senha == "admin")
-            {
-                var token = GerarTokenJWT();
-                return Ok(new { token });
-            }*/
 
-            return BadRequest(new { mensagem = "Credenciais inválidades."});
+            return BadRequest(new { mensagem = "Credenciais inválidades." });
         }
 
         private string GerarTokenJWT(Usuario usuario)
