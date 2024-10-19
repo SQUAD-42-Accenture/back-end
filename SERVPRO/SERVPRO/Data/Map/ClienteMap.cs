@@ -15,7 +15,7 @@ namespace SERVPRO.Data.Map
             builder.Property(x => x.Endereco).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Telefone).IsRequired().HasMaxLength(11);
             //builder.Property(x => x.Email).IsRequired().HasMaxLength(255);
-            //builder.Property(x => x.Senha).IsRequired().HasMaxLength(255);
+            //uilder.Property(x => x.Senha).IsRequired().HasMaxLength(255);
             //builder.Property(x => x.TipoUsuario).IsRequired();
 
 
