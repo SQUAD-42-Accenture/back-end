@@ -1,115 +1,179 @@
 ﻿using iText.Html2pdf;
-using iText.IO.Image;
-using iText.Kernel.Colors;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Layout.Properties;
 using SERVPRO.Models;
-using static System.Net.Mime.MediaTypeNames;
-using System.Drawing;
-using iText.Kernel.Geom;
-
+using System.IO;
 
 namespace SERVPRO.Repositorios
 {
     public class PdfServiceRepositorio
     {
-        public byte[] GeneratePdf(OrdemDeServico ordemDeServico)
+        public byte[] GeneratePdf(OrdemDeServico ordemDeServico, Cliente cliente, Tecnico tecnico)
         {
             using (var memoryStream = new MemoryStream())
             {
-                // HTML com conteúdo e estilos
                 string htmlContent = $@"
         <!DOCTYPE html>
         <html>
         <head>
             <meta charset='utf-8'>
             <style>
-                * {{
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }}
-                html, body {{
-                    height: 100%;
-                    width: 100%;
-                    margin: 0;
-                    padding: 0;
-                    font-family: Arial, sans-serif;
-                }}
                 body {{
-                    background-color: rgb(19, 76, 150);
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
                 }}
                 header {{
-                    text-align: right;
-                    margin: 20px;
+                    background-color: #054D9D;
+                    color: white;
+                    padding: 10px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
+                    gap: 20px;
                 }}
-                img {{
-                    width: 200px;
+                header img {{
+                    border-top:18px
+                    padding-top: 15px;
+                    max-width: 320px;
+                    max-height: 100px;
+                    height: auto;
+                    width: auto;
+                    object-fit: contain;
                 }}
-                .content {{
-                    background-color: #134C96;
-                    color: aliceblue;
-                    padding: 40px;
-                    height: calc(100% - 80px);
+                header div {{
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    text-align: right;
+                    font-size: 15px;
+                    row-gap: 5px; /* Adiciona espaço entre os parágrafos */
                 }}
                 h1 {{
                     text-align: center;
-                    font-size: 24px;
-                    margin-bottom: 20px;
+                    color: #054D9D;
+                    margin-top: 10px;
+                    font-size: 20px;
                 }}
-                .info {{
-                    font-size: 18px;
+                section {{
+                    margin: 15px;
+                }}
+                table {{
+                    width: 100%;
+                    border-collapse: collapse;
                     margin-bottom: 10px;
                 }}
-                .info p {{
+                th, td {{
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    font-size: 15px;
+                }}
+                th {{
+                    background-color: #054D9D;
+                    color: white;
+                }}
+                .total {{
+                    text-align: right;
+                    font-size: 15px;
+                    font-weight: bold;
+                    padding: 5px;
+                }}
+                .observacoes, .consideracoes {{
+                    background-color: #054D9D;
+                    color: white;
+                    padding: 5px;
+                    font-size: 12px;
+                    margin-bottom: 10px;
+                }}
+                .observacoes h3, .consideracoes h3 {{
+                    margin-bottom: 5px;
+                    font-size: 10px;
+                }}
+                p {{
                     margin: 5px 0;
                 }}
             </style>
         </head>
         <body>
             <header>
-                <img src='./LogoServPro.png' alt='Logo' class='logo' />
+                <img src='./LogoServPro.png' alt='Logo da Empresa' />
+                <div>
+                    <p>{cliente.Endereco}</p>
+                    <p>Contato: {cliente.Telefone}</p>
+                    <p>Responsável técnico: {tecnico.Nome}</p>
+                </div>
             </header>
-            <div class='content'>
-                <h1>ORDEM DE SERVIÇO</h1>
-                <div class='info'>
-                    <p><strong>Data de Abertura:</strong> {ordemDeServico.dataAbertura}</p>
+
+            <h1>ORDEM DE SERVIÇO</h1>
+
+            <section>
+                <h3>Dados Pessoais</h3>
+                <table>
+                    <tr>
+                        <td><strong>Cliente:</strong></td>
+                        <td>{cliente.Nome}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>E-mail:</strong></td>
+                        <td>{cliente.Email}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Telefone:</strong></td>
+                        <td>{cliente.Telefone}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Endereço:</strong></td>
+                        <td>{cliente.Endereco}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cidade:</strong></td>
+                        <td>add Cidade - add Estado</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Forma de Pagamento:</strong></td>
+                        <td>add FormaDePagamento</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section>
+                <h3>Orçamento</h3>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Descrição</th>
+                        <th>Quantidade</th>
+                        <th>Valor Unitário</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Computador Dell</td>
+                        <td>1</td>
+                        <td>R$ 300,00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Celular iPhone 14</td>
+                        <td>1</td>
+                        <td>R$ 500,00</td>
+                    </tr>
+                </table>
+                <div class='total'>
+                    <p>Total: R$ 800,00</p>
                 </div>
-                <div class='info'>
-                    <p><strong>Status:</strong> {ordemDeServico.Status}</p>
-                </div>
-                <div class='info'>
-                    <p><strong>Descrição:</strong> {ordemDeServico.Descricao}</p>
-                </div>
-                <div class='info'>
-                    <p><strong>Cliente:</strong> {ordemDeServico.ClienteCPF}</p>
-                </div>
-                <div class='info'>
-                    <p><strong>Técnico:</strong> {ordemDeServico.TecnicoCPF}</p>
-                </div>
-                <div class='info'>
-                    <p><strong>Equipamento Serial:</strong> {ordemDeServico.SerialEquipamento}</p>
-                </div>
-            </div>
+            </section>
+
+            <section class='observacoes'>
+                <h3>Observações</h3>
+                <p>DISCO RÍGIDO PODE TER SETORES DEFEITUOSOS OU ARQUIVOS DE SISTEMA CORROMPIDOS, O QUE IMPEDE O COMPUTADOR DE CARREGAR O SISTEMA OPERACIONAL CORRETAMENTE.</p>
+            </section>
+
+            <section class='consideracoes'>
+                <h3>Considerações Finais</h3>
+                <p>REALIZAMOS UMA VERIFICAÇÃO DO DISCO PARA IDENTIFICAR SETORES DEFEITUOSOS, EXECUTAMOS O CHKDSK PARA REPARAR ARQUIVOS CORROMPIDOS E CRIAMOS CÓPIAS DE SEGURANÇA DOS DADOS IMPORTANTES. EM CASO DE FALHA SEVERA, CONSIDERAMOS A SUBSTITUIÇÃO DO DISCO RÍGIDO, GARANTINDO A FUNCIONALIDADE DO SISTEMA E A PROTEÇÃO DAS INFORMAÇÕES.</p>
+            </section>
         </body>
         </html>";
 
-                var pdfWriter = new PdfWriter(memoryStream);
-                var pdfDocument = new PdfDocument(pdfWriter);
-
-                var document = new Document(pdfDocument, PageSize.A4);
-                document.SetMargins(0, 0, 0, 0);
-
-
-                // Gera o PDF a partir do HTML e escreve no MemoryStream
                 HtmlConverter.ConvertToPdf(htmlContent, memoryStream);
-
-                // Retorna o PDF gerado como um array de bytes
                 return memoryStream.ToArray();
             }
         }

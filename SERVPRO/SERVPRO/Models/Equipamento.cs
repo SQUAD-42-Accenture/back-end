@@ -7,10 +7,7 @@
         public string Modelo { get; set; }
         public string Descricao { get; set; }  
         public DateTime DataCadastro { get; set; }
-
         public string? ClienteCPF { get; set; }
-
-
         public virtual Cliente? Cliente { get; set; }
     }
 
