@@ -8,18 +8,19 @@ using SERVPRO.Repositorios.interfaces;
     public class UsuarioRepositorio: IUsuarioRepositorio
     {
         private readonly ServproDBContext _dbContext;
-
-        public async Task<Usuario> BuscarPorTipoUsuario(string TipoUsuario)
+        public UsuarioRepositorio(ServproDBContext servproDBContext)
+        {
+            _dbContext = servproDBContext;
+        }
+        public async Task<List<Usuario>> BuscarPorTipoUsuario(string TipoUsuario)
         {
             return await _dbContext.Usuarios
-                .Include(x => x.TipoUsuario)
-                .FirstOrDefaultAsync(x => x.TipoUsuario == TipoUsuario);
+                .Where(u => u.TipoUsuario == TipoUsuario) // Aplica o filtro pelo TipoUsuario
+                .ToListAsync(); // Converte o resultado em uma lista
         }
-
         public async Task<List<Usuario>> BuscarTodosUsuarios()
         {
             return await _dbContext.Usuarios
-                .Include(x => x.Nome)
                 .ToListAsync();
         }
   

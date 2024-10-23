@@ -26,14 +26,21 @@ namespace SERVPRO.Controllers
             return Ok(usuarios);
         }
        
+    
         [HttpGet("{TipoUsuario}")]
-        public async Task<ActionResult<Usuario>> BuscarPorTipoUsuario(string TipoUsuario)
+        public async Task<ActionResult<List<Usuario>>> BuscarPorTipoUsuario(string TipoUsuario)
         {
-            Usuario usuario = await _usuarioRepositorio.BuscarPorTipoUsuario(TipoUsuario);
+            List<Usuario> usuarios = await _usuarioRepositorio.BuscarPorTipoUsuario(TipoUsuario);
 
-            return Ok(TipoUsuario);
+            if (usuarios == null || usuarios.Count == 0)
+            {
+                return NotFound($"Nenhum usuário encontrado com o tipo: {TipoUsuario}");
+            }
+
+            return Ok(usuarios);
         }
-      
-        
+
+
+
     }
 }

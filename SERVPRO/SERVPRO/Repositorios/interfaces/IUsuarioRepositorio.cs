@@ -5,7 +5,7 @@ namespace SERVPRO.Repositorios.interfaces
     public interface IUsuarioRepositorio
     {
         Task <List<Usuario>> BuscarTodosUsuarios();
-        Task<Usuario> BuscarPorTipoUsuario(String TipoUsuario);
+        Task<List<Usuario>> BuscarPorTipoUsuario(String TipoUsuario);
      
     }
 }
