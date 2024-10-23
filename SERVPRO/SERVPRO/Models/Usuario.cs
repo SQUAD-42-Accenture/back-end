@@ -1,6 +1,4 @@
-﻿using SERVPRO.Enums;
-
-namespace SERVPRO.Models
+﻿namespace SERVPRO.Models
 {
     public class Usuario
     {

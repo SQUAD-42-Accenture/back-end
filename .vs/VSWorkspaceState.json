@@ -3,8 +3,9 @@
     "",
     "\\SERVPRO",
     "\\SERVPRO\\SERVPRO",
-    "\\SERVPRO\\SERVPRO\\Migrations"
+    "\\SERVPRO\\SERVPRO\\Migrations",
+    "\\SERVPRO\\SERVPRO\\Repositorios"
   ],
-  "SelectedNode": "\\SERVPRO\\SERVPRO\\Migrations\\20241014002634_InitialDB.cs",
+  "SelectedNode": "\\SERVPRO\\SERVPRO\\Repositorios\\PdfServiceRepositorio.cs",
   "PreviewInSolutionExplorer": false
 }
