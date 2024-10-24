@@ -18,40 +18,9 @@ namespace SERVPRO.Repositorios
             <style>
                 body {{
                     font-family: Arial, sans-serif;
+                    width: auto;
                     margin: 0;
                     padding: 0;
-                }}
-                header {{
-                    background-color: #054D9D;
-                    color: white;
-                    padding: 10px;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    align-items: center;
-                    gap: 20px;
-                }}
-                header img {{
-                    border-top:18px
-                    padding-top: 15px;
-                    max-width: 320px;
-                    max-height: 100px;
-                    height: auto;
-                    width: auto;
-                    object-fit: contain;
-                }}
-                header div {{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    text-align: right;
-                    font-size: 15px;
-                    row-gap: 5px; /* Adiciona espaço entre os parágrafos */
-                }}
-                h1 {{
-                    text-align: center;
-                    color: #054D9D;
-                    margin-top: 10px;
-                    font-size: 20px;
                 }}
                 section {{
                     margin: 15px;
@@ -83,9 +52,9 @@ namespace SERVPRO.Repositorios
                     font-size: 12px;
                     margin-bottom: 10px;
                 }}
-                .observacoes h3, .consideracoes h3 {{
+                .observacoes h4, .consideracoes h4 {{
                     margin-bottom: 5px;
-                    font-size: 10px;
+                    font-size: 18px;
                 }}
                 p {{
                     margin: 5px 0;
@@ -93,16 +62,28 @@ namespace SERVPRO.Repositorios
             </style>
         </head>
         <body>
-            <header>
-                <img src='./LogoServPro.png' alt='Logo da Empresa' />
-                <div>
-                    <p>{cliente.Endereco}</p>
-                    <p>Contato: {cliente.Telefone}</p>
-                    <p>Responsável técnico: {tecnico.Nome}</p>
+            <header style=""background-color: #054D9D; height: 108px; width: 115%; padding: 10px 22px; margin-left: -48px; margin-top: -48px; display: flex; justify-content: center; align-items: center;"">
+                <div style=""display: flex; align-items: center; width: 100%; max-width: 1200px; justify-content: space-between;"">
+
+                    <div style=""width: 320px; padding: 0; border: none;"">
+                        <img src=""./LogoServPro.png"" alt=""Logo da Empresa"" style=""width: 100%;"" />
+                    </div>
+
+                    <div style=""border-left: 1.5px solid #ddd; height: 78px; margin: 0 50px;""></div>
+
+                    <div style=""display: flex; flex-direction: column; justify-content: center; font-size: 18px; color: #ddd; row-gap: 8px;"">
+                        <p style=""margin: 0;"">Endereço: {cliente.Endereco}</p>
+                        <p style=""margin: 0;"">Contato: {cliente.Telefone}</p>
+                        <p style=""margin: 0;"">Responsável técnico: {tecnico.Nome}</p>
+                    </div>
                 </div>
             </header>
 
-            <h1>ORDEM DE SERVIÇO</h1>
+
+            <h1 style=""text-align: center; color: #054D9D; padding-top: 30px; font-size: 25px;"">
+                ORDEM DE SERVIÇO
+            </h1>
+
 
             <section>
                 <h3>Dados Pessoais</h3>
@@ -162,12 +143,12 @@ namespace SERVPRO.Repositorios
             </section>
 
             <section class='observacoes'>
-                <h3>Observações</h3>
+                <h4>Observações</h4>
                 <p>DISCO RÍGIDO PODE TER SETORES DEFEITUOSOS OU ARQUIVOS DE SISTEMA CORROMPIDOS, O QUE IMPEDE O COMPUTADOR DE CARREGAR O SISTEMA OPERACIONAL CORRETAMENTE.</p>
             </section>
 
             <section class='consideracoes'>
-                <h3>Considerações Finais</h3>
+                <h4>Considerações Finais</h4>
                 <p>REALIZAMOS UMA VERIFICAÇÃO DO DISCO PARA IDENTIFICAR SETORES DEFEITUOSOS, EXECUTAMOS O CHKDSK PARA REPARAR ARQUIVOS CORROMPIDOS E CRIAMOS CÓPIAS DE SEGURANÇA DOS DADOS IMPORTANTES. EM CASO DE FALHA SEVERA, CONSIDERAMOS A SUBSTITUIÇÃO DO DISCO RÍGIDO, GARANTINDO A FUNCIONALIDADE DO SISTEMA E A PROTEÇÃO DAS INFORMAÇÕES.</p>
             </section>
         </body>
