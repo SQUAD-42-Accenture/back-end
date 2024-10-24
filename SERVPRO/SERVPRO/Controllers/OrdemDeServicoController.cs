@@ -75,19 +75,16 @@ namespace SERVPRO.Controllers
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
         {
-            var ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
+            var ordemDeServico = await _ordemDeServicoRepositorio
+                .BuscarPorId(id);
 
-            if (ordemDeServico == null)
-                return NotFound("Ordem de serviço não encontrada.");
+            if (ordemDeServico == null || ordemDeServico.Cliente == null || ordemDeServico.Tecnico == null)
+                return NotFound("Ordem de serviço, cliente ou técnico não encontrados.");
 
-            var pdf = _pdfServiceRepositorio.GeneratePdf(ordemDeServico);
+            var pdf = _pdfServiceRepositorio.GeneratePdf(ordemDeServico, ordemDeServico.Cliente, ordemDeServico.Tecnico);
 
             return File(pdf, "application/pdf", $"ordem_servico_{id}.pdf");
         }
-
-
-
-
 
     }
 }
