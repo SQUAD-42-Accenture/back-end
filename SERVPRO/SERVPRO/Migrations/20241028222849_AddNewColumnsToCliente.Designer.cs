@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241028222849_AddNewColumnsToCliente")]
+    partial class AddNewColumnsToCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,16 +166,6 @@ namespace SERVPRO.Migrations
                 {
                     b.HasBaseType("SERVPRO.Models.Usuario");
 
-                    b.Property<DateTime>("DataContratacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Departamento")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Telefone")
-                        .HasColumnType("text");
-
                     b.ToTable("Administradores");
                 });
 
@@ -195,12 +188,13 @@ namespace SERVPRO.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<string>("Complemento")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("character varying(255)");
 
                     b.Property<string>("Telefone")
                         .IsRequired()

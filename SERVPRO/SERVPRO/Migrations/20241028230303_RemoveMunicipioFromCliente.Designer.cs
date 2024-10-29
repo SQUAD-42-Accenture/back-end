@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241028230303_RemoveMunicipioFromCliente")]
+    partial class RemoveMunicipioFromCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,16 +165,6 @@ namespace SERVPRO.Migrations
             modelBuilder.Entity("SERVPRO.Models.Administrador", b =>
                 {
                     b.HasBaseType("SERVPRO.Models.Usuario");
-
-                    b.Property<DateTime>("DataContratacao")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Departamento")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Telefone")
-                        .HasColumnType("text");
 
                     b.ToTable("Administradores");
                 });

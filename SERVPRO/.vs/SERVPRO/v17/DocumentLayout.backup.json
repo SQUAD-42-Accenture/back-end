@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\workspace\\back-end\\SERVPRO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\data\\map\\administradormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\data\\map\\administradormap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\models\\administrador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\data\\servprodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\data\\servprodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\controllers\\administradorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\migrations\\20241018180111_tptpostgredb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\migrations\\20241018180111_tptpostgredb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\repositorios\\administradorrepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\administradorrepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\migrations\\servprodbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\migrations\\servprodbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\repositorios\\interfaces\\iadministradorrepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\interfaces\\iadministradorrepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 339,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Program.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Program.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Program.cs*",
-              "RelativeToolTip": "SERVPRO\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:06:56.642Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AdministradorMap.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\AdministradorMap.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Data\\Map\\AdministradorMap.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\AdministradorMap.cs",
-              "RelativeToolTip": "SERVPRO\\Data\\Map\\AdministradorMap.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:02:19.648Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\appsettings.json",
+              "RelativeDocumentMoniker": "SERVPRO\\appsettings.json",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\appsettings.json",
+              "RelativeToolTip": "SERVPRO\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-29T00:40:30.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ServproDBContext.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Data\\ServproDBContext.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Data\\ServproDBContext.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Data\\ServproDBContext.cs",
-              "RelativeToolTip": "SERVPRO\\Data\\ServproDBContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Program.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Program.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Program.cs",
+              "RelativeToolTip": "SERVPRO\\Program.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAAAE0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:02:10.055Z",
+              "WhenOpened": "2024-10-28T23:36:05.062Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "20241018180111_TPTPostgreDb.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241018180111_TPTPostgreDb.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Migrations\\20241018180111_TPTPostgreDb.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241018180111_TPTPostgreDb.cs",
-              "RelativeToolTip": "SERVPRO\\Migrations\\20241018180111_TPTPostgreDb.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "IAdministradorRepositorio.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IAdministradorRepositorio.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IAdministradorRepositorio.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IAdministradorRepositorio.cs",
+              "RelativeToolTip": "SERVPRO\\Repositorios\\interfaces\\IAdministradorRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:01:59.358Z",
+              "WhenOpened": "2024-10-28T23:34:36.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdministradorRepositorio.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\AdministradorRepositorio.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\AdministradorRepositorio.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\AdministradorRepositorio.cs",
+              "RelativeToolTip": "SERVPRO\\Repositorios\\AdministradorRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T23:33:37.893Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ServproDBContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Migrations\\ServproDBContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Migrations\\ServproDBContextModelSnapshot.cs",
-              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Migrations\\ServproDBContextModelSnapshot.cs",
-              "RelativeToolTip": "SERVPRO\\Migrations\\ServproDBContextModelSnapshot.cs",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AdministradorController.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\AdministradorController.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Controllers\\AdministradorController.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\AdministradorController.cs",
+              "RelativeToolTip": "SERVPRO\\Controllers\\AdministradorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T18:01:12.463Z",
+              "WhenOpened": "2024-10-28T23:31:30.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Administrador.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Models\\Administrador.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Models\\Administrador.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Models\\Administrador.cs",
+              "RelativeToolTip": "SERVPRO\\Models\\Administrador.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T23:25:10.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "SERVPRO\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T22:04:19.318Z",
               "EditorCaption": ""
             }
           ]

@@ -56,6 +56,7 @@ builder.Services.AddDbContext<ServproDBContext>(options =>
 );
 
 builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+builder.Services.AddScoped< IAdministradorRepositorio, AdministradorRepositorio>();
 builder.Services.AddScoped<ITecnicoRepositorio, TecnicoRepositorio>();
 builder.Services.AddScoped<IEquipamentoRepositorio, EquipamentoRepositorio>();
 builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemdeServicoRepositorio>();

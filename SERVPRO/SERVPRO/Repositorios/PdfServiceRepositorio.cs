@@ -72,7 +72,7 @@ namespace SERVPRO.Repositorios
                     <div style=""border-left: 1.5px solid #ddd; height: 78px; margin: 0 50px;""></div>
 
                     <div style=""display: flex; flex-direction: column; justify-content: center; font-size: 18px; color: #ddd; row-gap: 8px;"">
-                        <p style=""margin: 0;"">Endereço: {cliente.Endereco}</p>
+                        <p style=""margin: 0;"">Endereço: {cliente.Cidade} {cliente.Bairro} {cliente.CEP}</p>
                         <p style=""margin: 0;"">Contato: {cliente.Telefone}</p>
                         <p style=""margin: 0;"">Responsável técnico: {tecnico.Nome}</p>
                     </div>
@@ -102,7 +102,7 @@ namespace SERVPRO.Repositorios
                     </tr>
                     <tr>
                         <td><strong>Endereço:</strong></td>
-                        <td>{cliente.Endereco}</td>
+                        <td>{cliente.Cidade} {cliente.Bairro} {cliente.CEP}</td>
                     </tr>
                     <tr>
                         <td><strong>Cidade:</strong></td>
