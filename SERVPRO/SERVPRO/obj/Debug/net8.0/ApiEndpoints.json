@@ -1,5 +1,134 @@
 [
   {
+    "ContainingType": "SERVPRO.Controllers.AdministradorController",
+    "Method": "BuscarTodosAdministradores",
+    "RelativePath": "api/Administrador",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SERVPRO.Models.Administrador, SERVPRO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.AdministradorController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Administrador",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminModel",
+        "Type": "SERVPRO.Models.Administrador",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Administrador",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.AdministradorController",
+    "Method": "BuscarPorCPF",
+    "RelativePath": "api/Administrador/{cpf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Administrador",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.AdministradorController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Administrador/{cpf}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "adminModel",
+        "Type": "SERVPRO.Models.Administrador",
+        "IsRequired": true
+      },
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Administrador",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.AdministradorController",
+    "Method": "Apagar",
+    "RelativePath": "api/Administrador/{cpf}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.ClienteController",
     "Method": "BuscarTodosClientes",
     "RelativePath": "api/Cliente",
@@ -118,7 +247,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SERVPRO.Models.Cliente",
+        "Type": "System.Boolean",
         "MediaTypes": [
           "text/plain",
           "application/json",
