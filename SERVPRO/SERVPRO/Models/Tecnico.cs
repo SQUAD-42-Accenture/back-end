@@ -1,11 +1,14 @@
-﻿namespace SERVPRO.Models
+﻿using System.Text.Json.Serialization;
+
+namespace SERVPRO.Models
 {
     public class Tecnico: Usuario
     {
-       
-        public string Especialidade { get; set; }
 
-       public List<OrdemDeServico>? OrdensDeServico { get; set; }
+        [JsonPropertyOrder(6)]
+        public string Especialidade { get; set; }
+        [JsonIgnore]
+        public List<OrdemDeServico>? OrdensDeServico { get; set; }
 
     }
 
