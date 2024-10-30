@@ -11,7 +11,7 @@ using System.Globalization;
 
 namespace SERVPRO.Controllers
 {
-    
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class OrdemDeServicoController : ControllerBase
@@ -44,7 +44,6 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
 
         public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
@@ -53,7 +52,6 @@ namespace SERVPRO.Controllers
 
             return Ok(ordemDeServico);
         }
-
 
         [HttpPut ("{id}")]
 
@@ -65,7 +63,6 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
 
         public async Task<ActionResult<OrdemDeServico>> Apagar(int id)
@@ -75,8 +72,6 @@ namespace SERVPRO.Controllers
 
             return Ok(apagado);
         }
-
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
         {

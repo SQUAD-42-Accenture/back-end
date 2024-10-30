@@ -20,7 +20,6 @@ namespace SERVPRO.Controllers
             _equipamentoRepositorio = equipamentoRepositorio;
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet]
         public  async Task <ActionResult<List<Equipamento>>> BuscarTodosEquipamentos()
         {
@@ -28,7 +27,6 @@ namespace SERVPRO.Controllers
             return Ok(equipamentos);
         }
 
-        [Authorize(Policy = "ClientePolicy")]
         [HttpGet("{serial}")]
         public async Task<ActionResult<Equipamento>> BuscarPorSerial(string serial)
         {
@@ -37,7 +35,6 @@ namespace SERVPRO.Controllers
             return Ok(equipamento);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
 
         public async Task<ActionResult<Equipamento>> Cadastrar([FromBody] Equipamento equipamentoModel)
@@ -47,7 +44,6 @@ namespace SERVPRO.Controllers
             return Ok(equipamento);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPut ("{serial}")]
 
         public async Task<ActionResult<Equipamento>> Atualizar([FromBody] Equipamento equipamentoModel, string serial)
@@ -58,7 +54,6 @@ namespace SERVPRO.Controllers
             return Ok(equipamento);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{serial}")]
 
         public async Task<ActionResult<Equipamento>> Apagar(string serial)

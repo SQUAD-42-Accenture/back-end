@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace SERVPRO.Controllers
 {
-    
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TecnicoController : ControllerBase
@@ -19,39 +19,22 @@ namespace SERVPRO.Controllers
         {
             _tecnicoRepositorio = tecnicoRepositorio;
         }
-        [Authorize(Policy = "AdministradorPolicy")]
+
         [HttpGet]
         public  async Task <ActionResult<List<Tecnico>>> BuscarTodosTecnicos()
         {
             List<Tecnico> tecnicos = await _tecnicoRepositorio.BuscarTodosTecnicos();
             return Ok(tecnicos);
         }
-        [Authorize(Policy = "TecnicoPolicy")]
+
         [HttpGet("{cpf}")]
         public async Task<ActionResult<Tecnico>> BuscarPorCPF(string cpf)
         {
-            var usuarioLogadoCpf = User.Claims.FirstOrDefault(c => c.Type == "cpf")?.Value;
-            var tipoUsuario = User.Claims.FirstOrDefault(c => c.Type == "tipoUsuario")?.Value;
+            Tecnico tecnicos = await _tecnicoRepositorio.BuscarPorCPF(cpf);
 
-            // Verifica se é o próprio técnico ou se é um administrador acessando
-            if (usuarioLogadoCpf == cpf || tipoUsuario == "Administrador")
-            {
-                Tecnico tecnico = await _tecnicoRepositorio.BuscarPorCPF(cpf);
-
-                if (tecnico == null)
-                {
-                    return NotFound(new { mensagem = "Técnico não encontrado." });
-                }
-
-                return Ok(tecnico);
-            }
-
-            return Forbid();
-
+            return Ok(tecnicos);
         }
 
-
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
 
         public async Task<ActionResult<Tecnico>> Cadastrar([FromBody] Tecnico tecnicoModel)
@@ -61,7 +44,6 @@ namespace SERVPRO.Controllers
             return Ok(tecnico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPut ("{cpf}")]
 
         public async Task<ActionResult<Tecnico>> Atualizar([FromBody] Tecnico tecnicoModel, string cpf)
@@ -72,7 +54,6 @@ namespace SERVPRO.Controllers
             return Ok(tecnico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{cpf}")]
 
         public async Task<ActionResult<Tecnico>> Apagar(string cpf)

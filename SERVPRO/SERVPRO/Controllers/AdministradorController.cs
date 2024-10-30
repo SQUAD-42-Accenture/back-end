@@ -5,7 +5,7 @@ using SERVPRO.Repositorios.interfaces;
 
 namespace SERVPRO.Controllers
 {
-    [Authorize(Policy = "AdministradorPolicy")]
+    //[Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class AdministradorController : ControllerBase
@@ -16,7 +16,6 @@ namespace SERVPRO.Controllers
         {
             _administradorRepositorio = administradorRepositorio;
         }
-
 
         [HttpGet]
         public async Task<ActionResult<List<Administrador>>> BuscarTodosAdministradores()

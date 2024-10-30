@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace SERVPRO.Models
+﻿namespace SERVPRO.Models
 {
     public class Equipamento
     {
@@ -10,7 +8,6 @@ namespace SERVPRO.Models
         public string Descricao { get; set; }  
         public DateTime DataCadastro { get; set; }
         public string? ClienteCPF { get; set; }
-        [JsonIgnore]
         public virtual Cliente? Cliente { get; set; }
     }
 

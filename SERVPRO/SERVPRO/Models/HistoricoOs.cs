@@ -1,5 +1,4 @@
 ﻿using SERVPRO.Enums;
-using System.Text.Json.Serialization;
 namespace SERVPRO.Models
 {
     public class HistoricoOS
@@ -8,12 +7,10 @@ namespace SERVPRO.Models
         public DateTime DataAtualizacao { get; set; }
         public string Comentario { get; set; }
         
-        public int? OrdemDeServicoId { get; set; }
-        [JsonIgnore]
+        public int? OrdemDeServicoId { get; set; }    
         public virtual OrdemDeServico? OrdemDeServico { get; set; }
 
         public string? TecnicoCPF { get; set; }
-        [JsonIgnore]
         public virtual Tecnico? Tecnico { get; set; }
     }
 

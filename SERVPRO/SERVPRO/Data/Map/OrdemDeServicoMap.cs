@@ -16,6 +16,8 @@ namespace SERVPRO.Data.Map
             builder.Property(x => x.ClienteCPF).IsRequired(false);
             builder.Property(x => x.TecnicoCPF).IsRequired(false);
             builder.Property(x => x.SerialEquipamento).IsRequired(false);
+            builder.Property(x => x.MetodoPagamento).IsRequired(false);
+            builder.Property(x => x.ValorTotal).IsRequired(false);
 
 
 
