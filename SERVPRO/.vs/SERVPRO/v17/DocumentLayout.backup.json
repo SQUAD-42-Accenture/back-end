@@ -3,6 +3,21 @@
   "WorkspaceRootPath": "A:\\Github\\back-end\\SERVPRO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|a:\\github\\back-end\\servpro\\servpro\\migrations\\20241030192107_ajustenumerocaracterecategoriaproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\migrations\\20241030192107_ajustenumerocaracterecategoriaproduto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|a:\\github\\back-end\\servpro\\servpro\\data\\map\\produtomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\data\\map\\produtomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|a:\\github\\back-end\\servpro\\servpro\\migrations\\20241030190753_produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\migrations\\20241030190753_produtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.403\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|a:\\github\\back-end\\servpro\\servpro\\models\\ordemdeservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\models\\ordemdeservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -122,7 +137,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 339,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -130,7 +145,57 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20241030192107_ajusteNumeroCaractereCategoriaProduto.cs",
+              "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241030192107_ajusteNumeroCaractereCategoriaProduto.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Migrations\\20241030192107_ajusteNumeroCaractereCategoriaProduto.cs",
+              "ToolTip": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241030192107_ajusteNumeroCaractereCategoriaProduto.cs",
+              "RelativeToolTip": "SERVPRO\\Migrations\\20241030192107_ajusteNumeroCaractereCategoriaProduto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T19:21:08.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProdutoMap.cs",
+              "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\ProdutoMap.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Data\\Map\\ProdutoMap.cs",
+              "ToolTip": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\ProdutoMap.cs",
+              "RelativeToolTip": "SERVPRO\\Data\\Map\\ProdutoMap.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T19:14:36.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "20241030190753_Produtos.cs",
+              "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241030190753_Produtos.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Migrations\\20241030190753_Produtos.cs",
+              "ToolTip": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Migrations\\20241030190753_Produtos.cs",
+              "RelativeToolTip": "SERVPRO\\Migrations\\20241030190753_Produtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T19:07:53.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAWwAkBAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-10-30T18:48:34.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "UsuarioValidator.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Validators\\UsuarioValidator.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Validators\\UsuarioValidator.cs",
@@ -142,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "UsuarioRepositorio.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\UsuarioRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\UsuarioRepositorio.cs",
@@ -154,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "UsuarioMap.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\UsuarioMap.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Data\\Map\\UsuarioMap.cs",
@@ -166,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Login.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\Login.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Login.cs",
@@ -178,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "OrdemDeServico.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\OrdemDeServico.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\OrdemDeServico.cs",
@@ -186,12 +251,11 @@
               "RelativeToolTip": "SERVPRO\\Models\\OrdemDeServico.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T18:34:26.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T18:34:26.978Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\UsuarioController.cs",
@@ -203,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Administrador.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\Administrador.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Administrador.cs",
@@ -215,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "HistoricoOs.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\HistoricoOs.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\HistoricoOs.cs",
@@ -227,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "OrdemDeServicoMap.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\OrdemDeServicoMap.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Data\\Map\\OrdemDeServicoMap.cs",
@@ -239,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "TecnicoController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\TecnicoController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\TecnicoController.cs",
@@ -251,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "Equipamento.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\Equipamento.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Equipamento.cs",
@@ -263,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Cliente.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\Cliente.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Cliente.cs",
@@ -275,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Tecnico.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\Tecnico.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Tecnico.cs",
@@ -287,7 +351,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Usuario.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\Usuario.cs",
@@ -299,7 +363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "OrdemDeServicoController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\OrdemDeServicoController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\OrdemDeServicoController.cs",
@@ -311,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "HistoricoOsController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\HistoricoOsController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\HistoricoOsController.cs",
@@ -323,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "EquipamentoController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\EquipamentoController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\EquipamentoController.cs",
@@ -335,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "ContaController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ContaController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ContaController.cs",
@@ -347,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "Program.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Program.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Program.cs",
@@ -359,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "AdministradorController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\AdministradorController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\AdministradorController.cs",
@@ -371,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "ClienteController.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ClienteController.cs",
@@ -383,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "appsettings.json",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\appsettings.json",
               "RelativeDocumentMoniker": "SERVPRO\\appsettings.json",
@@ -395,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "IUsuarioRepositorio.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IUsuarioRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IUsuarioRepositorio.cs",
@@ -407,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "ClienteRepositorio.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\ClienteRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\ClienteRepositorio.cs",
@@ -419,7 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "IAdministradorRepositorio.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IAdministradorRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IAdministradorRepositorio.cs",
@@ -431,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "AdministradorRepositorio.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\AdministradorRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\AdministradorRepositorio.cs",
@@ -443,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "ITecnicoRepositorio.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\ITecnicoRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\ITecnicoRepositorio.cs",
@@ -455,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "AdministradorMap.cs",
               "DocumentMoniker": "A:\\Github\\back-end\\SERVPRO\\SERVPRO\\Data\\Map\\AdministradorMap.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Data\\Map\\AdministradorMap.cs",

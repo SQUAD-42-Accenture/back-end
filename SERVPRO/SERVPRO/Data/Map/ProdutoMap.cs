@@ -10,7 +10,7 @@ namespace SERVPRO.Data.Map {
             builder.HasKey(x => x.IdProduto);
             builder.Property(x => x.NomeProduto).IsRequired().HasMaxLength(100);
             builder.Property(x => x.DescricaoProduto).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.CategoriaProduto).IsRequired().HasMaxLength(16);
+            builder.Property(x => x.CategoriaProduto).IsRequired().HasMaxLength(100);
             builder.Property(x => x.PrecoProduto).IsRequired();
             builder.Property(x => x.QtdProduto).IsRequired();
             builder.Property(x => x.DataEntrada).IsRequired();
