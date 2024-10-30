@@ -7071,24 +7071,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Cliente\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\rodri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+      "projectUniqueName": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
       "projectName": "SERVPRO",
-      "projectPath": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
-      "packagesPath": "C:\\Users\\Cliente\\.nuget\\packages\\",
-      "outputPath": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\obj\\",
+      "projectPath": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+      "packagesPath": "C:\\Users\\rodri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Cliente\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\rodri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7188,7 +7183,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
