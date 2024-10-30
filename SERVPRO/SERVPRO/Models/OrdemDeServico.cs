@@ -9,6 +9,9 @@ namespace SERVPRO.Models
         public DateTime dataAbertura { get; set; }
         public DateTime? dataConclusao { get; set; }
         public string Descricao { get; set; }
+        public string? MetodoPagamento { get; set; }
+        public string? ValorTotal { get; set; }
+        
 
         public string? ClienteCPF { get; set; }
         public virtual Cliente? Cliente { get; set; }
@@ -20,7 +23,7 @@ namespace SERVPRO.Models
         public virtual Tecnico? Tecnico { get; set; }
 
 
-        public StatusOS Status { get; set; }
+        public string Status { get; set; }
         [JsonIgnore]
         public List<HistoricoOS> Historicos { get; set; }
     }
