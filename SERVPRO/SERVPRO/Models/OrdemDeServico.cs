@@ -11,15 +11,18 @@ namespace SERVPRO.Models
         public string Descricao { get; set; }
         public string? MetodoPagamento { get; set; }
         public string? ValorTotal { get; set; }
-        
+
 
         public string? ClienteCPF { get; set; }
+        [JsonIgnore]
         public virtual Cliente? Cliente { get; set; }
 
         public string? SerialEquipamento { get; set; }
+        [JsonIgnore]
         public virtual Equipamento? Equipamento { get; set; }
 
         public string? TecnicoCPF { get; set; }
+        [JsonIgnore]
         public virtual Tecnico? Tecnico { get; set; }
 
 

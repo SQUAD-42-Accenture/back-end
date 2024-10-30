@@ -2,7 +2,7 @@
 
 namespace SERVPRO.Models
 {
-    public class Tecnico: Usuario
+    public class Tecnico : Usuario
     {
 
         [JsonPropertyOrder(6)]

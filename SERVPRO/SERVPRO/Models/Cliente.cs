@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 namespace SERVPRO.Models
 {
-    public class Cliente: Usuario
+    public class Cliente : Usuario
     {
         [JsonPropertyOrder(6)]
         public string Telefone { get; set; }

@@ -9,6 +9,6 @@ namespace SERVPRO.Models
         [JsonPropertyOrder(7)]
         public DateTime DataContratacao { get; set; }
         [JsonPropertyOrder(8)]
-        public string? Telefone { get; set; } 
+        public string? Telefone { get; set; }
     }
 }
