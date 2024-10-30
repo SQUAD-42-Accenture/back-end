@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {}
+    "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {
+    "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+        "projectUniqueName": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
         "projectName": "SERVPRO",
-        "projectPath": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
-        "packagesPath": "C:\\Users\\rodri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rodri\\OneDrive\\Documentos\\GitHub\\back-end\\SERVPRO\\SERVPRO\\obj\\",
+        "projectPath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+        "packagesPath": "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\rodri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AMDLOCACAO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

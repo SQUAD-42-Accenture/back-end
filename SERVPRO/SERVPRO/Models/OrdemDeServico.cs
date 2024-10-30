@@ -1,4 +1,5 @@
 ﻿using SERVPRO.Enums;
+using System.Text.Json.Serialization;
 
 namespace SERVPRO.Models
 {
@@ -20,8 +21,8 @@ namespace SERVPRO.Models
 
 
         public StatusOS Status { get; set; }
-
-       public List<HistoricoOS> Historicos { get; set; }
+        [JsonIgnore]
+        public List<HistoricoOS> Historicos { get; set; }
     }
 
 }

@@ -1,9 +1,14 @@
-﻿namespace SERVPRO.Models
+﻿using System.Text.Json.Serialization;
+
+namespace SERVPRO.Models
 {
     public class Administrador : Usuario
     {
-        public string Departamento { get; set; } 
-        public DateTime DataContratacao { get; set; } 
+        [JsonPropertyOrder(6)]
+        public string Departamento { get; set; }
+        [JsonPropertyOrder(7)]
+        public DateTime DataContratacao { get; set; }
+        [JsonPropertyOrder(8)]
         public string? Telefone { get; set; } 
     }
 }
