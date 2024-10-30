@@ -23,6 +23,7 @@ builder.Services.AddFluentValidationAutoValidation();
 //builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ClientePolicy", policy =>
