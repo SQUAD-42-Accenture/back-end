@@ -677,6 +677,140 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SERVPRO.Controllers.ProdutoController",
+    "Method": "BuscarTodosProdutos",
+    "RelativePath": "api/Produto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SERVPRO.Models.Produto, SERVPRO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.ProdutoController",
+    "Method": "Cadastrar",
+    "RelativePath": "api/Produto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produtoModel",
+        "Type": "SERVPRO.Models.Produto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Produto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.ProdutoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Produto/{IdProduto}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdProduto",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Produto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.ProdutoController",
+    "Method": "Apagar",
+    "RelativePath": "api/Produto/{IdProduto}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdProduto",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Produto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.ProdutoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Produto/{serial}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produtoModel",
+        "Type": "SERVPRO.Models.Produto",
+        "IsRequired": true
+      },
+      {
+        "Name": "IdProduto",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "serial",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Produto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.TecnicoController",
     "Method": "BuscarTodosTecnicos",
     "RelativePath": "api/Tecnico",
