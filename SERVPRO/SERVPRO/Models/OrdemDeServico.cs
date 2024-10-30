@@ -9,9 +9,6 @@ namespace SERVPRO.Models
         public DateTime dataAbertura { get; set; }
         public DateTime? dataConclusao { get; set; }
         public string Descricao { get; set; }
-        public string? MetodoPagamento { get; set; }
-        public string? ValorTotal { get; set; }
-        
 
         public string? ClienteCPF { get; set; }
         [JsonIgnore]

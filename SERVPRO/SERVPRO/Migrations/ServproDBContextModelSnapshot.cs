@@ -102,20 +102,13 @@ namespace SERVPRO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
-                    b.Property<string>("MetodoPagamento")
-                        .HasColumnType("text");
-
                     b.Property<string>("SerialEquipamento")
                         .HasColumnType("text");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
 
                     b.Property<string>("TecnicoCPF")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ValorTotal")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("dataAbertura")
