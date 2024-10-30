@@ -601,3 +601,14 @@ C:\workspace\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\refint\SERVPRO.dll
 C:\workspace\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.pdb
 C:\workspace\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.genruntimeconfig.cache
 C:\workspace\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\ref\SERVPRO.dll
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.csproj.AssemblyReference.cache
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.GeneratedMSBuildEditorConfig.editorconfig
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.AssemblyInfoInputs.cache
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.AssemblyInfo.cs
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.csproj.CoreCompileInputs.cache
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.MvcApplicationPartsAssemblyInfo.cs
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.MvcApplicationPartsAssemblyInfo.cache
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.sourcelink.json
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.dll
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\refint\SERVPRO.dll
+A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.pdb

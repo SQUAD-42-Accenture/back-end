@@ -19,6 +19,9 @@ namespace SERVPRO.Models
         public string? TecnicoCPF { get; set; }
         public virtual Tecnico? Tecnico { get; set; }
 
+        public string? IdProduto { get; set; }
+        public virtual Produto? Produto { get; set; }
+
 
         public StatusOS Status { get; set; }
         [JsonIgnore]

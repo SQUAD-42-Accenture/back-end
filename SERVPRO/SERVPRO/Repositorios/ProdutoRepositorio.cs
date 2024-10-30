@@ -15,22 +15,21 @@ namespace SERVPRO.Repositorios
         public async Task<Produto> BuscarPorId(string IdProduto)
         {
             return await _dbContext.Produtos
-                .Include(x => x.Produto)
+     
                 .FirstOrDefaultAsync(x => x.IdProduto == IdProduto);
         }
 
         public async Task<List<Produto>> BuscarTodosProdutos()
         {
             return await _dbContext.Produtos
-                .Include(x => x.Produto)
                 .ToListAsync();
         }
 
         public async Task<List<Produto>> BuscarPorNome(string NomeProduto)
         {
             return await _dbContext.Produtos
-                 .Include(x => x.Produto)
-                 .FirstOrDefaultAsync(x => x.NomeProduto == NomeProduto);
+                .Where(x => x.NomeProduto == NomeProduto)
+                .ToListAsync();
         }
 
         public async Task<Produto> Adicionar(Produto produto)
@@ -51,7 +50,7 @@ namespace SERVPRO.Repositorios
 
             produtoPorId.DescricaoProduto = produto.DescricaoProduto;
      
-            _dbContext.Produto.Update(produtoPorId);
+            _dbContext.Produtos.Update(produtoPorId);
             await _dbContext.SaveChangesAsync();
 
             return produtoPorId;
@@ -70,7 +69,6 @@ namespace SERVPRO.Repositorios
             await _dbContext.SaveChangesAsync();
             return true;
         }
-
 
     }
 }
