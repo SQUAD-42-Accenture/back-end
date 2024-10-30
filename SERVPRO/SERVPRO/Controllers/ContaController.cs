@@ -19,7 +19,7 @@ namespace SERVPRO.Controllers
     {
         private readonly ServproDBContext _dbContext;
 
-        public ContaController (ServproDBContext dbContext)
+        public ContaController(ServproDBContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -65,11 +65,10 @@ namespace SERVPRO.Controllers
                 audience: "sua_aplicacao",
                 claims: claims,
                 expires: DateTime.Now.AddHours(1),
-                signingCredentials: credencial                
+                signingCredentials: credencial
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
- 

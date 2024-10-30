@@ -11,7 +11,7 @@ using System.Globalization;
 
 namespace SERVPRO.Controllers
 {
-    [Authorize]
+
     [Route("api/[controller]")]
     [ApiController]
     public class OrdemDeServicoController : ControllerBase
@@ -24,13 +24,13 @@ namespace SERVPRO.Controllers
         public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio)
         {
             _ordemDeServicoRepositorio = ordemDeServicoRepositorio;
-            _pdfServiceRepositorio = pdfServiceRepositorio; 
+            _pdfServiceRepositorio = pdfServiceRepositorio;
 
 
         }
 
         [HttpGet]
-        public  async Task <ActionResult<List<OrdemDeServico>>> BuscarTodasOS()
+        public async Task<ActionResult<List<OrdemDeServico>>> BuscarTodasOS()
         {
             List<OrdemDeServico> ordemDeServicos = await _ordemDeServicoRepositorio.BuscarTodasOS();
             return Ok(ordemDeServicos);
@@ -44,6 +44,7 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
 
         public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
@@ -53,7 +54,8 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
-        [HttpPut ("{id}")]
+
+        [HttpPut("{id}")]
 
         public async Task<ActionResult<OrdemDeServico>> Atualizar([FromBody] OrdemDeServico ordemDeServicoModel, int id)
         {
@@ -63,15 +65,18 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
 
         public async Task<ActionResult<OrdemDeServico>> Apagar(int id)
         {
-            
+
             bool apagado = await _ordemDeServicoRepositorio.Apagar(id);
 
             return Ok(apagado);
         }
+
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
         {

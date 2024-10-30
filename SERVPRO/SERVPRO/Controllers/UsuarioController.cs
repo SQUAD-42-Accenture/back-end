@@ -7,10 +7,10 @@ using System.Globalization;
 
 namespace SERVPRO.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "AdministradorPolicy")]
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuariosController: ControllerBase
+    public class UsuariosController : ControllerBase
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
 
@@ -25,8 +25,8 @@ namespace SERVPRO.Controllers
             List<Usuario> usuarios = await _usuarioRepositorio.BuscarTodosUsuarios();
             return Ok(usuarios);
         }
-       
-    
+
+
         [HttpGet("{TipoUsuario}")]
         public async Task<ActionResult<List<Usuario>>> BuscarPorTipoUsuario(string TipoUsuario)
         {
