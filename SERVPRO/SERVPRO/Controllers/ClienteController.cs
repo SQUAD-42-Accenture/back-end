@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SERVPRO.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClienteController : ControllerBase
@@ -20,6 +20,7 @@ namespace SERVPRO.Controllers
             _clienteRepositorio = clienteRepositorio;
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet]
         public async Task<ActionResult<List<Cliente>>> BuscarTodosClientes()
         {
@@ -27,8 +28,9 @@ namespace SERVPRO.Controllers
             return Ok(clientes);
         }
 
+        [Authorize(Policy = "ClientePolicy")]
         [HttpGet("{cpf}")]
-        //[Authorize(Roles = "Administrador,Tecnico")]
+        
         public async Task<ActionResult<Cliente>> BuscarPorCPF(string cpf)
         {
             Cliente cliente = await _clienteRepositorio.BuscarPorCPF(cpf);
@@ -39,16 +41,18 @@ namespace SERVPRO.Controllers
             return Ok(cliente);
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
-        //[Authorize(Roles = "Administrador")] 
+        
         public async Task<ActionResult<Cliente>> Cadastrar([FromBody] Cliente clienteModel)
         {
             Cliente cliente = await _clienteRepositorio.Adicionar(clienteModel);
             return CreatedAtAction(nameof(BuscarPorCPF), new { cpf = cliente.CPF }, cliente);
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpPut("{cpf}")]
-        //[Authorize(Roles = "Administrador")]
+        
         public async Task<ActionResult<Cliente>> Atualizar([FromBody] Cliente clienteModel, string cpf)
         {
             clienteModel.CPF = cpf;
@@ -63,8 +67,9 @@ namespace SERVPRO.Controllers
             }
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{cpf}")]
-        //[Authorize(Roles = "Administrador")]
+      
         public async Task<ActionResult<bool>> Apagar(string cpf)
         {
             bool apagado = await _clienteRepositorio.Apagar(cpf);

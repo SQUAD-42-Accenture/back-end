@@ -17,12 +17,12 @@ namespace SERVPRO.Models
         public string TipoUsuario
         {
             get => _tipoUsuario;
-            set
-            {
+            set => _tipoUsuario = value;
+            /*{
                 if (value != "Cliente" && value != "Tecnico" && value != "Administrador")
                     throw new ArgumentException("TipoUsuario deve ser 'Cliente', 'Tecnico' ou 'Administrador'.");
                 _tipoUsuario = value;
-            }
+            }*/
         }
     }
 }
