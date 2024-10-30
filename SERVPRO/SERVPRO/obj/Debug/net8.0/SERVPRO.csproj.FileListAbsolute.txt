@@ -744,3 +744,6 @@ A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\refint\SERVPRO.dll
 A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.pdb
 A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\SERVPRO.genruntimeconfig.cache
 A:\Github\back-end\SERVPRO\SERVPRO\obj\Debug\net8.0\ref\SERVPRO.dll
+C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

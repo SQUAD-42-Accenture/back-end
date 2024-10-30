@@ -20,12 +20,14 @@ namespace SERVPRO.Controllers
             _historicoOsRepositorio = historicoOsRepositorio;
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet]
-        public  async Task <ActionResult<List<HistoricoOS>>> BuscarTodoshistoricos()
+        public async Task<ActionResult<List<HistoricoOS>>> BuscarTodoshistoricos()
         {
             List<HistoricoOS> historicoOs = await _historicoOsRepositorio.BuscarTodoshistoricos();
             return Ok(historicoOs);
         }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<HistoricoOS>> BuscarPorId(int id)
@@ -44,7 +46,7 @@ namespace SERVPRO.Controllers
             return Ok(historicoOS);
         }
 
-        [HttpPut ("{id}")]
+        [HttpPut("{id}")]
 
         public async Task<ActionResult<HistoricoOS>> Atualizar([FromBody] HistoricoOS historicoOsModel, int id)
         {
@@ -54,11 +56,12 @@ namespace SERVPRO.Controllers
             return Ok(historicoOS);
         }
 
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
 
         public async Task<ActionResult<HistoricoOS>> Apagar(int id)
         {
-            
+
             bool apagado = await _historicoOsRepositorio.Apagar(id);
 
             return Ok(apagado);
