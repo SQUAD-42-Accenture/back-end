@@ -11,16 +11,19 @@ namespace SERVPRO.Models
         public string Descricao { get; set; }
 
         public string? ClienteCPF { get; set; }
+        [JsonIgnore]
         public virtual Cliente? Cliente { get; set; }
 
         public string? SerialEquipamento { get; set; }
+        [JsonIgnore]
         public virtual Equipamento? Equipamento { get; set; }
 
         public string? TecnicoCPF { get; set; }
+        [JsonIgnore]
         public virtual Tecnico? Tecnico { get; set; }
 
 
-        public StatusOS Status { get; set; }
+        public string Status { get; set; }
         [JsonIgnore]
         public List<HistoricoOS> Historicos { get; set; }
     }

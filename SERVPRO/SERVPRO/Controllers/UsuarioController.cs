@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace SERVPRO.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "AdministradorPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController: ControllerBase
