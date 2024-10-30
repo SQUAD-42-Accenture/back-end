@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241030190753_Produtos")]
+    partial class Produtos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,8 +153,8 @@ namespace SERVPRO.Migrations
 
                     b.Property<string>("CategoriaProduto")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
 
                     b.Property<DateTime>("DataEntrada")
                         .HasColumnType("timestamp with time zone");
