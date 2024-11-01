@@ -42,6 +42,10 @@ namespace SERVPRO.Controllers
 
         public async Task<ActionResult<Equipamento>> Cadastrar([FromBody] Equipamento equipamentoModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Retorna automaticamente os erros de validação
+            }
             Equipamento equipamento = await _equipamentoRepositorio.Adicionar(equipamentoModel);
 
             return Ok(equipamento);

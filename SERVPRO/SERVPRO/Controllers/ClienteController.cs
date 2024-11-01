@@ -33,12 +33,20 @@ namespace SERVPRO.Controllers
 
         public async Task<ActionResult<Cliente>> BuscarPorCPF(string cpf)
         {
-            Cliente cliente = await _clienteRepositorio.BuscarPorCPF(cpf);
-            if (cliente == null)
+            var usuarioLogadoCpf = User.Claims.FirstOrDefault(c => c.Type == "cpf")?.Value;
+            var tipoUsuario = User.Claims.FirstOrDefault(c => c.Type == "tipoUsuario")?.Value;
+
+            if (usuarioLogadoCpf == cpf || tipoUsuario == "Administrador")
             {
-                return NotFound($"Cliente com CPF {cpf} não encontrado.");
+                Cliente cliente = await _clienteRepositorio.BuscarPorCPF(cpf);
+                if (cliente == null)
+                {
+                    return NotFound($"Cliente com CPF {cpf} não encontrado.");
+                }
+                return Ok(cliente);
             }
-            return Ok(cliente);
+            return Forbid();
+
         }
 
         [Authorize(Policy = "AdministradorPolicy")]
@@ -46,6 +54,16 @@ namespace SERVPRO.Controllers
 
         public async Task<ActionResult<Cliente>> Cadastrar([FromBody] Cliente clienteModel)
         {
+            if (!ModelState.IsValid)
+    {
+        return BadRequest(new
+        {
+            errors = ModelState.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+            )
+        });
+    }
             Cliente cliente = await _clienteRepositorio.Adicionar(clienteModel);
             return CreatedAtAction(nameof(BuscarPorCPF), new { cpf = cliente.CPF }, cliente);
         }

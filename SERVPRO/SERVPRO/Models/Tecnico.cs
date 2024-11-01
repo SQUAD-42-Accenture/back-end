@@ -7,6 +7,9 @@ namespace SERVPRO.Models
 
         [JsonPropertyOrder(6)]
         public string Especialidade { get; set; }
+
+        [JsonPropertyOrder(7)]
+        public string Telefone { get; set; }
         [JsonIgnore]
         public List<OrdemDeServico>? OrdensDeServico { get; set; }
 

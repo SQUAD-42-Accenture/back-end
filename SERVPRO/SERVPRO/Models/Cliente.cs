@@ -6,7 +6,7 @@ namespace SERVPRO.Models
         [JsonPropertyOrder(6)]
         public string Telefone { get; set; }
         [JsonPropertyOrder(7)]
-        public DateTime DataNascimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
         [JsonPropertyOrder(8)]
         public string Bairro { get; set; }
         [JsonPropertyOrder(9)]

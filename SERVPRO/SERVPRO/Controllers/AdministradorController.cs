@@ -39,6 +39,10 @@ namespace SERVPRO.Controllers
         [HttpPost]
         public async Task<ActionResult<Administrador>> Cadastrar([FromBody] Administrador adminModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Retorna automaticamente os erros de validação
+            }
             var administrador = await _administradorRepositorio.Adicionar(adminModel);
             return CreatedAtAction(nameof(BuscarPorCPF), new { cpf = administrador.CPF }, administrador);
         }
