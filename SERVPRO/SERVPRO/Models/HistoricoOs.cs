@@ -4,8 +4,9 @@ namespace SERVPRO.Models
 {
     public class HistoricoOS
     {
+        [JsonIgnore]
         public int Id { get; set; }
-        public DateTime DataAtualizacao { get; set; }
+        public DateTime? DataAtualizacao { get; set; }
         public string Comentario { get; set; }
 
         public int? OrdemDeServicoId { get; set; }

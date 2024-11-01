@@ -56,6 +56,10 @@ namespace SERVPRO.Controllers
 
         public async Task<ActionResult<Tecnico>> Cadastrar([FromBody] Tecnico tecnicoModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Retorna automaticamente os erros de validação
+            }
             Tecnico tecnico = await _tecnicoRepositorio.Adicionar(tecnicoModel);
 
             return Ok(tecnico);

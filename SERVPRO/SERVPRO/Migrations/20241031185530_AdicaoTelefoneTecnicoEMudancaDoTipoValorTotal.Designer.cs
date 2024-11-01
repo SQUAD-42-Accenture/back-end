@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241031185530_AdicaoTelefoneTecnicoEMudancaDoTipoValorTotal")]
+    partial class AdicaoTelefoneTecnicoEMudancaDoTipoValorTotal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,13 +105,7 @@ namespace SERVPRO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
-                    b.Property<string>("IdProduto")
-                        .HasColumnType("text");
-
                     b.Property<string>("MetodoPagamento")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ProdutoIdProduto")
                         .HasColumnType("text");
 
                     b.Property<string>("SerialEquipamento")
@@ -134,49 +131,11 @@ namespace SERVPRO.Migrations
 
                     b.HasIndex("ClienteCPF");
 
-                    b.HasIndex("ProdutoIdProduto");
-
                     b.HasIndex("SerialEquipamento");
 
                     b.HasIndex("TecnicoCPF");
 
                     b.ToTable("OrdensDeServico");
-                });
-
-            modelBuilder.Entity("SERVPRO.Models.Produto", b =>
-                {
-                    b.Property<string>("IdProduto")
-                        .HasColumnType("text");
-
-                    b.Property<string>("CategoriaProduto")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<DateTime>("DataEntrada")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("DescricaoProduto")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("NomeProduto")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("PrecoProduto")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("QtdProduto")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("IdProduto");
-
-                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("SERVPRO.Models.Usuario", b =>
@@ -312,10 +271,6 @@ namespace SERVPRO.Migrations
                         .HasForeignKey("ClienteCPF")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("SERVPRO.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("ProdutoIdProduto");
-
                     b.HasOne("SERVPRO.Models.Equipamento", "Equipamento")
                         .WithMany()
                         .HasForeignKey("SerialEquipamento")
@@ -329,8 +284,6 @@ namespace SERVPRO.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("Equipamento");
-
-                    b.Navigation("Produto");
 
                     b.Navigation("Tecnico");
                 });

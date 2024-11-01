@@ -20,8 +20,8 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
     });
 builder.Services.AddFluentValidationAutoValidation();
-//builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
 
 builder.Services.AddAuthorization(options =>
 {
@@ -51,7 +51,7 @@ builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+        
     });
 
 builder.Services.AddEndpointsApiExplorer();
@@ -127,20 +127,26 @@ app.Use(async (context, next) =>
     {
         context.Response.ContentType = "application/json";
 
-        // Identificar o tipo de usuário a partir dos claims
-        var userClaims = context.User.Claims;
-        var tipoUsuario = userClaims.FirstOrDefault(c => c.Type == "tipoUsuario")?.Value;
-
-        // Mensagens personalizadas para cada tipo de usuário
-        var mensagem = tipoUsuario switch
+        if (context.User?.Claims != null) // Verifica se context.User e Claims não são nulos
         {
-            "Tecnico" => "Acesso negado. Apenas para técnicos.",
-            "Cliente" => "Acesso negado. Apenas para clientes.",
-            //"Administrador" => "Acesso negado. Esta área é restrita a administradores.",
-            _ => "Acesso negado. Permissão insuficiente."
-        };
+            var userClaims = context.User.Claims;
+            var tipoUsuario = userClaims.FirstOrDefault(c => c.Type == "tipoUsuario")?.Value;
 
-        await context.Response.WriteAsync($"{{\"mensagem\": \"{mensagem}\"}}");
+            var mensagem = tipoUsuario switch
+            {
+                "Tecnico" => "Acesso negado. técnicos não podem acessar.",
+                "Cliente" => "Acesso negado. clientes não podem acessar.",
+                //_ => "Acesso negado. Esta área é restrita a administradores.", // Descomente se necessário
+                _ => "Acesso negado. Permissão insuficiente."
+            };
+
+            await context.Response.WriteAsync($"{{\"mensagem\": \"{mensagem}\"}}");
+        }
+        else
+        {
+            // Mensagem padrão se não houver usuário autenticado
+            await context.Response.WriteAsync("{\"mensagem\": \"Acesso negado. Usuário não autenticado.\"}");
+        }
     }
     else if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
     {
@@ -148,6 +154,7 @@ app.Use(async (context, next) =>
         await context.Response.WriteAsync("{\"mensagem\": \"Não autorizado. Por favor, faça login para acessar esta área.\"}");
     }
 });
+
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");

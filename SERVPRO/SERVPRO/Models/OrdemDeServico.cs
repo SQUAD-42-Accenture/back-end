@@ -10,7 +10,7 @@ namespace SERVPRO.Models
         public DateTime? dataConclusao { get; set; }
         public string Descricao { get; set; }
         public string? MetodoPagamento { get; set; }
-        public string? ValorTotal { get; set; }
+        public decimal? ValorTotal { get; set; }
 
 
         public string? ClienteCPF { get; set; }
@@ -31,7 +31,7 @@ namespace SERVPRO.Models
 
         public string Status { get; set; }
         [JsonIgnore]
-        public List<HistoricoOS> Historicos { get; set; }
+        public List<HistoricoOS>? Historicos { get; set; }
     }
 
 }

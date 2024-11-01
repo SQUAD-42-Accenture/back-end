@@ -41,6 +41,10 @@ namespace SERVPRO.Controllers
 
         public async Task<ActionResult<HistoricoOS>> Cadastrar([FromBody] HistoricoOS historicoOsModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); // Retorna automaticamente os erros de validação
+            }
             HistoricoOS historicoOS = await _historicoOsRepositorio.Adicionar(historicoOsModel);
 
             return Ok(historicoOS);
