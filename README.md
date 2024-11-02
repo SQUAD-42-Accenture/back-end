@@ -1,9 +1,9 @@
 # 📖 Sobre o Projeto
 ![Yuppies Collage General LinkdIn Banner](https://github.com/user-attachments/assets/bafca917-d9f6-4b58-8dfd-0b9649e87627)
 
-O **Serve Pro** foi desenvolvido durante a Residência Tecnológica do Porto Digital, tem como objetivo desenvolver uma plataforma completa e fácil de usar para gerenciar os serviços de uma assistência técnica de informática. A plataforma visa auxiliar no controle de demandas, agendamento de serviços, acompanhamento de reparos, emissão de relatórios e muito mais, proporcionando uma experiência eficiente e organizada.
+O **Serve Pro** foi desenvolvido durante a Residência Tecnológica do Porto Digital, tem como objetivo desenvolver uma plataforma completa e fácil de usar para gerenciar os serviços de uma assistência técnica de informática. A plataforma visa auxiliar no controle de demandas, agendamento de serviços, acompanhamento de reparos, emissão de relatórios e muito mais, proporcionando uma experiência eficiente e organizada.<br><br>
 
-<br><br>
+
 # 🎨 Equipe Atlas
 
 Nossa equipe, a Atlas, responsável pelo desenvolvimento do back-end da plataforma, garante a performance e qualidade dos serviços e funcionalidades que permitem um gerenciamento eficiente.
@@ -22,6 +22,12 @@ Nossa equipe, a Atlas, responsável pelo desenvolvimento do back-end da platafor
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" height="60" width="100"  alt="dotnetcore logo"  /> 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="60" width="150" alt="postgresql logo"  />
 </div><br><br>
+
+Utilizamos o framework ASP.NET Core MVC desenvolvimento web de código aberto, poderoso e moderno, para construção da nossa aplicação.Ele permite a criação de aplicações web usando o padrão Model-View-Controller (MVC), que separa as responsabilidades da aplicação em três partes principais:
+
+**🎲Model:** Representa os dados da aplicação e a lógica de negócios.<br>
+**📟View:** Responsável pela interface do usuário, renderizando a saída para o navegador.<br>
+**⚙️Controller:** Recebe as requisições do usuário, interage com o Model, decide qual View deve ser renderizada e envia a resposta para o navegador.<br><br>
 
 # 💻 Funcionalidades
 
