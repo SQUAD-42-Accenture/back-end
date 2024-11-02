@@ -1,9 +1,10 @@
 # 📖 Sobre o Projeto
 ![Yuppies Collage General LinkdIn Banner](https://github.com/user-attachments/assets/bafca917-d9f6-4b58-8dfd-0b9649e87627)
 
-O **Serve Pro** foi desenvolvido durante a Residência Tecnológica do Porto Digital, tem como objetivo desenvolver uma plataforma completa e fácil de usar para gerenciar os serviços de uma assistência técnica de informática. A plataforma visa auxiliar no controle de demandas, agendamento de serviços, acompanhamento de reparos, emissão de relatórios e muito mais, proporcionando uma experiência eficiente e organizada.<br><br>
+O **Serve Pro** foi desenvolvido durante a Residência Tecnológica do Porto Digital, tem como objetivo desenvolver uma plataforma completa e fácil de usar para gerenciar os serviços de uma assistência técnica de informática. A plataforma visa auxiliar no controle de demandas, agendamento de serviços, acompanhamento de reparos, emissão de relatórios e muito mais, proporcionando uma experiência eficiente e organizada.
 
 
+<br><br>
 # 🎨 Equipe Atlas
 
 Nossa equipe, a Atlas, responsável pelo desenvolvimento do back-end da plataforma, garante a performance e qualidade dos serviços e funcionalidades que permitem um gerenciamento eficiente.
@@ -39,10 +40,30 @@ Utilizamos o framework ASP.NET Core MVC desenvolvimento web de código aberto, p
 
 - **💬Comunicação:** Sistema de mensagens para comunicação entre clientes e prestadores de serviços.
 
-- **📚Relatórios e Análise:** Gerar relatórios sobre serviços, pagamentos e desempenho.
+- **📚Relatórios e Análise:** Gerar relatórios sobre serviços, pagamentos e desempenho.<br><br>
+
+
+# **⚙️Api**
+
+<img width="946" alt="apiservpro" src="https://github.com/user-attachments/assets/1357bf66-61de-46e8-b70c-d257ec271660">
+<img width="941" alt="apiadministrador" src="https://github.com/user-attachments/assets/e014ac05-a3f6-465a-b32c-8ab863cae44d">
+<img width="944" alt="apicliente" src="https://github.com/user-attachments/assets/3926c148-3ebf-436d-9208-40c7b4db2ee1">
+<img width="945" alt="apiconta" src="https://github.com/user-attachments/assets/a8542bb5-66f7-4865-ba9f-560dfb96dd2b">
+<img width="944" alt="apiequipamento" src="https://github.com/user-attachments/assets/0b793598-64a6-42ca-91bf-5afcac7bdf3d">
+<img width="943" alt="apihistoricoos" src="https://github.com/user-attachments/assets/f1a7091e-9da0-47ea-be78-a92e5e9dd776">
+<img width="945" alt="apiordemdeserviço" src="https://github.com/user-attachments/assets/b5578338-acb4-4d4d-97f7-69febca51fdb">
+<img width="944" alt="apiproduto" src="https://github.com/user-attachments/assets/e602c316-4290-4c6f-b00d-877543ea0458">
+<img width="947" alt="apitecnico" src="https://github.com/user-attachments/assets/d7e7220b-5edc-4e98-8a04-2b15c15d3c32">
+<img width="943" alt="apiusuario" src="https://github.com/user-attachments/assets/08140abc-bc1e-417a-a7b3-0faa5eb971f4"><br><br>
+
+
+# **🎲Schema banco de dados**
+
+<img width="944" alt="apischema" src="https://github.com/user-attachments/assets/8d906182-914e-4420-b5c2-170e6d6a04c5">
+
 
 <br><br>
-# ⚙️ Como Rodar o Projeto
+# **📱Como Rodar o Projeto**
 
 1. Clone o repositório:
    ```bash
@@ -54,5 +75,4 @@ Utilizamos o framework ASP.NET Core MVC desenvolvimento web de código aberto, p
 3. Executar o arquivo SERVPRO.sln via visual studio:<br><br>
    <img width="228" alt="servpro_sln" src="https://github.com/user-attachments/assets/9c988cd9-9c9b-49f0-bd5c-8d04ccf8f6da">
 
-   
 
