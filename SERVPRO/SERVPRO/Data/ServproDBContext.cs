@@ -22,6 +22,9 @@ namespace SERVPRO.Data
         public DbSet<OrdemDeServico> OrdensDeServico { get; set; }
         public DbSet<HistoricoOS> HistoricosOS { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Servico> Servicos { get; set; }
+        public DbSet<ServicoProduto> ServicoProdutos { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +37,9 @@ namespace SERVPRO.Data
             modelBuilder.ApplyConfiguration(new OrdemDeServicoMap());
             modelBuilder.ApplyConfiguration(new HistoricoOsMap());
             modelBuilder.ApplyConfiguration(new ProdutoMap());
+            modelBuilder.ApplyConfiguration(new ServicoMap());
+            modelBuilder.ApplyConfiguration(new ServicoProdutoMap());
+
 
             base.OnModelCreating(modelBuilder);
         }

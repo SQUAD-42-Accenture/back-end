@@ -12,7 +12,7 @@ namespace SERVPRO.Repositorios
         {
             _dbContext = servproDBContext;
         }
-        public async Task<Produto> BuscarPorId(string IdProduto)
+        public async Task<Produto> BuscarPorId(int IdProduto)
         {
             return await _dbContext.Produtos
      
@@ -39,7 +39,7 @@ namespace SERVPRO.Repositorios
 
             return produto;
         }
-        public async Task<Produto> Atualizar(Produto produto, string IdProduto)
+        public async Task<Produto> Atualizar(Produto produto, int IdProduto)
         {
             Produto produtoPorId = await BuscarPorId(IdProduto);
 
@@ -56,7 +56,7 @@ namespace SERVPRO.Repositorios
             return produtoPorId;
         }
 
-        public async Task<bool> Apagar(string IdProduto)
+        public async Task<bool> Apagar(int IdProduto)
         {
             Produto produtoPorId = await BuscarPorId(IdProduto);
 

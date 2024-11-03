@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241102221817_UpdateProdutoId")]
+    partial class UpdateProdutoId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,8 +106,8 @@ namespace SERVPRO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
-                    b.Property<int?>("IdProduto")
-                        .HasColumnType("integer");
+                    b.Property<string>("IdProduto")
+                        .HasColumnType("text");
 
                     b.Property<string>("MetodoPagamento")
                         .HasColumnType("text");
@@ -170,11 +173,13 @@ namespace SERVPRO.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<int>("PrecoProduto")
-                        .HasColumnType("integer");
+                    b.Property<string>("PrecoProduto")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<int>("QtdProduto")
-                        .HasColumnType("integer");
+                    b.Property<string>("QtdProduto")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("IdProduto");
 

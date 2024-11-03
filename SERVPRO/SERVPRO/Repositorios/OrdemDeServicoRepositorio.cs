@@ -8,10 +8,12 @@ namespace SERVPRO.Repositorios
     public class OrdemdeServicoRepositorio : IOrdemDeServicoRepositorio
     {
         private readonly ServproDBContext _dbContext;
-        public OrdemdeServicoRepositorio(ServproDBContext servproDBContext) 
-        { 
+
+        public OrdemdeServicoRepositorio(ServproDBContext servproDBContext)
+        {
             _dbContext = servproDBContext;
         }
+
         public async Task<OrdemDeServico> BuscarPorId(int id)
         {
             return await _dbContext.OrdensDeServico
@@ -19,7 +21,8 @@ namespace SERVPRO.Repositorios
                 .Include(e => e.Equipamento)
                 .Include(t => t.Tecnico)
                 .Include(t => t.Historicos)
-                .Include(t => t.Produto)
+                .Include(t => t.Servicos) 
+                .Include(t => t.ServicoProdutos) 
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
@@ -30,50 +33,58 @@ namespace SERVPRO.Repositorios
                 .Include(x => x.Equipamento)
                 .Include(x => x.Tecnico)
                 .Include(t => t.Historicos)
-                .Include(t => t.Produto)
+                .Include(t => t.Servicos)
+                .Include(t => t.ServicoProdutos) 
                 .ToListAsync();
         }
+
         public async Task<OrdemDeServico> Adicionar(OrdemDeServico ordemDeServico)
         {
-           await _dbContext.OrdensDeServico.AddAsync(ordemDeServico);
-           await _dbContext.SaveChangesAsync();
+            ordemDeServico.ValorTotal = CalcularValorTotal(ordemDeServico);
+            await _dbContext.OrdensDeServico.AddAsync(ordemDeServico);
+            await _dbContext.SaveChangesAsync();
 
             return ordemDeServico;
         }
+
         public async Task<OrdemDeServico> Atualizar(OrdemDeServico ordemDeServico, int id)
         {
-            OrdemDeServico ordemPorId = await BuscarPorId(id);
-
-            if (ordemPorId == null) 
+            OrdemDeServico ordemExistente = await BuscarPorId(id);
+            if (ordemExistente == null)
             {
-                throw new Exception($"Ordem do Id: {id} não foi encontrado");
+                throw new Exception($"Ordem do Id: {id} não foi encontrada");
             }
 
-            ordemPorId.Status = ordemDeServico.Status;
-            ordemPorId.dataConclusao = ordemDeServico.dataConclusao;
+            ordemExistente.Status = ordemDeServico.Status;
+            ordemExistente.dataConclusao = ordemDeServico.dataConclusao;
 
+            ordemExistente.ValorTotal = CalcularValorTotal(ordemExistente);
 
-
-            _dbContext.OrdensDeServico.Update(ordemPorId);
+            _dbContext.OrdensDeServico.Update(ordemExistente);
             await _dbContext.SaveChangesAsync();
 
-            return ordemPorId;
+            return ordemExistente;
         }
 
         public async Task<bool> Apagar(int id)
         {
-            OrdemDeServico ordemPorId = await BuscarPorId(id);
-
-            if (ordemPorId == null)
+            OrdemDeServico ordemExistente = await BuscarPorId(id);
+            if (ordemExistente == null)
             {
-                throw new Exception($"Ordem do Id: {id} não foi encontrado");
+                throw new Exception($"Ordem do Id: {id} não foi encontrada");
             }
 
-            _dbContext.OrdensDeServico.Remove(ordemPorId);
+            _dbContext.OrdensDeServico.Remove(ordemExistente);
             await _dbContext.SaveChangesAsync();
             return true;
         }
 
+        private decimal CalcularValorTotal(OrdemDeServico ordemDeServico)
+        {
+            decimal totalServicos = ordemDeServico.Servicos?.Sum(s => s.Preco) ?? 0;
+            decimal totalProdutos = ordemDeServico.ServicoProdutos?.Sum(sp => sp.PrecoAdicional) ?? 0;
 
+            return totalServicos + totalProdutos;
+        }
     }
 }
