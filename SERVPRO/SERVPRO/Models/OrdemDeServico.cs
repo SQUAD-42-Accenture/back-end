@@ -35,7 +35,6 @@ namespace SERVPRO.Models
         [JsonIgnore]
         public List<HistoricoOS>? Historicos { get; set; }
         [JsonIgnore]
-        public List<Servico>? Servicos { get; set; }
         public List<ServicoProduto> ServicoProdutos { get; set; }
     }
 

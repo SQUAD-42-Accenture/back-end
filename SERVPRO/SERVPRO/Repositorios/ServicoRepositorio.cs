@@ -54,5 +54,9 @@ namespace SERVPRO.Repositorios
             await _dbContext.SaveChangesAsync();
             return true;
         }
+        public async Task<Servico> ObterPorId(int id)
+        {
+            return await _dbContext.Servicos.FindAsync(id);
+        }
     }
 }
