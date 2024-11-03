@@ -750,3 +750,6 @@ C:\Users\AMDLOCACAO\Documents\GitHub\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\F
 A:\Github\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.dll
 A:\Github\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 A:\Github\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\workspace\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.dll
+C:\workspace\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\workspace\back-end\SERVPRO\SERVPRO\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

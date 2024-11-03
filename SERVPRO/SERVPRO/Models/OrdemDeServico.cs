@@ -5,6 +5,7 @@ namespace SERVPRO.Models
 {
     public class OrdemDeServico
     {
+        [JsonIgnore]
         public int Id { get; set; }
         public DateTime dataAbertura { get; set; }
         public DateTime? dataConclusao { get; set; }
@@ -24,14 +25,18 @@ namespace SERVPRO.Models
         public string? TecnicoCPF { get; set; }
         [JsonIgnore]
         public virtual Tecnico? Tecnico { get; set; }
-
-        public string? IdProduto { get; set; }
+        [JsonIgnore]
+        public int? IdProduto { get; set; }
+        [JsonIgnore]
         public virtual Produto? Produto { get; set; }
 
 
         public string Status { get; set; }
         [JsonIgnore]
         public List<HistoricoOS>? Historicos { get; set; }
+        [JsonIgnore]
+        public List<Servico>? Servicos { get; set; }
+        public List<ServicoProduto> ServicoProdutos { get; set; }
     }
 
 }

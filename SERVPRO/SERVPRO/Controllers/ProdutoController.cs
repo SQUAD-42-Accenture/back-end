@@ -28,7 +28,7 @@ namespace SERVPRO.Controllers
         }
 
         [HttpGet("{IdProduto}")]
-        public async Task<ActionResult<Produto>> BuscarPorId(string IdProduto)
+        public async Task<ActionResult<Produto>> BuscarPorId(int IdProduto)
         {
             Produto produto = await _produtoRepositorio.BuscarPorId(IdProduto);
 
@@ -46,7 +46,7 @@ namespace SERVPRO.Controllers
 
         [HttpPut("{serial}")]
 
-        public async Task<ActionResult<Produto>> Atualizar([FromBody] Produto produtoModel, string IdProduto)
+        public async Task<ActionResult<Produto>> Atualizar([FromBody] Produto produtoModel, int IdProduto)
         {
             produtoModel.IdProduto = IdProduto;
             Produto produto = await _produtoRepositorio.Atualizar(produtoModel, IdProduto);
@@ -56,7 +56,7 @@ namespace SERVPRO.Controllers
 
         [HttpDelete("{IdProduto}")]
 
-        public async Task<ActionResult<Produto>> Apagar(string IdProduto)
+        public async Task<ActionResult<Produto>> Apagar(int IdProduto)
         {
 
             bool apagado = await _produtoRepositorio.Apagar(IdProduto);
