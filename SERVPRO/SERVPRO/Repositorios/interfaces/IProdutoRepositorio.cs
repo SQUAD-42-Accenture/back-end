@@ -10,5 +10,6 @@ namespace SERVPRO.Repositorios.interfaces
         Task<Produto> Adicionar(Produto produto);
         Task<Produto> Atualizar(Produto produto, int IdProduto);
         Task<bool> Apagar(int IdProduto);
+        Task<Produto> ObterPorId(int id);
     }
 }
