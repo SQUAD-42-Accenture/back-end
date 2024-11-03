@@ -28,7 +28,7 @@ namespace SERVPRO.Validators
 
            RuleFor(tecnico => tecnico.TipoUsuario)
             .NotEmpty().WithMessage("O tipo de usuario é obrigatorio")
-            .Equal("Cliente").WithMessage("O tipo precisa ser 'Tecnico'.");
+            .Equal("Tecnico").WithMessage("O tipo precisa ser 'Tecnico'.");
 
             RuleFor(tecnico => tecnico.Especialidade)
             .NotEmpty().WithMessage("A especialidade é obrigatório");
