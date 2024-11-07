@@ -92,7 +92,7 @@ namespace SERVPRO.Repositorios
                 var produto = await _produtoRepositorio.ObterPorId(servicoProduto.ProdutoId);
                 if (produto != null)
                 {
-                    total += produto.PrecoProduto + servicoProduto.PrecoAdicional;
+                    total += produto.CustoInterno + servicoProduto.PrecoAdicional;
                 }
 
                 var servico = await _servicoRepositorio.ObterPorId(servicoProduto.ServicoId);

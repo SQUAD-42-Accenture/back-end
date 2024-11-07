@@ -16,7 +16,7 @@ namespace SERVPRO.Repositorios
         {
             return await _dbContext.Produtos
      
-                .FirstOrDefaultAsync(x => x.IdProduto == IdProduto);
+                .FirstOrDefaultAsync(x => x.Id == IdProduto);
         }
 
         public async Task<List<Produto>> BuscarTodosProdutos()

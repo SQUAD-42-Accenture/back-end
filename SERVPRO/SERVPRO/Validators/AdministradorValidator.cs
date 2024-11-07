@@ -19,7 +19,7 @@ namespace SERVPRO.Validators
 
             RuleFor(administrador => administrador.TipoUsuario)
             .NotEmpty().WithMessage("O tipo de usuario é obrigatorio")
-            .Equal("Cliente").WithMessage("O tipo precisa ser 'Administrador'.");
+            .Equal("Administrador").WithMessage("O tipo precisa ser 'Administrador'.");
 
         }
     }
