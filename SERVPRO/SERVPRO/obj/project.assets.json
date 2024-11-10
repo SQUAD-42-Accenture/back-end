@@ -1294,6 +1294,23 @@
           }
         }
       },
+      "SendGrid/9.29.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "starkbank-ecdsa": "[1.3.3, 2.0.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/SendGrid.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SendGrid.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "StackExchange.Redis/2.8.16": {
         "type": "package",
         "dependencies": {
@@ -1309,6 +1326,15 @@
           "lib/net6.0/StackExchange.Redis.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "starkbank-ecdsa/1.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/StarkbankEcdsa.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/StarkbankEcdsa.dll": {}
         }
       },
       "Swashbuckle.AspNetCore/6.9.0": {
@@ -4431,6 +4457,29 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
+    "SendGrid/9.29.3": {
+      "sha512": "nb/zHePecN9U4/Bmct+O+lpgK994JklbCCNMIgGPOone/DngjQoMCHeTvkl+m0Nglvm0dqMEshmvB4fO8eF3dA==",
+      "type": "package",
+      "path": "sendgrid/9.29.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SendGrid.dll",
+        "lib/net40/SendGrid.pdb",
+        "lib/net40/SendGrid.xml",
+        "lib/net452/SendGrid.dll",
+        "lib/net452/SendGrid.pdb",
+        "lib/net452/SendGrid.xml",
+        "lib/netstandard1.3/SendGrid.dll",
+        "lib/netstandard1.3/SendGrid.pdb",
+        "lib/netstandard1.3/SendGrid.xml",
+        "lib/netstandard2.0/SendGrid.dll",
+        "lib/netstandard2.0/SendGrid.pdb",
+        "lib/netstandard2.0/SendGrid.xml",
+        "sendgrid.9.29.3.nupkg.sha512",
+        "sendgrid.nuspec"
+      ]
+    },
     "StackExchange.Redis/2.8.16": {
       "sha512": "WaoulkOqOC9jHepca3JZKFTqndCWab5uYS7qCzmiQDlrTkFaDN7eLSlEfHycBxipRnQY9ppZM7QSsWAwUEGblw==",
       "type": "package",
@@ -4450,6 +4499,22 @@
         "lib/netstandard2.0/StackExchange.Redis.xml",
         "stackexchange.redis.2.8.16.nupkg.sha512",
         "stackexchange.redis.nuspec"
+      ]
+    },
+    "starkbank-ecdsa/1.3.3": {
+      "sha512": "OblOaKb1enXn+dSp7tsx9yjwV+/BEKM9jFhshIkZTwCk7LuTFTp+wSon6rFzuPiIiTGtvVWQNUw2slHjGktJog==",
+      "type": "package",
+      "path": "starkbank-ecdsa/1.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/StarkbankEcdsa.dll",
+        "lib/net452/StarkbankEcdsa.dll",
+        "lib/netstandard1.3/StarkbankEcdsa.dll",
+        "lib/netstandard2.0/StarkbankEcdsa.dll",
+        "lib/netstandard2.1/StarkbankEcdsa.dll",
+        "starkbank-ecdsa.1.3.3.nupkg.sha512",
+        "starkbank-ecdsa.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.9.0": {
@@ -7175,6 +7240,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.10",
       "OLT.AspNetCore.Authentication.JwtBearer >= 8.3.1",
+      "SendGrid >= 9.29.3",
       "StackExchange.Redis >= 2.8.16",
       "Swashbuckle.AspNetCore >= 6.9.0",
       "System.IdentityModel.Tokens.Jwt >= 8.1.2",
@@ -7184,23 +7250,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luizs\\.nuget\\packages\\": {},
+    "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+      "projectUniqueName": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
       "projectName": "SERVPRO",
-      "projectPath": "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
-      "packagesPath": "C:\\Users\\luizs\\.nuget\\packages\\",
-      "outputPath": "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\obj\\",
+      "projectPath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+      "packagesPath": "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\luizs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AMDLOCACAO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7265,6 +7331,10 @@
             "target": "Package",
             "version": "[8.3.1, )"
           },
+          "SendGrid": {
+            "target": "Package",
+            "version": "[9.29.3, )"
+          },
           "StackExchange.Redis": {
             "target": "Package",
             "version": "[2.8.16, )"
@@ -7309,7 +7379,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

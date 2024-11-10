@@ -92,8 +92,9 @@ builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemdeServicoRepositorio
 builder.Services.AddScoped<IHistoricoOsRepositorio, HistoricoOsRepositorio>();
 builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
-builder.Services.AddScoped<PdfServiceRepositorio>();
 builder.Services.AddScoped<IServicoRepositorio, ServicoRepositorio>();
+builder.Services.AddScoped<PdfServiceRepositorio>();
+builder.Services.AddScoped<EmailServiceRepositorio>();
 
 
 builder.Services.AddAuthentication(options =>

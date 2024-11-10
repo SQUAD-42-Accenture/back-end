@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {}
+    "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {}
   },
   "projects": {
-    "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {
+    "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+        "projectUniqueName": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
         "projectName": "SERVPRO",
-        "projectPath": "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
-        "packagesPath": "C:\\Users\\luizs\\.nuget\\packages\\",
-        "outputPath": "C:\\projetos\\unit\\csharp\\back-end\\SERVPRO\\SERVPRO\\obj\\",
+        "projectPath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\SERVPRO.csproj",
+        "packagesPath": "C:\\Users\\AMDLOCACAO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\luizs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AMDLOCACAO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -82,6 +82,10 @@
               "target": "Package",
               "version": "[8.3.1, )"
             },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.29.3, )"
+            },
             "StackExchange.Redis": {
               "target": "Package",
               "version": "[2.8.16, )"
@@ -126,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

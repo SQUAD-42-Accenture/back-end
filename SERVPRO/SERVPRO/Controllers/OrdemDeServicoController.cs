@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SERVPRO.Models;
 using SERVPRO.Repositorios;
 using SERVPRO.Repositorios.interfaces;
-using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace SERVPRO.Controllers
@@ -16,11 +15,13 @@ namespace SERVPRO.Controllers
     {
         private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
         private readonly PdfServiceRepositorio _pdfServiceRepositorio;
+        private readonly EmailServiceRepositorio _emailService;
 
-        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio)
+        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio, EmailServiceRepositorio emailServiceRepositorio)
         {
             _ordemDeServicoRepositorio = ordemDeServicoRepositorio;
             _pdfServiceRepositorio = pdfServiceRepositorio;
+            _emailService = emailServiceRepositorio;
         }
 
         [HttpGet]
@@ -37,7 +38,7 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
         public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
         {
@@ -53,7 +54,7 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> Apagar(int id)
         {
@@ -61,7 +62,7 @@ namespace SERVPRO.Controllers
             return Ok(apagado);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
         {
@@ -71,6 +72,30 @@ namespace SERVPRO.Controllers
 
             var pdf = _pdfServiceRepositorio.GeneratePdf(ordemDeServico, ordemDeServico.Cliente, ordemDeServico.Tecnico);
             return File(pdf, "application/pdf", $"ordem_servico_{id}.pdf");
+        }
+
+  
+        //[Authorize(Policy = "AdministradorPolicy")]
+        [HttpPost("{id}/enviar-por-email")]
+        public async Task<IActionResult> EnviarOrdemPorEmail(int id)
+        {
+
+            var ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
+            if (ordemDeServico == null || ordemDeServico.Cliente == null)
+                return NotFound("Ordem de serviço ou cliente não encontrados.");
+
+            // Gera o PDF da ordem de serviço
+            var pdfBytes = _pdfServiceRepositorio.GeneratePdf(ordemDeServico, ordemDeServico.Cliente, ordemDeServico.Tecnico);
+
+            // Configura o envio de e-mail
+            var destinatarioEmail = ordemDeServico.Cliente.Email;
+            var assunto = $"Ordem de Serviço #{ordemDeServico.Id}";
+            var conteudo = "Segue em anexo o PDF com os detalhes da sua ordem de serviço.";
+
+            // Envia o e-mail com o PDF anexado
+            await _emailService.EnviarOrdemDeServicoPorEmail(destinatarioEmail, assunto, conteudo, pdfBytes);
+
+            return Ok("Ordem de serviço enviada com sucesso para o e-mail do cliente.");
         }
     }
 }
