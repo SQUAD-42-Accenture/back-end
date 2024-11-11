@@ -28,7 +28,7 @@ namespace SERVPRO.Repositorios
         public async Task<List<Produto>> BuscarPorNome(string NomeProduto)
         {
             return await _dbContext.Produtos
-                .Where(x => x.NomeProduto == NomeProduto)
+                .Where(x => x.Nome == NomeProduto)
                 .ToListAsync();
         }
 
@@ -48,7 +48,7 @@ namespace SERVPRO.Repositorios
                 throw new Exception($"Produto para o Id: {IdProduto} não foi encontrado");
             }
 
-            produtoPorId.DescricaoProduto = produto.DescricaoProduto;
+            produtoPorId.Descricao = produto.Descricao;
      
             _dbContext.Produtos.Update(produtoPorId);
             await _dbContext.SaveChangesAsync();
@@ -69,10 +69,7 @@ namespace SERVPRO.Repositorios
             await _dbContext.SaveChangesAsync();
             return true;
         }
-        public async Task<Produto> ObterPorId(int id)
-        {
-            return await _dbContext.Produtos.FindAsync(id);
-        }
+
 
     }
 }

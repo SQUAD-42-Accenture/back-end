@@ -8,10 +8,11 @@ namespace SERVPRO.Data.Map {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.NomeProduto).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.DescricaoProduto).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.CategoriaProduto).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.CustoInterno).IsRequired();
+            builder.Property(x => x.Nome).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Descricao).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Categoria).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.CustoInterno).HasColumnType("decimal(10, 2)").IsRequired();
+            builder.Property(x => x.CustoVenda).HasColumnType("decimal(10, 2)").IsRequired();
             builder.Property(x => x.Quantidade).IsRequired();
             builder.Property(x => x.DataEntrada).IsRequired();
         }

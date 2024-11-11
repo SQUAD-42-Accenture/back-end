@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241111202107_RemocaoColunaIdOSemServios")]
+    partial class RemocaoColunaIdOSemServios
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -210,7 +213,7 @@ namespace SERVPRO.Migrations
                     b.Property<decimal>("CustoProdutoNoServico")
                         .HasColumnType("numeric");
 
-                    b.Property<int>("OrdemDeServicoId")
+                    b.Property<int?>("OrdemDeServicoId")
                         .HasColumnType("integer");
 
                     b.Property<int>("ProdutoId")
@@ -385,11 +388,9 @@ namespace SERVPRO.Migrations
 
             modelBuilder.Entity("SERVPRO.Models.ServicoProduto", b =>
                 {
-                    b.HasOne("SERVPRO.Models.OrdemDeServico", "OrdemDeServico")
+                    b.HasOne("SERVPRO.Models.OrdemDeServico", null)
                         .WithMany("ServicoProdutos")
-                        .HasForeignKey("OrdemDeServicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrdemDeServicoId");
 
                     b.HasOne("SERVPRO.Models.Produto", "Produto")
                         .WithMany("ServicoProdutos")
@@ -402,8 +403,6 @@ namespace SERVPRO.Migrations
                         .HasForeignKey("ServicoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("OrdemDeServico");
 
                     b.Navigation("Produto");
 

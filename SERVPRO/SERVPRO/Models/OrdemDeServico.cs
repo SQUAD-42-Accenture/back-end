@@ -11,6 +11,7 @@ namespace SERVPRO.Models
         public DateTime? dataConclusao { get; set; }
         public string Descricao { get; set; }
         public string? MetodoPagamento { get; set; }
+
         public decimal? ValorTotal { get; set; }
 
 
@@ -25,17 +26,15 @@ namespace SERVPRO.Models
         public string? TecnicoCPF { get; set; }
         [JsonIgnore]
         public virtual Tecnico? Tecnico { get; set; }
-        [JsonIgnore]
-        public int? IdProduto { get; set; }
-        [JsonIgnore]
-        public virtual Produto? Produto { get; set; }
-
 
         public string Status { get; set; }
         [JsonIgnore]
         public List<HistoricoOS>? Historicos { get; set; }
-        [JsonIgnore]
-        public List<ServicoProduto>? ServicoProdutos { get; set; }
+        
+        public virtual List<ServicoProduto>? ServicoProdutos { get; set; }  // Relacionamento com ServicoProduto
+
+      
+
     }
 
 }
