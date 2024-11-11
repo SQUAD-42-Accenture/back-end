@@ -9,6 +9,5 @@ namespace SERVPRO.Repositorios.interfaces
         Task<Servico> Adicionar(Servico servico);
         Task<Servico> Atualizar(Servico servico, int id);
         Task<bool> Apagar(int id);
-        Task<Servico> ObterPorId(int id);
     }
 }

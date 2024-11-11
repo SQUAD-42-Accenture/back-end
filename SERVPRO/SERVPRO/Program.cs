@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using SERVPRO.Models;
 using Microsoft.Extensions.FileProviders;
+using SERVPRO.Repositorios.Interfaces;
 
 string chaveSecreta = "3c728fbf-7290-4087-b180-7fead6e5bbe6";
 var builder = WebApplication.CreateBuilder(args);
@@ -89,11 +90,12 @@ builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
 builder.Services.AddScoped< IAdministradorRepositorio, AdministradorRepositorio>();
 builder.Services.AddScoped<ITecnicoRepositorio, TecnicoRepositorio>();
 builder.Services.AddScoped<IEquipamentoRepositorio, EquipamentoRepositorio>();
-builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemdeServicoRepositorio>();
+builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemDeServicoRepositorio>();
 builder.Services.AddScoped<IHistoricoOsRepositorio, HistoricoOsRepositorio>();
 builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
 builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 builder.Services.AddScoped<IServicoRepositorio, ServicoRepositorio>();
+builder.Services.AddScoped<IServicoProdutoRepositorio, ServicoProdutoRepositorio>();
 builder.Services.AddScoped<PdfServiceRepositorio>();
 builder.Services.AddScoped<EmailServiceRepositorio>();
 

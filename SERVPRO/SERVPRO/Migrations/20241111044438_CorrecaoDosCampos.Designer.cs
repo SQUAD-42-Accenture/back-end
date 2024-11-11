@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241111044438_CorrecaoDosCampos")]
+    partial class CorrecaoDosCampos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,10 +153,10 @@ namespace SERVPRO.Migrations
                         .HasColumnType("character varying(100)");
 
                     b.Property<decimal>("CustoInterno")
-                        .HasColumnType("decimal(10, 2)");
+                        .HasColumnType("numeric");
 
                     b.Property<decimal>("CustoVenda")
-                        .HasColumnType("decimal(10, 2)");
+                        .HasColumnType("numeric");
 
                     b.Property<DateTime>("DataEntrada")
                         .HasColumnType("timestamp with time zone");
@@ -194,7 +197,12 @@ namespace SERVPRO.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
+                    b.Property<int?>("OrdemDeServicoId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("OrdemDeServicoId");
 
                     b.ToTable("Servicos");
                 });
@@ -210,7 +218,7 @@ namespace SERVPRO.Migrations
                     b.Property<decimal>("CustoProdutoNoServico")
                         .HasColumnType("numeric");
 
-                    b.Property<int>("OrdemDeServicoId")
+                    b.Property<int?>("OrdemDeServicoId")
                         .HasColumnType("integer");
 
                     b.Property<int>("ProdutoId")
@@ -383,13 +391,18 @@ namespace SERVPRO.Migrations
                     b.Navigation("Tecnico");
                 });
 
+            modelBuilder.Entity("SERVPRO.Models.Servico", b =>
+                {
+                    b.HasOne("SERVPRO.Models.OrdemDeServico", null)
+                        .WithMany("Servicos")
+                        .HasForeignKey("OrdemDeServicoId");
+                });
+
             modelBuilder.Entity("SERVPRO.Models.ServicoProduto", b =>
                 {
-                    b.HasOne("SERVPRO.Models.OrdemDeServico", "OrdemDeServico")
+                    b.HasOne("SERVPRO.Models.OrdemDeServico", null)
                         .WithMany("ServicoProdutos")
-                        .HasForeignKey("OrdemDeServicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrdemDeServicoId");
 
                     b.HasOne("SERVPRO.Models.Produto", "Produto")
                         .WithMany("ServicoProdutos")
@@ -402,8 +415,6 @@ namespace SERVPRO.Migrations
                         .HasForeignKey("ServicoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("OrdemDeServico");
 
                     b.Navigation("Produto");
 
@@ -433,6 +444,8 @@ namespace SERVPRO.Migrations
                     b.Navigation("Historicos");
 
                     b.Navigation("ServicoProdutos");
+
+                    b.Navigation("Servicos");
                 });
 
             modelBuilder.Entity("SERVPRO.Models.Produto", b =>

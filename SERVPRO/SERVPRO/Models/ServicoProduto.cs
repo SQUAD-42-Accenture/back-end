@@ -6,21 +6,23 @@ namespace SERVPRO.Models
 {
     public class ServicoProduto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+      
         [JsonIgnore]
         public int Id { get; set; }
         public int ServicoId { get; set; }
         public int ProdutoId { get; set; }
-        public decimal PrecoAdicional { get; set; }
 
+        public decimal CustoProdutoNoServico { get; set; }
 
-        [ForeignKey("ServicoId")]
+        public int OrdemDeServicoId { get; set; }
+
         [JsonIgnore]
         public Servico? Servico { get; set; }
 
-        [ForeignKey("ProdutoId")]
         [JsonIgnore]
         public Produto? Produto { get; set; }
+
+        [JsonIgnore]
+        public OrdemDeServico? OrdemDeServico { get; set; }
     }
 }

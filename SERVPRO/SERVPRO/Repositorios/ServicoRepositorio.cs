@@ -38,7 +38,6 @@ namespace SERVPRO.Repositorios
 
             servicoExistente.Nome = servico.Nome;
             servicoExistente.Descricao = servico.Descricao;
-            servicoExistente.Preco = servico.Preco;
 
             _dbContext.Servicos.Update(servicoExistente);
             await _dbContext.SaveChangesAsync();
@@ -54,9 +53,6 @@ namespace SERVPRO.Repositorios
             await _dbContext.SaveChangesAsync();
             return true;
         }
-        public async Task<Servico> ObterPorId(int id)
-        {
-            return await _dbContext.Servicos.FindAsync(id);
-        }
+
     }
 }

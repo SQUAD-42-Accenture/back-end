@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SERVPRO.Models;
 using SERVPRO.Repositorios;
 using SERVPRO.Repositorios.interfaces;
+using SERVPRO.Repositorios.Interfaces;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -42,17 +43,27 @@ namespace SERVPRO.Controllers
         [HttpPost]
         public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
         {
+
+            // Adiciona a ordem de serviço ao banco de dados
             OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
+
             return Ok(ordemDeServico);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<OrdemDeServico>> Atualizar([FromBody] OrdemDeServico ordemDeServicoModel, int id)
+        [HttpGet("{id}/calcular-valor-total")]
+        public async Task<IActionResult> CalcularValorTotal(int id)
         {
-            ordemDeServicoModel.Id = id;
-            OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Atualizar(ordemDeServicoModel, id);
-            return Ok(ordemDeServico);
+            try
+            {
+                var valorTotal = await _ordemDeServicoRepositorio.CalcularValorTotal(id);
+                return Ok(valorTotal);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
+
 
         //[Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
@@ -97,5 +108,7 @@ namespace SERVPRO.Controllers
 
             return Ok("Ordem de serviço enviada com sucesso para o e-mail do cliente.");
         }
+
+
     }
 }

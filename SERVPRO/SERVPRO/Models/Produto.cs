@@ -6,19 +6,18 @@ namespace SERVPRO.Models
 {
     public class Produto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         [JsonIgnore]
         public int Id { get; set; }
-        public string NomeProduto { get; set; }
-        public string DescricaoProduto { get; set; }
-        public string CategoriaProduto { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public string Categoria{ get; set; }
         public decimal CustoInterno { get; set; }
-        public decimal CustoVendaCliente { get; set; }
-        public decimal? CustoAssociadoServico { get; set; }
-        public int Quantidade { get; set; }
+        public decimal CustoVenda { get; set; }
         public DateTime DataEntrada { get; set; }
+        public int Quantidade { get; set; }
 
+        public List<ServicoProduto>? ServicoProdutos { get; set; }
 
     }
 }
