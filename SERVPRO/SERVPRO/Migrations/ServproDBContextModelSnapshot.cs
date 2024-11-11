@@ -109,7 +109,7 @@ namespace SERVPRO.Migrations
                     b.Property<string>("MetodoPagamento")
                         .HasColumnType("text");
 
-                    b.Property<int?>("ProdutoIdProduto")
+                    b.Property<int?>("ProdutoId")
                         .HasColumnType("integer");
 
                     b.Property<string>("SerialEquipamento")
@@ -135,7 +135,7 @@ namespace SERVPRO.Migrations
 
                     b.HasIndex("ClienteCPF");
 
-                    b.HasIndex("ProdutoIdProduto");
+                    b.HasIndex("ProdutoId");
 
                     b.HasIndex("SerialEquipamento");
 
@@ -146,16 +146,25 @@ namespace SERVPRO.Migrations
 
             modelBuilder.Entity("SERVPRO.Models.Produto", b =>
                 {
-                    b.Property<int>("IdProduto")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("IdProduto"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CategoriaProduto")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
+
+                    b.Property<decimal?>("CustoAssociadoServico")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("CustoInterno")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("CustoVendaCliente")
+                        .HasColumnType("numeric");
 
                     b.Property<DateTime>("DataEntrada")
                         .HasColumnType("timestamp with time zone");
@@ -170,13 +179,10 @@ namespace SERVPRO.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<decimal>("PrecoProduto")
-                        .HasColumnType("numeric");
-
-                    b.Property<int>("QtdProduto")
+                    b.Property<int>("Quantidade")
                         .HasColumnType("integer");
 
-                    b.HasKey("IdProduto");
+                    b.HasKey("Id");
 
                     b.ToTable("Produtos");
                 });
@@ -222,9 +228,11 @@ namespace SERVPRO.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<int>("ProdutoId")
+                        .HasMaxLength(100)
                         .HasColumnType("integer");
 
                     b.Property<int>("ServicoId")
+                        .HasMaxLength(100)
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -306,12 +314,14 @@ namespace SERVPRO.Migrations
                         .HasColumnType("character varying(100)");
 
                     b.Property<string>("Complemento")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("DataNascimento")
                         .IsRequired()
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("FotoPath")
+                        .HasColumnType("text");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
@@ -374,7 +384,7 @@ namespace SERVPRO.Migrations
 
                     b.HasOne("SERVPRO.Models.Produto", "Produto")
                         .WithMany()
-                        .HasForeignKey("ProdutoIdProduto");
+                        .HasForeignKey("ProdutoId");
 
                     b.HasOne("SERVPRO.Models.Equipamento", "Equipamento")
                         .WithMany()

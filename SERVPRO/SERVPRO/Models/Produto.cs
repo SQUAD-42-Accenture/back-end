@@ -9,13 +9,14 @@ namespace SERVPRO.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [JsonIgnore]
-        public int IdProduto { get; set; }
-
+        public int Id { get; set; }
         public string NomeProduto { get; set; }
         public string DescricaoProduto { get; set; }
         public string CategoriaProduto { get; set; }
-        public decimal PrecoProduto { get; set; }
-        public int QtdProduto { get; set; }
+        public decimal CustoInterno { get; set; }
+        public decimal CustoVendaCliente { get; set; }
+        public decimal? CustoAssociadoServico { get; set; }
+        public int Quantidade { get; set; }
         public DateTime DataEntrada { get; set; }
 
 

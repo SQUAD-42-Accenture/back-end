@@ -258,6 +258,27 @@
     ]
   },
   {
+    "ContainingType": "SERVPRO.Controllers.ClienteController",
+    "Method": "UploadFoto",
+    "RelativePath": "api/Cliente/{cpf}/upload-foto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.ContaController",
     "Method": "Login",
     "RelativePath": "api/Conta",
@@ -662,6 +683,22 @@
   },
   {
     "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "EnviarOrdemPorEmail",
+    "RelativePath": "api/OrdemDeServico/{id}/enviar-por-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
     "Method": "GerarPdf",
     "RelativePath": "api/OrdemDeServico/{id}/gerar-pdf",
     "HttpMethod": "GET",
@@ -725,13 +762,13 @@
   {
     "ContainingType": "SERVPRO.Controllers.ProdutoController",
     "Method": "BuscarPorId",
-    "RelativePath": "api/Produto/{IdProduto}",
+    "RelativePath": "api/Produto/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "IdProduto",
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -751,13 +788,13 @@
   {
     "ContainingType": "SERVPRO.Controllers.ProdutoController",
     "Method": "Apagar",
-    "RelativePath": "api/Produto/{IdProduto}",
+    "RelativePath": "api/Produto/{Id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "IdProduto",
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -788,7 +825,7 @@
         "IsRequired": true
       },
       {
-        "Name": "IdProduto",
+        "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": false
       },

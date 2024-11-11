@@ -44,9 +44,9 @@ namespace SERVPRO.Validators
             .Must(valor => valor == null || (valor >= 0 && valor.GetType() == typeof(decimal))) // Permite nulo ou valor >= 0
             .WithMessage("O valor total deve ser um número positivo ou zero.");
 
-            RuleFor(ordemdeservico => ordemdeservico.dataAbertura)
-            .NotNull().WithMessage("A data de atualização é obrigatória.")
-            .LessThanOrEqualTo(DateTime.Now).WithMessage("A data de atualização não pode ser futura.");
+            //RuleFor(ordemdeservico => ordemdeservico.dataAbertura)
+            //.NotNull().WithMessage("A data de atualização é obrigatória.")
+            //.LessThanOrEqualTo(DateTime.Now).WithMessage("A data de atualização não pode ser futura.");
 
 
         }

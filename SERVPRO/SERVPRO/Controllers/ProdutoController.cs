@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SERVPRO.Models;
 using SERVPRO.Repositorios.interfaces;
 using System.Globalization;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace SERVPRO.Controllers
 {
@@ -27,10 +28,10 @@ namespace SERVPRO.Controllers
             return Ok(produtos);
         }
 
-        [HttpGet("{IdProduto}")]
-        public async Task<ActionResult<Produto>> BuscarPorId(int IdProduto)
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<Produto>> BuscarPorId(int Id)
         {
-            Produto produto = await _produtoRepositorio.BuscarPorId(IdProduto);
+            Produto produto = await _produtoRepositorio.BuscarPorId(Id);
 
             return Ok(produto);
         }
@@ -46,20 +47,20 @@ namespace SERVPRO.Controllers
 
         [HttpPut("{serial}")]
 
-        public async Task<ActionResult<Produto>> Atualizar([FromBody] Produto produtoModel, int IdProduto)
+        public async Task<ActionResult<Produto>> Atualizar([FromBody] Produto produtoModel, int Id)
         {
-            produtoModel.IdProduto = IdProduto;
-            Produto produto = await _produtoRepositorio.Atualizar(produtoModel, IdProduto);
+            produtoModel.Id = Id;
+            Produto produto = await _produtoRepositorio.Atualizar(produtoModel, Id);
 
             return Ok(produto);
         }
 
-        [HttpDelete("{IdProduto}")]
+        [HttpDelete("{Id}")]
 
-        public async Task<ActionResult<Produto>> Apagar(int IdProduto)
+        public async Task<ActionResult<Produto>> Apagar(int Id)
         {
 
-            bool apagado = await _produtoRepositorio.Apagar(IdProduto);
+            bool apagado = await _produtoRepositorio.Apagar(Id);
 
             return Ok(apagado);
         }

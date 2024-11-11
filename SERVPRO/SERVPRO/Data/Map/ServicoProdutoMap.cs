@@ -8,8 +8,11 @@ namespace SERVPRO.Data.Map
     {
         public void Configure(EntityTypeBuilder<ServicoProduto> builder)
         {
-            builder.HasKey(sp => sp.Id);
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.ProdutoId).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.ServicoId).IsRequired().HasMaxLength(100);
 
+            
             builder.HasOne(sp => sp.Servico)
                 .WithMany(s => s.ServicoProdutos)
                 .HasForeignKey(sp => sp.ServicoId);
@@ -17,6 +20,7 @@ namespace SERVPRO.Data.Map
             builder.HasOne(sp => sp.Produto)
                 .WithMany()
                 .HasForeignKey(sp => sp.ProdutoId);
+
         }
     }
 }

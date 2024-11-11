@@ -44,7 +44,7 @@ namespace SERVPRO.Repositorios
 
         public async Task<OrdemDeServico> Adicionar(OrdemDeServico ordemDeServico)
         {
-            ordemDeServico.ValorTotal = await CalcularValorTotal(ordemDeServico);
+            //ordemDeServico.ValorTotal = await CalcularValorTotal(ordemDeServico);
             await _dbContext.OrdensDeServico.AddAsync(ordemDeServico);
             await _dbContext.SaveChangesAsync();
 
@@ -62,7 +62,7 @@ namespace SERVPRO.Repositorios
             ordemExistente.Status = ordemDeServico.Status;
             ordemExistente.dataConclusao = ordemDeServico.dataConclusao;
 
-            ordemExistente.ValorTotal = await CalcularValorTotal(ordemExistente);
+            //ordemExistente.ValorTotal = await CalcularValorTotal(ordemExistente);
 
             _dbContext.OrdensDeServico.Update(ordemExistente);
             await _dbContext.SaveChangesAsync();
@@ -92,7 +92,7 @@ namespace SERVPRO.Repositorios
                 var produto = await _produtoRepositorio.ObterPorId(servicoProduto.ProdutoId);
                 if (produto != null)
                 {
-                    total += produto.PrecoProduto + servicoProduto.PrecoAdicional;
+                    total += produto.CustoInterno + servicoProduto.PrecoAdicional;
                 }
 
                 var servico = await _servicoRepositorio.ObterPorId(servicoProduto.ServicoId);

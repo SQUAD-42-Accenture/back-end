@@ -14,7 +14,10 @@ namespace SERVPRO.Models
         [JsonPropertyOrder(10)]
         public string CEP { get; set; }
         [JsonPropertyOrder(11)]
-        public string Complemento { get; set; }
+        public string? Complemento { get; set; }
+
+        [JsonPropertyOrder(12)]
+        public string? FotoPath { get; set; } // Caminho para a foto
 
         [JsonIgnore]
         public List<Equipamento>? Equipamentos { get; set; }
