@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SERVPRO.Data;
@@ -11,9 +12,11 @@ using SERVPRO.Data;
 namespace SERVPRO.Migrations
 {
     [DbContext(typeof(ServproDBContext))]
-    partial class ServproDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241110233722_fotoperfilvyte")]
+    partial class fotoperfilvyte
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -320,8 +323,8 @@ namespace SERVPRO.Migrations
                         .IsRequired()
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("FotoPath")
-                        .HasColumnType("text");
+                    b.Property<byte[]>("Foto")
+                        .HasColumnType("bytea");
 
                     b.Property<string>("Telefone")
                         .IsRequired()

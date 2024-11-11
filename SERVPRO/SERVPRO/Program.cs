@@ -10,6 +10,7 @@ using SERVPRO.Repositorios.interfaces;
 using System.Text;
 using System.Text.Json.Serialization;
 using SERVPRO.Models;
+using Microsoft.Extensions.FileProviders;
 
 string chaveSecreta = "3c728fbf-7290-4087-b180-7fead6e5bbe6";
 var builder = WebApplication.CreateBuilder(args);
@@ -164,6 +165,13 @@ app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
 app.UseAuthentication();
 app.UseAuthorization();
+
+var pastaFotos = Path.Combine(Directory.GetCurrentDirectory(), "FotosClientes");
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(pastaFotos),
+    RequestPath = "/Fotos" // O caminho público para acessar as fotos será /Fotos/{nome_do_arquivo}
+});
 
 app.MapControllers();
 

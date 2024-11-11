@@ -28,9 +28,8 @@ namespace SERVPRO.Controllers
             return Ok(clientes);
         }
 
-        [Authorize(Policy = "ClientePolicy")]
+        [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{cpf}")]
-
         public async Task<ActionResult<Cliente>> BuscarPorCPF(string cpf)
         {
             var usuarioLogadoCpf = User.Claims.FirstOrDefault(c => c.Type == "cpf")?.Value;
@@ -43,11 +42,19 @@ namespace SERVPRO.Controllers
                 {
                     return NotFound($"Cliente com CPF {cpf} não encontrado.");
                 }
+
+                // Construa a URL pública para a foto
+                if (!string.IsNullOrEmpty(cliente.FotoPath))
+                {
+                    var urlFoto = $"{Request.Scheme}://{Request.Host}/Fotos/{Path.GetFileName(cliente.FotoPath)}";
+                    cliente.FotoPath = urlFoto; // Atualize o campo FotoPath com a URL pública
+                }
+
                 return Ok(cliente);
             }
             return Forbid();
-
         }
+
 
         [Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
@@ -84,6 +91,53 @@ namespace SERVPRO.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [Authorize(Policy = "AdministradorPolicy")]
+        [HttpPost("{cpf}/upload-foto")]
+        public async Task<IActionResult> UploadFoto(string cpf, IFormFile foto)
+        {
+            // Verifique se a foto foi recebida
+            if (foto == null || foto.Length == 0)
+            {
+                return BadRequest("Nenhuma foto foi fornecida.");
+            }
+
+            // Local onde as fotos serão armazenadas
+            var pastaDestino = Path.Combine(Directory.GetCurrentDirectory(), "FotosClientes");
+
+            // Crie o diretório se não existir
+            if (!Directory.Exists(pastaDestino))
+            {
+                Directory.CreateDirectory(pastaDestino);
+            }
+
+            // Gere um nome único para o arquivo da foto (por exemplo, baseado no CPF)
+            var nomeArquivo = $"{cpf}_{Path.GetFileName(foto.FileName)}";
+            var caminhoArquivo = Path.Combine(pastaDestino, nomeArquivo);
+
+            // Salve o arquivo no diretório
+            using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
+            {
+                await foto.CopyToAsync(stream);
+            }
+
+            // Obtenha o cliente e atualize o campo FotoPath
+            var cliente = await _clienteRepositorio.BuscarPorCPF(cpf);
+            if (cliente == null)
+            {
+                return NotFound($"Cliente com CPF {cpf} não encontrado.");
+            }
+
+            // Armazenar apenas o caminho relativo no banco de dados
+            cliente.FotoPath = $"FotosClientes/{nomeArquivo}";
+            await _clienteRepositorio.Atualizar(cliente, cpf);
+
+            // Retorna a URL pública da foto
+            var urlFoto = $"{Request.Scheme}://{Request.Host}/Fotos/{nomeArquivo}";
+
+            return Ok(new { FotoUrl = urlFoto });
+        }
+
 
         [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{cpf}")]

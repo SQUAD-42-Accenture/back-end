@@ -258,6 +258,27 @@
     ]
   },
   {
+    "ContainingType": "SERVPRO.Controllers.ClienteController",
+    "Method": "UploadFoto",
+    "RelativePath": "api/Cliente/{cpf}/upload-foto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.ContaController",
     "Method": "Login",
     "RelativePath": "api/Conta",

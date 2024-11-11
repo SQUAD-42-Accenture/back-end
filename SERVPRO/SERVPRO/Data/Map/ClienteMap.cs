@@ -17,6 +17,10 @@ namespace SERVPRO.Data.Map
             builder.Property(x => x.Bairro).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Cidade).IsRequired().HasMaxLength(100);
             builder.Property(x => x.DataNascimento).IsRequired();
+            builder.Property(x => x.Complemento).IsRequired(false);
+            builder.Property(x => x.FotoPath).IsRequired(false);
+
+
             //builder.Property(x => x.Email).IsRequired().HasMaxLength(255);
             //uilder.Property(x => x.Senha).IsRequired().HasMaxLength(255);
             //builder.Property(x => x.TipoUsuario).IsRequired();

@@ -11,7 +11,7 @@ public class EmailServiceRepositorio
 
     public EmailServiceRepositorio(IConfiguration configuration)
     {
-        _apiKey = "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";
+        _apiKey = "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";
         _senderEmail = "vinicius.jdsilva98@gmail.com";
         _senderName = "Servpro";
     }
