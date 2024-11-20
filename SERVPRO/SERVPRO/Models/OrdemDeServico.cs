@@ -1,11 +1,14 @@
 ﻿using SERVPRO.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace SERVPRO.Models
 {
     public class OrdemDeServico
     {
-        [JsonIgnore]
+        [Key]  // Chave primária
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // Geração automática de ID pelo banco
         public int Id { get; set; }
         public DateTime dataAbertura { get; set; }
         public DateTime? dataConclusao { get; set; }
