@@ -7,9 +7,9 @@ COPY SERVPRO/SERVPRO/ ./SERVPRO/
 
 RUN dotnet restore SERVPRO.sln
 
-RUN dotnet build SERVPRO.sln -c Release --no-restore
+RUN dotnet build SERVPRO.sln -c Release --no-restore -nowarn:CS8618,CS8981
 
-RUN dotnet publish SERVPRO.sln -c Release -o /app/publish --no-build
+RUN dotnet publish SERVPRO.sln -c Release -o /app/publish --no-build -nowarn:CS8618,CS8981
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 
