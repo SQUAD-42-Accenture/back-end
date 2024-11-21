@@ -1,12 +1,13 @@
-# Etapa de build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 COPY SERVPRO/SERVPRO.sln ./SERVPRO.sln
 COPY SERVPRO/SERVPRO/ ./SERVPRO/
 
+# Restaurar as dependências do NuGet
 RUN dotnet restore SERVPRO/SERVPRO.csproj
 
+# Limpar, compilar e publicar o projeto
 RUN dotnet clean SERVPRO/SERVPRO.csproj -c Release
 RUN dotnet build SERVPRO/SERVPRO.csproj -c Release
 RUN dotnet publish SERVPRO/SERVPRO.csproj -c Release -o /app/publish --no-restore
