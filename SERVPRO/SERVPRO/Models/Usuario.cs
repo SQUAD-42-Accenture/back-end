@@ -5,16 +5,16 @@ namespace SERVPRO.Models
     public class Usuario
     {
         [JsonPropertyOrder(1)]
-        public string CPF { get; set; }
+        public required string CPF { get; set; }
         [JsonPropertyOrder(2)]
-        public string Nome { get; set; }
+        public required string Nome { get; set; }
         [JsonPropertyOrder(3)]
-        public string? Email { get; set; }
+        public required string? Email { get; set; }
         [JsonPropertyOrder(4)]
-        public string Senha { get; set; }
-        private string _tipoUsuario;
+        public required string Senha { get; set; }
+        private required string _tipoUsuario;
         [JsonPropertyOrder(5)]
-        public string TipoUsuario
+        public required string TipoUsuario
         {
             get => _tipoUsuario;
             set => _tipoUsuario = value;
