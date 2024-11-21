@@ -2,10 +2,10 @@ services:
   - type: web
     name: ServPro
     env: docker
-    region: frankfurt # Default: oregon
+    region: frankfurt  
     plan: free
     branch: main
-    dockerfilePath: Dockerfile 
+    dockerfilePath: Dockerfile  
     envVars:
       - key: PORT
-        value: 5000
+        value: 5000  

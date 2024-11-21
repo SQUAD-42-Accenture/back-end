@@ -1,30 +1,25 @@
+# Use a imagem base do .NET
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 5000  # Garante que a porta 5000 seja exposta para o contêiner
+
+# Instala o SDK do .NET para build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["SERVPRO/SERVPRO.csproj", "SERVPRO/"]
+RUN dotnet restore "SERVPRO/SERVPRO.csproj"
+COPY . .
+WORKDIR "/src/SERVPRO"
+RUN dotnet build "SERVPRO.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "SERVPRO.csproj" -c Release -o /app/publish
+
+# Usar a imagem do runtime para rodar a aplicação
+FROM base AS final
 WORKDIR /app
-
-# Copiar o arquivo da solução e os projetos
-COPY SERVPRO/SERVPRO.sln ./SERVPRO.sln
-COPY SERVPRO/SERVPRO/ ./SERVPRO/
-
-# Restaurar as dependências do NuGet
-RUN dotnet restore SERVPRO/SERVPRO.csproj
-
-# Limpar, compilar e publicar o projeto
-RUN dotnet clean SERVPRO/SERVPRO.csproj -c Release
-RUN dotnet build SERVPRO/SERVPRO.csproj -c Release
-RUN dotnet publish SERVPRO/SERVPRO.csproj -c Release -o /app/publish --no-restore
-
-# Imagem final para execução do aplicativo
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
-WORKDIR /app
-
-# Copiar os arquivos publicados do estágio anterior
-COPY --from=build /app/publish .
-
-# Criar diretório para fotos de clientes
-RUN mkdir -p /app/FotosClientes
-
-# Expor a porta do contêiner
-EXPOSE 80
-
-# Definir o ponto de entrada do contêiner
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "SERVPRO.dll"]
+
+# Definir o ambiente de execução
+ENV ASPNETCORE_URLS=http://0.0.0.0:5000  # Defina explicitamente para ouvir na porta 5000
