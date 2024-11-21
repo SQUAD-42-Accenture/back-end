@@ -16,16 +16,19 @@ using SERVPRO.Repositorios.Interfaces;
 string chaveSecreta = "3c728fbf-7290-4087-b180-7fead6e5bbe6";
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuração do controller e JsonOptions
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
     });
+
+// Configuração de validação fluente
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
-
+// Configuração de autorização
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ClientePolicy", policy =>
@@ -42,6 +45,7 @@ builder.Services.AddAuthorization(options =>
        policy.RequireClaim("tipoUsuario", "Administrador"));
 });
 
+// Configuração do CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
@@ -50,20 +54,13 @@ builder.Services.AddCors(options =>
                         .AllowAnyHeader());
 });
 
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-        
-    });
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Servpro - API", Version = "v1" });
     var securitySchema = new OpenApiSecurityScheme
     {
-        Name = "JWT Autentica��o",
+        Name = "JWT Autenticação",
         Description = "Entre com o JWT Bear token",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
@@ -86,8 +83,9 @@ builder.Services.AddDbContext<ServproDBContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("conexaopadrao"))
 );
 
+// Configuração dos repositórios
 builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
-builder.Services.AddScoped< IAdministradorRepositorio, AdministradorRepositorio>();
+builder.Services.AddScoped<IAdministradorRepositorio, AdministradorRepositorio>();
 builder.Services.AddScoped<ITecnicoRepositorio, TecnicoRepositorio>();
 builder.Services.AddScoped<IEquipamentoRepositorio, EquipamentoRepositorio>();
 builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemDeServicoRepositorio>();
@@ -98,7 +96,6 @@ builder.Services.AddScoped<IServicoRepositorio, ServicoRepositorio>();
 builder.Services.AddScoped<IServicoProdutoRepositorio, ServicoProdutoRepositorio>();
 builder.Services.AddScoped<PdfServiceRepositorio>();
 builder.Services.AddScoped<EmailServiceRepositorio>();
-
 
 builder.Services.AddAuthentication(options =>
 {
@@ -120,11 +117,13 @@ builder.Services.AddAuthentication(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+// Configuração do Swagger para todos os ambientes
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Servpro API V1");
+    c.RoutePrefix = string.Empty; // Coloca o Swagger na raiz (opcional)
+});
 
 app.Use(async (context, next) =>
 {
@@ -134,34 +133,31 @@ app.Use(async (context, next) =>
     {
         context.Response.ContentType = "application/json";
 
-        if (context.User?.Claims != null) // Verifica se context.User e Claims n�o s�o nulos
+        if (context.User?.Claims != null) 
         {
             var userClaims = context.User.Claims;
             var tipoUsuario = userClaims.FirstOrDefault(c => c.Type == "tipoUsuario")?.Value;
 
             var mensagem = tipoUsuario switch
             {
-                "Tecnico" => "Acesso negado. t�cnicos n�o podem acessar.",
-                "Cliente" => "Acesso negado. clientes n�o podem acessar.",
-                //_ => "Acesso negado. Esta �rea � restrita a administradores.", // Descomente se necess�rio
-                _ => "Acesso negado. Permiss�o insuficiente."
+                "Tecnico" => "Acesso negado. Técnicos não podem acessar.",
+                "Cliente" => "Acesso negado. Clientes não podem acessar.",
+                _ => "Acesso negado. Permissão insuficiente."
             };
 
             await context.Response.WriteAsync($"{{\"mensagem\": \"{mensagem}\"}}");
         }
         else
         {
-            // Mensagem padr�o se n�o houver usu�rio autenticado
-            await context.Response.WriteAsync("{\"mensagem\": \"Acesso negado. Usu�rio n�o autenticado.\"}");
+            await context.Response.WriteAsync("{\"mensagem\": \"Acesso negado. Usuário não autenticado.\"}");
         }
     }
     else if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
     {
         context.Response.ContentType = "application/json";
-        await context.Response.WriteAsync("{\"mensagem\": \"N�o autorizado. Por favor, fa�a login para acessar esta �rea.\"}");
+        await context.Response.WriteAsync("{\"mensagem\": \"Não autorizado. Por favor, faça login para acessar esta área.\"}");
     }
 });
-
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
@@ -172,9 +168,10 @@ var pastaFotos = Path.Combine(Directory.GetCurrentDirectory(), "FotosClientes");
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(pastaFotos),
-    RequestPath = "/Fotos" // O caminho p�blico para acessar as fotos ser� /Fotos/{nome_do_arquivo}
+    RequestPath = "/Fotos" // O caminho público para acessar as fotos será /Fotos/{nome_do_arquivo}
 });
 
 app.MapControllers();
 
-app.Run();
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000"; 
+app.Run($"http://0.0.0.0:{port}");
