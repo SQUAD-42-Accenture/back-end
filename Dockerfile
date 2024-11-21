@@ -13,7 +13,7 @@ RUN dotnet publish SERVPRO.sln -c Release -o /app/publish --no-build -nowarn:CS8
 
 RUN mkdir -p /app/FotosClientes
 
-COPY SERVPRO/SERVPRO/FotosClientes /app/FotosClientes
+COPY SERVPRO/SERVPRO/FotosClientes/ /app/FotosClientes/
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 
