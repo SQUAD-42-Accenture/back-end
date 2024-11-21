@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: NomeDoSeuServico
+    name: ServPro
     env: docker
     region: frankfurt # Default: oregon
     plan: free
