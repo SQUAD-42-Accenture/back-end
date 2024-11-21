@@ -7,17 +7,16 @@ COPY SERVPRO/SERVPRO/ ./SERVPRO/
 
 RUN dotnet restore SERVPRO.sln
 
-RUN dotnet build SERVPRO.sln -c Release --no-restore -nowarn:CS8618,CS8981
+# Publicação do projeto individualmente para evitar o aviso sobre --output
+RUN dotnet publish SERVPRO/SERVPRO.csproj -c Release -o /app/publish --no-build -nowarn:CS8618,CS8981
 
-RUN dotnet publish SERVPRO.sln -c Release -o /app/publish --no-build -nowarn:CS8618,CS8981
-
-# Criar o diretório para FotosClientes
+# Criação do diretório FotosClientes
 RUN mkdir -p /app/FotosClientes
 
-# Copiar a pasta FotosClientes e seu conteúdo
+# Copiar os arquivos da pasta FotosClientes
 COPY SERVPRO/SERVPRO/FotosClientes/ /app/FotosClientes/
 
-# Listar os arquivos no diretório para depuração
+# Verificação para garantir que os arquivos foram copiados corretamente
 RUN ls -l /app/FotosClientes
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
@@ -26,9 +25,10 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-# Verifique se a pasta FotosClientes foi copiada corretamente e aplique permissões
+# Verificação para garantir que os arquivos foram copiados corretamente
 RUN ls -l /app/FotosClientes
 
+# Aplicando permissões corretamente
 RUN chmod -R 755 /app/FotosClientes
 
 ENTRYPOINT ["dotnet", "SERVPRO.dll"]
