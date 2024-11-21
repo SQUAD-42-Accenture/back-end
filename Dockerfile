@@ -17,16 +17,18 @@ RUN mkdir -p /app/FotosClientes
 # Copiar a pasta FotosClientes e seu conteúdo
 COPY SERVPRO/SERVPRO/FotosClientes/ /app/FotosClientes/
 
+# Listar os arquivos no diretório para depuração
+RUN ls -l /app/FotosClientes
+
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 
 WORKDIR /app
 
 COPY --from=build /app/publish .
 
-# Adicionar comando para depuração: Listar arquivos no diretório /app
-RUN ls -l /app
-
 # Verifique se a pasta FotosClientes foi copiada corretamente e aplique permissões
+RUN ls -l /app/FotosClientes
+
 RUN chmod -R 755 /app/FotosClientes
 
 ENTRYPOINT ["dotnet", "SERVPRO.dll"]
