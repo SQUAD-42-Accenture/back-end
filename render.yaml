@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: NomeDoSeuServico
+    env: docker
+    region: frankfurt # Default: oregon
+    plan: free
+    branch: main
+    dockerfilePath: Dockerfile 
+    envVars:
+      - key: PORT
+        value: 5000
+    buildCommand: cd Servpro && dotnet publish -c Release -o ./out
+    startCommand: cd Servpro/out && dotnet Servpro.dll
