@@ -3,6 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
 COPY SERVPRO/SERVPRO.sln ./
+
 COPY SERVPRO/ ./Servpro/
 
 RUN dotnet restore
@@ -13,7 +14,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 
 WORKDIR /app
 
-COPY --from=build /app/publish .
+COPY --from=build /app/publish ./
 
 EXPOSE 80
 EXPOSE 443
