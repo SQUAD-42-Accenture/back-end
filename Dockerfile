@@ -1,12 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
-WORKDIR /src
+WORKDIR /app
 
-COPY src/Servpro.sln ./
-
-COPY src/Servpro/ ./Servpro/
-
-WORKDIR /src/Servpro
+COPY SERVPRO.sln ./
+COPY SERVPRO/ ./Servpro/
 
 RUN dotnet restore
 RUN dotnet build -c Release -o /app/build
