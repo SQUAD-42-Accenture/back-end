@@ -25,7 +25,6 @@ builder.Services.AddControllers()
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
-
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ClientePolicy", policy =>
@@ -45,17 +44,10 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
-        policy => policy.WithOrigins("http://localhost:5173") // URL do front-end React
+        policy => policy.WithOrigins("http://localhost:5173", "https://servpro.vercel.app")
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
-
-builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-        
-    });
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -63,7 +55,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Servpro - API", Version = "v1" });
     var securitySchema = new OpenApiSecurityScheme
     {
-        Name = "JWT AutenticaÁ„o",
+        Name = "JWT Autentica√ß√£o",
         Description = "Entre com o JWT Bear token",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
@@ -87,7 +79,7 @@ builder.Services.AddDbContext<ServproDBContext>(options =>
 );
 
 builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
-builder.Services.AddScoped< IAdministradorRepositorio, AdministradorRepositorio>();
+builder.Services.AddScoped<IAdministradorRepositorio, AdministradorRepositorio>();
 builder.Services.AddScoped<ITecnicoRepositorio, TecnicoRepositorio>();
 builder.Services.AddScoped<IEquipamentoRepositorio, EquipamentoRepositorio>();
 builder.Services.AddScoped<IOrdemDeServicoRepositorio, OrdemDeServicoRepositorio>();
@@ -98,7 +90,6 @@ builder.Services.AddScoped<IServicoRepositorio, ServicoRepositorio>();
 builder.Services.AddScoped<IServicoProdutoRepositorio, ServicoProdutoRepositorio>();
 builder.Services.AddScoped<PdfServiceRepositorio>();
 builder.Services.AddScoped<EmailServiceRepositorio>();
-
 
 builder.Services.AddAuthentication(options =>
 {
@@ -118,6 +109,10 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/path/to/persistent/directory"))
+    .SetApplicationName("ServPro");
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -134,34 +129,34 @@ app.Use(async (context, next) =>
     {
         context.Response.ContentType = "application/json";
 
-        if (context.User?.Claims != null) // Verifica se context.User e Claims n„o s„o nulos
+        if (context.User?.Claims != null)
         {
             var userClaims = context.User.Claims;
             var tipoUsuario = userClaims.FirstOrDefault(c => c.Type == "tipoUsuario")?.Value;
 
             var mensagem = tipoUsuario switch
             {
-                "Tecnico" => "Acesso negado. tÈcnicos n„o podem acessar.",
-                "Cliente" => "Acesso negado. clientes n„o podem acessar.",
-                //_ => "Acesso negado. Esta ·rea È restrita a administradores.", // Descomente se necess·rio
-                _ => "Acesso negado. Permiss„o insuficiente."
+                "Tecnico" => "Acesso negado. T√©cnicos n√£o podem acessar.",
+                "Cliente" => "Acesso negado. Clientes n√£o podem acessar.",
+                _ => "Acesso negado. Permiss√£o insuficiente."
             };
 
             await context.Response.WriteAsync($"{{\"mensagem\": \"{mensagem}\"}}");
         }
         else
         {
-            // Mensagem padr„o se n„o houver usu·rio autenticado
-            await context.Response.WriteAsync("{\"mensagem\": \"Acesso negado. Usu·rio n„o autenticado.\"}");
+            await context.Response.WriteAsync("{\"mensagem\": \"Acesso negado. Usu√°rio n√£o autenticado.\"}");
         }
     }
     else if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
     {
         context.Response.ContentType = "application/json";
-        await context.Response.WriteAsync("{\"mensagem\": \"N„o autorizado. Por favor, faÁa login para acessar esta ·rea.\"}");
+        await context.Response.WriteAsync("{\"mensagem\": \"N√£o autorizado. Por favor, fa√ßa login para acessar esta √°rea.\"}");
     }
 });
-
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/app/DataProtection-Keys"))
+    .SetApplicationName("ServPro");
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
@@ -172,9 +167,10 @@ var pastaFotos = Path.Combine(Directory.GetCurrentDirectory(), "FotosClientes");
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(pastaFotos),
-    RequestPath = "/Fotos" // O caminho p˙blico para acessar as fotos ser· /Fotos/{nome_do_arquivo}
+    RequestPath = "/Fotos"
 });
 
 app.MapControllers();
 
-app.Run();
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Run($"http://0.0.0.0:{port}");
