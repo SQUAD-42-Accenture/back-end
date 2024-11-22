@@ -49,7 +49,7 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
-        policy => policy.WithOrigins("http://localhost:5173", "https://servpro.vercel.app") // URL do front-end React
+        policy => policy.WithOrigins("http://localhost:5173", "https://servpro.vercel.app", "https://front-end-c3nt.onrender.com") // URL do front-end React
                         .AllowAnyMethod()
                         .AllowAnyHeader());
 });
