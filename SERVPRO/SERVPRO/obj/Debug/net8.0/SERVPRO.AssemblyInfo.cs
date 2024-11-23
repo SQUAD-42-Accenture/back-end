@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SERVPRO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4574d1450b6e7dbb39a4e5d37ffd4723ecf12bd2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b57ed0c08f12c74da3e089ea8247f3df08906a78")]
 [assembly: System.Reflection.AssemblyProductAttribute("SERVPRO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SERVPRO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

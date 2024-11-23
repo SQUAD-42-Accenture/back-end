@@ -19,7 +19,13 @@ namespace SERVPRO.Repositorios
             _dbContext = servproDBContext;
         }
 
-        // Buscar Ordem de Serviço por ID
+        public async Task<List<OrdemDeServico>> BuscarOrdensPorCpfTecnico(string cpf)
+        {
+            return await _dbContext.OrdensDeServico
+                                 .Where(os => os.Tecnico.CPF == cpf) 
+                                 .ToListAsync();
+        }
+
         public async Task<OrdemDeServico> BuscarPorId(int id)
         {
             return await _dbContext.OrdensDeServico
@@ -27,11 +33,10 @@ namespace SERVPRO.Repositorios
                 .Include(e => e.Equipamento)
                 .Include(t => t.Tecnico)
                 .Include(t => t.Historicos)
-                .Include(t => t.ServicoProdutos)  // Incluir os produtos do serviço
+                .Include(t => t.ServicoProdutos)  
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        // Buscar Todas as Ordens de Serviço
         public async Task<List<OrdemDeServico>> BuscarTodasOS()
         {
             return await _dbContext.OrdensDeServico
@@ -42,28 +47,19 @@ namespace SERVPRO.Repositorios
                 .Include(t => t.ServicoProdutos)
                 .ToListAsync();
         }
-
-        // Método Adicionar no repositório OrdemDeServicoRepositorio
         public async Task<OrdemDeServico> Adicionar(OrdemDeServico ordemDeServico)
         {
-            // Calcular o valor total com base nos serviços e produtos
 
-            // Verificando se o ValorTotal foi calculado corretamente
             if (ordemDeServico.ValorTotal == 0)
             {
                 Console.WriteLine("Atenção: ValorTotal calculado é 0!");
             }
 
-            // Adiciona a ordem de serviço ao banco de dados
             await _dbContext.OrdensDeServico.AddAsync(ordemDeServico);
             await _dbContext.SaveChangesAsync();
 
             return ordemDeServico;
         }
-
-
-
-        // Atualizar uma Ordem de Serviço Existente
         public async Task<OrdemDeServico> Atualizar(OrdemDeServico ordemDeServico, int id)
         {
             OrdemDeServico ordemExistente = await BuscarPorId(id);
@@ -81,7 +77,6 @@ namespace SERVPRO.Repositorios
             return ordemExistente;
         }
 
-        // Apagar uma Ordem de Serviço
         public async Task<bool> Apagar(int id)
         {
             OrdemDeServico ordemExistente = await BuscarPorId(id);
@@ -98,9 +93,9 @@ namespace SERVPRO.Repositorios
         public async Task<decimal> CalcularValorTotal(int id)
         {
             var ordemDeServico = await _dbContext.OrdensDeServico
-                .Include(x => x.ServicoProdutos)  // Incluindo os ServicoProdutos
-                .ThenInclude(sp => sp.Produto)    // Incluindo o Produto
-                .ThenInclude(p => p.ServicoProdutos) // Incluindo a relação de produtos com serviços
+                .Include(x => x.ServicoProdutos) 
+                .ThenInclude(sp => sp.Produto)   
+                .ThenInclude(p => p.ServicoProdutos) 
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (ordemDeServico == null)
@@ -110,7 +105,6 @@ namespace SERVPRO.Repositorios
 
             decimal valorTotal = 0;
 
-            // Calculando o valor total baseado nos produtos relacionados à ordem de serviço
             if (ordemDeServico.ServicoProdutos != null)
             {
                 foreach (var servicoProduto in ordemDeServico.ServicoProdutos)
@@ -125,15 +119,12 @@ namespace SERVPRO.Repositorios
             {
                 if (produto.Produto != null)
                 {
-                    // Produto: considerando a quantidade e o preço de venda
                     valorTotal += produto.Produto.CustoVenda * produto.Produto.Quantidade;
                 }
             }
 
-            // Atualizando o campo ValorTotal da OS
             ordemDeServico.ValorTotal = valorTotal;
 
-            // Atualizando no banco de dados
             _dbContext.OrdensDeServico.Update(ordemDeServico);
             await _dbContext.SaveChangesAsync();
 

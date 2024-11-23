@@ -1272,6 +1272,32 @@
     ]
   },
   {
+    "ContainingType": "SERVPRO.Controllers.TecnicoController",
+    "Method": "BuscarOrdensPorCpfTecnico",
+    "RelativePath": "api/Tecnico/ordens/{cpf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SERVPRO.Models.OrdemDeServico, SERVPRO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.UsuariosController",
     "Method": "BuscarTodosUsuarios",
     "RelativePath": "api/Usuarios",
@@ -1319,8 +1345,8 @@
   },
   {
     "ContainingType": "SERVPRO.Controllers.UsuariosController",
-    "Method": "BuscarPorCpf",
-    "RelativePath": "api/Usuarios/cpf/{cpf}",
+    "Method": "BuscarTipoUsuarioPorCpf",
+    "RelativePath": "api/Usuarios/tipoUsuario/cpf/{cpf}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1333,7 +1359,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SERVPRO.Models.Usuario",
+        "Type": "System.String",
         "MediaTypes": [
           "text/plain",
           "application/json",

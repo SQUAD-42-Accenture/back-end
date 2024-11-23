@@ -10,6 +10,7 @@ namespace SERVPRO.Repositorios.Interfaces
         Task<OrdemDeServico> BuscarPorId(int id);
         Task<OrdemDeServico> Adicionar(OrdemDeServico ordemDeServico);
         Task<OrdemDeServico> Atualizar(OrdemDeServico ordemDeServico, int id);
+        Task<List<OrdemDeServico>> BuscarOrdensPorCpfTecnico(string cpf);
         Task<bool> Apagar(int id);
 
         Task<decimal> CalcularValorTotal(int ordemDeServicoId);

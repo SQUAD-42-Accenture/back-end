@@ -14,7 +14,6 @@ using SERVPRO.Repositorios.interfaces;
         {
             _dbContext = servproDBContext;
         }
-        // Método para buscar usuário por CPF
         public async Task<Usuario> BuscarPorCpf(string cpf)
         {
             return await _dbContext.Usuarios
@@ -23,8 +22,8 @@ using SERVPRO.Repositorios.interfaces;
         public async Task<List<Usuario>> BuscarPorTipoUsuario(string TipoUsuario)
         {
             return await _dbContext.Usuarios
-                .Where(u => u.TipoUsuario == TipoUsuario) // Aplica o filtro pelo TipoUsuario
-                .ToListAsync(); // Converte o resultado em uma lista
+                .Where(u => u.TipoUsuario == TipoUsuario) 
+                .ToListAsync(); 
         }
         public async Task<List<Usuario>> BuscarTodosUsuarios()
         {
