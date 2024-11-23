@@ -29,26 +29,23 @@ namespace SERVPRO.Repositorios
         }
         public async Task<HistoricoOS> Adicionar(HistoricoOS historicoOS)
         {
-           await _dbContext.HistoricosOS.AddAsync(historicoOS);
-           await _dbContext.SaveChangesAsync();
-
+            _dbContext.HistoricosOS.Add(historicoOS);
+            await _dbContext.SaveChangesAsync();
             return historicoOS;
         }
         public async Task<HistoricoOS> Atualizar(HistoricoOS historicoOS, int id)
         {
-            HistoricoOS historicoPorId = await BuscarPorId(id);
-
-            if (historicoPorId == null) 
+            var existingHistorico = await _dbContext.HistoricosOS.FindAsync(id);
+            if (existingHistorico != null)
             {
-                throw new Exception($"Ordem do Id: {id} não foi encontrado");
+                existingHistorico.DataAtualizacao = historicoOS.DataAtualizacao;
+                existingHistorico.Comentario = historicoOS.Comentario;
+                existingHistorico.TecnicoCPF = historicoOS.TecnicoCPF;
+
+                await _dbContext.SaveChangesAsync();
+                return existingHistorico;
             }
-
-            historicoPorId.Comentario = historicoOS.Comentario;
-
-            _dbContext.HistoricosOS.Update(historicoPorId);
-            await _dbContext.SaveChangesAsync();
-
-            return historicoPorId;
+            return null;
         }
 
         public async Task<bool> Apagar(int id)
