@@ -27,6 +27,47 @@ namespace SERVPRO.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] Login login)
         {
+            // Buscar o usuário de acordo com o CPF na tabela de usuários
+            var usuario = _dbContext.Usuarios.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
+
+            // Se não encontrar, procurar em outras tabelas (Clientes, Tecnicos, Administradores)
+            if (usuario == null)
+            {
+                var cliente = _dbContext.Clientes.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
+                var tecnico = _dbContext.Tecnicos.SingleOrDefault(t => t.CPF == login.login && t.Senha == login.senha);
+                var administrador = _dbContext.Administradores.SingleOrDefault(a => a.CPF == login.login && a.Senha == login.senha);
+
+                // Atribuir o primeiro usuário encontrado (Cliente, Tecnico ou Administrador)
+                if (cliente != null)
+                {
+                    usuario = cliente;
+                }
+                else if (tecnico != null)
+                {
+                    usuario = tecnico;
+                }
+                else if (administrador != null)
+                {
+                    usuario = administrador;
+                }
+            }
+
+            // Se não encontrar o usuário, retornar erro
+            if (usuario == null)
+            {
+                return BadRequest(new { mensagem = "Credenciais inválidas." });
+            }
+
+            // Gerar o token JWT
+            var token = GerarTokenJWT(usuario);
+
+            return Ok(new { token });
+        }
+
+        /*
+        [HttpPost]
+        public IActionResult Login([FromBody] Login login)
+        {
             var padrao = _dbContext.Usuarios.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
             var cliente = _dbContext.Clientes.SingleOrDefault(c => c.CPF == login.login && c.Senha == login.senha);
             var tecnico = _dbContext.Tecnicos.SingleOrDefault(t => t.CPF == login.login && t.Senha == login.senha);
@@ -42,7 +83,7 @@ namespace SERVPRO.Controllers
             }
 
             return BadRequest(new { mensagem = "Credenciais inválidades." });
-        }
+        }*/
 
         private string GerarTokenJWT(Usuario usuario)
         {
