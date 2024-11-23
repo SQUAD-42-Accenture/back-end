@@ -64,7 +64,6 @@ namespace SERVPRO.Controllers
             }
         }
 
-
         //[Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> Apagar(int id)
@@ -72,8 +71,36 @@ namespace SERVPRO.Controllers
             bool apagado = await _ordemDeServicoRepositorio.Apagar(id);
             return Ok(apagado);
         }
+        [HttpPut("{id}")]
+        public async Task<ActionResult<OrdemDeServico>> AtualizarStatus(int id, [FromBody] OrdemDeServico ordemDeServico)
+        {
+            if (ordemDeServico == null)
+            {
+                return BadRequest("Dados da ordem de serviço não fornecidos.");
+            }
 
-        //[Authorize(Policy = "AdministradorPolicy")]
+            var ordemExistente = await _ordemDeServicoRepositorio.BuscarPorId(id);
+            if (ordemExistente == null)
+            {
+                return NotFound($"Ordem de serviço com ID {id} não encontrada.");
+            }
+
+            var statusPermitidos = new[] { "Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta" };
+            if (!statusPermitidos.Contains(ordemDeServico.Status))
+            {
+                return BadRequest($"Status inválido. Os status permitidos são: {string.Join(", ", statusPermitidos)}.");
+            }
+
+            var ordemAtualizada = await _ordemDeServicoRepositorio.Atualizar(id, ordemDeServico);
+
+            if (ordemAtualizada == null)
+            {
+                return BadRequest("Erro ao atualizar a ordem de serviço.");
+            }
+
+            return Ok(ordemAtualizada);
+        }
+
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
         {

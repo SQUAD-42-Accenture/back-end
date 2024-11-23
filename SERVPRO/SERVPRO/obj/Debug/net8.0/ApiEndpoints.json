@@ -626,37 +626,6 @@
   },
   {
     "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
-    "Method": "Atualizar",
-    "RelativePath": "api/OrdemDeServico/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "ordemDeServicoModel",
-        "Type": "SERVPRO.Models.OrdemDeServico",
-        "IsRequired": true
-      },
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "SERVPRO.Models.OrdemDeServico",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
     "Method": "Apagar",
     "RelativePath": "api/OrdemDeServico/{id}",
     "HttpMethod": "DELETE",
@@ -672,6 +641,37 @@
     "ReturnTypes": [
       {
         "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.OrdemDeServicoController",
+    "Method": "AtualizarStatus",
+    "RelativePath": "api/OrdemDeServico/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ordemDeServico",
+        "Type": "SERVPRO.Models.OrdemDeServico",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.OrdemDeServico",
         "MediaTypes": [
           "text/plain",
           "application/json",
