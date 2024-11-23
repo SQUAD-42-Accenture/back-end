@@ -40,24 +40,16 @@ namespace SERVPRO.Controllers
             return Ok(usuarios);
         }
 
-        [HttpGet("cpf/{cpf}")]
-        public async Task<ActionResult<Usuario>> BuscarPorCpf(string cpf)
+        [HttpGet("tipoUsuario/cpf/{cpf}")]
+        public async Task<ActionResult<string>> BuscarTipoUsuarioPorCpf(string cpf)
         {
-            if (string.IsNullOrEmpty(cpf))
-            {
-                return BadRequest("O CPF não pode ser vazio.");
-            }
-
-            // Limpar o CPF, removendo caracteres não numéricos
             cpf = cpf.Replace(".", "").Replace("-", "");
 
-            // Verificar se o CPF tem o formato correto
             if (cpf.Length != 11 || !cpf.All(char.IsDigit))
             {
                 return BadRequest("O CPF informado é inválido.");
             }
 
-            // Buscar o usuário pelo CPF
             Usuario usuario = await _usuarioRepositorio.BuscarPorCpf(cpf);
 
             if (usuario == null)
@@ -65,8 +57,9 @@ namespace SERVPRO.Controllers
                 return NotFound($"Nenhum usuário encontrado com o CPF: {cpf}");
             }
 
-            return Ok(usuario);
+            return Ok(new { usuario.TipoUsuario });
         }
+
 
     }
 }

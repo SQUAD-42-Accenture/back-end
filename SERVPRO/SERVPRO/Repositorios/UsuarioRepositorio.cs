@@ -8,9 +8,17 @@ using SERVPRO.Repositorios.interfaces;
     public class UsuarioRepositorio: IUsuarioRepositorio
     {
         private readonly ServproDBContext _dbContext;
+        private object _dbcontext;
+
         public UsuarioRepositorio(ServproDBContext servproDBContext)
         {
             _dbContext = servproDBContext;
+        }
+        // Método para buscar usuário por CPF
+        public async Task<Usuario> BuscarPorCpf(string cpf)
+        {
+            return await _dbContext.Usuarios
+                .FirstOrDefaultAsync(u => u.CPF == cpf);
         }
         public async Task<List<Usuario>> BuscarPorTipoUsuario(string TipoUsuario)
         {
@@ -22,13 +30,6 @@ using SERVPRO.Repositorios.interfaces;
         {
             return await _dbContext.Usuarios
                 .ToListAsync();
-        }
-
-        public async Task<Usuario> BuscarPorCpf(string cpf)
-        {
-            // Aqui, fazemos a busca pelo CPF no banco de dados
-            return await _dbContext.Usuarios
-                .FirstOrDefaultAsync(u => u.CPF == cpf); // Retorna o primeiro usuário com o CPF informado
         }
 
 
