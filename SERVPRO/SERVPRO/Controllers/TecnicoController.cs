@@ -19,14 +19,14 @@ namespace SERVPRO.Controllers
         {
             _tecnicoRepositorio = tecnicoRepositorio;
         }
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpGet]
         public async Task<ActionResult<List<Tecnico>>> BuscarTodosTecnicos()
         {
             List<Tecnico> tecnicos = await _tecnicoRepositorio.BuscarTodosTecnicos();
             return Ok(tecnicos);
         }
-        [Authorize(Policy = "TecnicoPolicy")]
+       // [Authorize(Policy = "TecnicoPolicy")]
         [HttpGet("{cpf}")]
         public async Task<ActionResult<Tecnico>> BuscarPorCPF(string cpf)
         {
@@ -51,7 +51,7 @@ namespace SERVPRO.Controllers
         }
 
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
 
         public async Task<ActionResult<Tecnico>> Cadastrar([FromBody] Tecnico tecnicoModel)
@@ -65,7 +65,7 @@ namespace SERVPRO.Controllers
             return Ok(tecnico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+       // [Authorize(Policy = "AdministradorPolicy")]
         [HttpPut("{cpf}")]
 
         public async Task<ActionResult<Tecnico>> Atualizar([FromBody] Tecnico tecnicoModel, string cpf)
@@ -76,7 +76,7 @@ namespace SERVPRO.Controllers
             return Ok(tecnico);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+       // [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{cpf}")]
 
         public async Task<ActionResult<Tecnico>> Apagar(string cpf)

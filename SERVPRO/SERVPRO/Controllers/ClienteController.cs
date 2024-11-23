@@ -20,7 +20,7 @@ namespace SERVPRO.Controllers
             _clienteRepositorio = clienteRepositorio;
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpGet]
         public async Task<ActionResult<List<Cliente>>> BuscarTodosClientes()
         {
@@ -28,7 +28,7 @@ namespace SERVPRO.Controllers
             return Ok(clientes);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+       // [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{cpf}")]
         public async Task<ActionResult<Cliente>> BuscarPorCPF(string cpf)
         {
@@ -56,7 +56,7 @@ namespace SERVPRO.Controllers
         }
 
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
 
         public async Task<ActionResult<Cliente>> Cadastrar([FromBody] Cliente clienteModel)
@@ -75,7 +75,7 @@ namespace SERVPRO.Controllers
             return CreatedAtAction(nameof(BuscarPorCPF), new { cpf = cliente.CPF }, cliente);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPut("{cpf}")]
 
         public async Task<ActionResult<Cliente>> Atualizar([FromBody] Cliente clienteModel, string cpf)
@@ -92,7 +92,7 @@ namespace SERVPRO.Controllers
             }
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost("{cpf}/upload-foto")]
         public async Task<IActionResult> UploadFoto(string cpf, IFormFile foto)
         {
@@ -139,7 +139,7 @@ namespace SERVPRO.Controllers
         }
 
 
-        [Authorize(Policy = "AdministradorPolicy")]
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{cpf}")]
 
         public async Task<ActionResult<bool>> Apagar(string cpf)
