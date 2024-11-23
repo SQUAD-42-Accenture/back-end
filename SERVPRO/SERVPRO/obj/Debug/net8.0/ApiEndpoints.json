@@ -664,8 +664,8 @@
         "IsRequired": true
       },
       {
-        "Name": "ordemDeServico",
-        "Type": "SERVPRO.Models.OrdemDeServico",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

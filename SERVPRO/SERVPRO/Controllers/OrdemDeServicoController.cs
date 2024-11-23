@@ -74,11 +74,12 @@ namespace SERVPRO.Controllers
         }
         [Authorize(Policy = "TecnicoPolicy")]
         [HttpPut("{id}")]
-        public async Task<ActionResult<OrdemDeServico>> AtualizarStatus(int id, [FromBody] OrdemDeServico ordemDeServico)
+        public async Task<ActionResult<OrdemDeServico>> AtualizarStatus(int id, [FromBody] string status)
         {
-            if (ordemDeServico == null)
+            var statusPermitidos = new[] { "Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta" };
+            if (!statusPermitidos.Contains(status))
             {
-                return BadRequest("Dados da ordem de serviço não fornecidos.");
+                return BadRequest($"Status inválido. Os status permitidos são: {string.Join(", ", statusPermitidos)}.");
             }
 
             var ordemExistente = await _ordemDeServicoRepositorio.BuscarPorId(id);
@@ -87,21 +88,13 @@ namespace SERVPRO.Controllers
                 return NotFound($"Ordem de serviço com ID {id} não encontrada.");
             }
 
-            var statusPermitidos = new[] { "Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta" };
-            if (!statusPermitidos.Contains(ordemDeServico.Status))
-            {
-                return BadRequest($"Status inválido. Os status permitidos são: {string.Join(", ", statusPermitidos)}.");
-            }
+            ordemExistente.Status = status;
 
-            var ordemAtualizada = await _ordemDeServicoRepositorio.Atualizar(id, ordemDeServico);
-
-            if (ordemAtualizada == null)
-            {
-                return BadRequest("Erro ao atualizar a ordem de serviço.");
-            }
+            var ordemAtualizada = await _ordemDeServicoRepositorio.Atualizar(id, ordemExistente);
 
             return Ok(ordemAtualizada);
         }
+
 
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)

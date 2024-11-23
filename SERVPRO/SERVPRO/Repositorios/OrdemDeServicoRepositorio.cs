@@ -27,7 +27,6 @@ namespace SERVPRO.Repositorios
         }
         public async Task<OrdemDeServico> Atualizar(int id, OrdemDeServico ordemDeServico)
         {
-
             var ordemExistente = await _dbContext.OrdensDeServico.FindAsync(id);
             if (ordemExistente == null)
             {
@@ -35,12 +34,6 @@ namespace SERVPRO.Repositorios
             }
 
             ordemExistente.Status = ordemDeServico.Status;
-            ordemExistente.ValorTotal = ordemDeServico.ValorTotal;
-            ordemExistente.MetodoPagamento = ordemDeServico.MetodoPagamento;
-            ordemExistente.Descricao = ordemDeServico.Descricao;
-            ordemExistente.ClienteCPF = ordemDeServico.ClienteCPF;
-            ordemExistente.TecnicoCPF = ordemDeServico.TecnicoCPF;
-            ordemExistente.SerialEquipamento = ordemDeServico.SerialEquipamento;
 
             _dbContext.OrdensDeServico.Update(ordemExistente);
             await _dbContext.SaveChangesAsync();
