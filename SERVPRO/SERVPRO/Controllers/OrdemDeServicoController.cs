@@ -59,19 +59,39 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
+
         [HttpPut("{id}")]
         public async Task<ActionResult<OrdemDeServico>> Atualizar([FromBody] OrdemDeServico ordemDeServicoModel, int id)
         {
-            OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Atualizar(ordemDeServicoModel, id);
+            OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
 
             if (ordemDeServico == null)
-                return NotFound();
+                return NotFound("Ordem de serviço não encontrada.");
+
+            ordemDeServico.Descricao = ordemDeServicoModel.Descricao ?? ordemDeServico.Descricao;
+            ordemDeServico.MetodoPagamento = ordemDeServicoModel.MetodoPagamento ?? ordemDeServico.MetodoPagamento;
+            ordemDeServico.ValorTotal = ordemDeServicoModel.ValorTotal > 0 ? ordemDeServicoModel.ValorTotal : ordemDeServico.ValorTotal;
+            ordemDeServico.Status = ordemDeServicoModel.Status ?? ordemDeServico.Status;
+            ordemDeServico.dataConclusao = ordemDeServicoModel.dataConclusao ?? ordemDeServico.dataConclusao;
+
+            if (ordemDeServicoModel.ServicoProdutos != null && ordemDeServicoModel.ServicoProdutos.Count > 0)
+            {
+                ordemDeServico.ServicoProdutos = ordemDeServicoModel.ServicoProdutos.Select(sp => new ServicoProduto
+                {
+                    ServicoId = sp.ServicoId,
+                    ProdutoId = sp.ProdutoId,
+                    CustoProdutoNoServico = sp.CustoProdutoNoServico,
+                    OrdemDeServicoId = id
+                }).ToList();
+            }
+
+            ordemDeServico = await _ordemDeServicoRepositorio.Atualizar(ordemDeServico, id);
 
             var historicoOs = new HistoricoOS
             {
                 OrdemDeServicoId = ordemDeServico.Id,
                 DataAtualizacao = DateTime.Now,
-                Comentario = "Ordem de serviço atualizada",
+                Comentario = "Ordem de serviço atualizada",  
                 TecnicoCPF = ordemDeServico.TecnicoCPF
             };
 
@@ -79,6 +99,7 @@ namespace SERVPRO.Controllers
 
             return Ok(ordemDeServico);
         }
+
 
         [HttpGet("{id}/calcular-valor-total")]
         public async Task<IActionResult> CalcularValorTotal(int id)
