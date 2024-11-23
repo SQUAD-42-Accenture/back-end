@@ -12,6 +12,7 @@ namespace SERVPRO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] 
     public class OrdemDeServicoController : ControllerBase
     {
         private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
@@ -71,6 +72,7 @@ namespace SERVPRO.Controllers
             bool apagado = await _ordemDeServicoRepositorio.Apagar(id);
             return Ok(apagado);
         }
+        [Authorize(Policy = "TecnicoPolicy")]
         [HttpPut("{id}")]
         public async Task<ActionResult<OrdemDeServico>> AtualizarStatus(int id, [FromBody] OrdemDeServico ordemDeServico)
         {
