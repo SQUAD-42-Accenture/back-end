@@ -6,7 +6,7 @@ namespace SERVPRO.Repositorios.interfaces
     {
         Task <List<Usuario>> BuscarTodosUsuarios();
         Task<List<Usuario>> BuscarPorTipoUsuario(String TipoUsuario);
-        Task<Usuario> BuscarPorCpf(string cpf);  // Novo método para buscar por CPF
+        Task<Usuario> BuscarPorCpf(string cpf);  
 
     }
 }
