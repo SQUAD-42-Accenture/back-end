@@ -12,20 +12,17 @@ namespace SERVPRO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class OrdemDeServicoController : ControllerBase
     {
         private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
         private readonly PdfServiceRepositorio _pdfServiceRepositorio;
         private readonly EmailServiceRepositorio _emailService;
-        private readonly IHistoricoOsRepositorio _historicoOsRepositorio;
 
-        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio, EmailServiceRepositorio emailServiceRepositorio, IHistoricoOsRepositorio historicoOsRepositorio)
+        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio, EmailServiceRepositorio emailServiceRepositorio)
         {
             _ordemDeServicoRepositorio = ordemDeServicoRepositorio;
             _pdfServiceRepositorio = pdfServiceRepositorio;
             _emailService = emailServiceRepositorio;
-            _historicoOsRepositorio = historicoOsRepositorio;
         }
 
         [HttpGet]
@@ -42,121 +39,16 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
-        [Authorize(Policy = "AdministradorPolicy")]
-[HttpPost]
-[Authorize(Policy = "TecnicoPolicy")]  
-public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
-{
-    if (ordemDeServicoModel == null)
-    {
-        return BadRequest("Dados inválidos.");
-    }
-
-    try
-    {
-        // Adiciona a ordem de serviço no banco de dados
-        OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
-        
-        // Criação do histórico de OS
-        var historicoOs = new HistoricoOS
+        public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
         {
-            OrdemDeServicoId = ordemDeServico.Id,
-            DataAtualizacao = DateTime.Now,
-            Comentario = "Ordem de serviço criada",
-            TecnicoCPF = ordemDeServico.TecnicoCPF
-        };
 
-        // Adiciona o histórico no banco de dados
-        await _historicoOsRepositorio.Adicionar(historicoOs);
-
-        return Ok(ordemDeServico);
-    }
-    catch (Exception ex)
-    {
-        // Log de erro
-        _logger.LogError(ex, "Erro ao criar a ordem de serviço.");
-        return StatusCode(500, "Erro interno do servidor.");
-    }
-}
-[HttpPost]
-[Authorize(Policy = "TecnicoPolicy")]  
-public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
-{
-    if (ordemDeServicoModel == null)
-    {
-        return BadRequest("Dados inválidos.");
-    }
-
-    try
-    {
-        // Adiciona a ordem de serviço no banco de dados
-        OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
-        
-        // Criação do histórico de OS
-        var historicoOs = new HistoricoOS
-        {
-            OrdemDeServicoId = ordemDeServico.Id,
-            DataAtualizacao = DateTime.Now,
-            Comentario = "Ordem de serviço criada",
-            TecnicoCPF = ordemDeServico.TecnicoCPF
-        };
-
-        // Adiciona o histórico no banco de dados
-        await _historicoOsRepositorio.Adicionar(historicoOs);
-
-        return Ok(ordemDeServico);
-    }
-    catch (Exception ex)
-    {
-        // Log de erro
-        return StatusCode(500, "Erro interno do servidor.");
-    }
-}
-
-
-
-        [HttpPut("{id}")]
-        [Authorize(Policy = "TecnicoPolicy")]
-        public async Task<ActionResult<OrdemDeServico>> Atualizar([FromBody] OrdemDeServico ordemDeServicoModel, int id)
-        {
-            OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
-
-            if (ordemDeServico == null)
-                return NotFound("Ordem de serviço não encontrada.");
-
-            ordemDeServico.Descricao = ordemDeServicoModel.Descricao ?? ordemDeServico.Descricao;
-            ordemDeServico.MetodoPagamento = ordemDeServicoModel.MetodoPagamento ?? ordemDeServico.MetodoPagamento;
-            ordemDeServico.ValorTotal = ordemDeServicoModel.ValorTotal > 0 ? ordemDeServicoModel.ValorTotal : ordemDeServico.ValorTotal;
-            ordemDeServico.Status = ordemDeServicoModel.Status ?? ordemDeServico.Status;
-            ordemDeServico.dataConclusao = ordemDeServicoModel.dataConclusao ?? ordemDeServico.dataConclusao;
-
-            if (ordemDeServicoModel.ServicoProdutos != null && ordemDeServicoModel.ServicoProdutos.Count > 0)
-            {
-                ordemDeServico.ServicoProdutos = ordemDeServicoModel.ServicoProdutos.Select(sp => new ServicoProduto
-                {
-                    ServicoId = sp.ServicoId,
-                    ProdutoId = sp.ProdutoId,
-                    CustoProdutoNoServico = sp.CustoProdutoNoServico,
-                    OrdemDeServicoId = id
-                }).ToList();
-            }
-
-            ordemDeServico = await _ordemDeServicoRepositorio.Atualizar(ordemDeServico, id);
-
-            var historicoOs = new HistoricoOS
-            {
-                OrdemDeServicoId = ordemDeServico.Id,
-                DataAtualizacao = DateTime.Now,
-                Comentario = "Ordem de serviço atualizada",  
-                TecnicoCPF = ordemDeServico.TecnicoCPF
-            };
-
-            await _historicoOsRepositorio.Adicionar(historicoOs);
+            // Adiciona a ordem de serviço ao banco de dados
+            OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
 
             return Ok(ordemDeServico);
         }
-
 
         [HttpGet("{id}/calcular-valor-total")]
         public async Task<IActionResult> CalcularValorTotal(int id)
@@ -172,6 +64,8 @@ public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServ
             }
         }
 
+
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> Apagar(int id)
         {
@@ -179,6 +73,7 @@ public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServ
             return Ok(apagado);
         }
 
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
         {
@@ -190,22 +85,30 @@ public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServ
             return File(pdf, "application/pdf", $"ordem_servico_{id}.pdf");
         }
 
+  
+        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost("{id}/enviar-por-email")]
         public async Task<IActionResult> EnviarOrdemPorEmail(int id)
         {
+
             var ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
             if (ordemDeServico == null || ordemDeServico.Cliente == null)
                 return NotFound("Ordem de serviço ou cliente não encontrados.");
 
+            // Gera o PDF da ordem de serviço
             var pdfBytes = _pdfServiceRepositorio.GeneratePdf(ordemDeServico, ordemDeServico.Cliente, ordemDeServico.Tecnico);
 
+            // Configura o envio de e-mail
             var destinatarioEmail = ordemDeServico.Cliente.Email;
             var assunto = $"Ordem de Serviço #{ordemDeServico.Id}";
             var conteudo = "Segue em anexo o PDF com os detalhes da sua ordem de serviço.";
 
+            // Envia o e-mail com o PDF anexado
             await _emailService.EnviarOrdemDeServicoPorEmail(destinatarioEmail, assunto, conteudo, pdfBytes);
 
             return Ok("Ordem de serviço enviada com sucesso para o e-mail do cliente.");
         }
+
+
     }
 }
