@@ -5,7 +5,7 @@ using SERVPRO.Repositorios.interfaces;
 
 namespace SERVPRO.Controllers
 {
-    [Authorize(Policy = "AdministradorPolicy")]
+    //[Authorize(Policy = "AdministradorPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class AdministradorController : ControllerBase

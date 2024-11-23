@@ -20,7 +20,7 @@ namespace SERVPRO.Controllers
             _historicoOsRepositorio = historicoOsRepositorio;
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+       // [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet]
         public async Task<ActionResult<List<HistoricoOS>>> BuscarTodoshistoricos()
         {
@@ -60,7 +60,7 @@ namespace SERVPRO.Controllers
             return Ok(historicoOS);
         }
 
-        [Authorize(Policy = "AdministradorPolicy")]
+       // [Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
 
         public async Task<ActionResult<HistoricoOS>> Apagar(int id)
