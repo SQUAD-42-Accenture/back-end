@@ -1316,5 +1316,31 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "SERVPRO.Controllers.UsuariosController",
+    "Method": "BuscarPorCpf",
+    "RelativePath": "api/Usuarios/cpf/{cpf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SERVPRO.Models.Usuario",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

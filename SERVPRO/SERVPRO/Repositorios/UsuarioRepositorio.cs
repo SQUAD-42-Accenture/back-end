@@ -23,7 +23,14 @@ using SERVPRO.Repositorios.interfaces;
             return await _dbContext.Usuarios
                 .ToListAsync();
         }
-  
+
+        public async Task<Usuario> BuscarPorCpf(string cpf)
+        {
+            // Aqui, fazemos a busca pelo CPF no banco de dados
+            return await _dbContext.Usuarios
+                .FirstOrDefaultAsync(u => u.CPF == cpf); // Retorna o primeiro usuário com o CPF informado
+        }
+
 
     }
 }
