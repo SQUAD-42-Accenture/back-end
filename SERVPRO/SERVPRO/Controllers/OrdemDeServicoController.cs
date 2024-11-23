@@ -44,22 +44,76 @@ namespace SERVPRO.Controllers
 
         [HttpPost]
         [Authorize(Policy = "AdministradorPolicy")]
-        public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
+[HttpPost]
+[Authorize(Policy = "TecnicoPolicy")]  
+public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
+{
+    if (ordemDeServicoModel == null)
+    {
+        return BadRequest("Dados inválidos.");
+    }
+
+    try
+    {
+        // Adiciona a ordem de serviço no banco de dados
+        OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
+        
+        // Criação do histórico de OS
+        var historicoOs = new HistoricoOS
         {
-            OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
+            OrdemDeServicoId = ordemDeServico.Id,
+            DataAtualizacao = DateTime.Now,
+            Comentario = "Ordem de serviço criada",
+            TecnicoCPF = ordemDeServico.TecnicoCPF
+        };
 
-            var historicoOs = new HistoricoOS
-            {
-                OrdemDeServicoId = ordemDeServico.Id,
-                DataAtualizacao = DateTime.Now,
-                Comentario = "Ordem de serviço criada",
-                TecnicoCPF = ordemDeServico.TecnicoCPF
-            };
+        // Adiciona o histórico no banco de dados
+        await _historicoOsRepositorio.Adicionar(historicoOs);
 
-            await _historicoOsRepositorio.Adicionar(historicoOs);
+        return Ok(ordemDeServico);
+    }
+    catch (Exception ex)
+    {
+        // Log de erro
+        _logger.LogError(ex, "Erro ao criar a ordem de serviço.");
+        return StatusCode(500, "Erro interno do servidor.");
+    }
+}
+[HttpPost]
+[Authorize(Policy = "TecnicoPolicy")]  
+public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
+{
+    if (ordemDeServicoModel == null)
+    {
+        return BadRequest("Dados inválidos.");
+    }
 
-            return Ok(ordemDeServico);
-        }
+    try
+    {
+        // Adiciona a ordem de serviço no banco de dados
+        OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
+        
+        // Criação do histórico de OS
+        var historicoOs = new HistoricoOS
+        {
+            OrdemDeServicoId = ordemDeServico.Id,
+            DataAtualizacao = DateTime.Now,
+            Comentario = "Ordem de serviço criada",
+            TecnicoCPF = ordemDeServico.TecnicoCPF
+        };
+
+        // Adiciona o histórico no banco de dados
+        await _historicoOsRepositorio.Adicionar(historicoOs);
+
+        return Ok(ordemDeServico);
+    }
+    catch (Exception ex)
+    {
+        // Log de erro
+        return StatusCode(500, "Erro interno do servidor.");
+    }
+}
+
 
 
         [HttpPut("{id}")]
