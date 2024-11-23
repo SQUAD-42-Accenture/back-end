@@ -42,11 +42,12 @@ namespace SERVPRO.Repositorios
             }
 
             tecnicoPorcPF.Nome = tecnico.Nome;
-        
             tecnicoPorcPF.Email = tecnico.Email;
             tecnicoPorcPF.Senha = tecnico.Senha;
-            //tecnicoPorcPF.Equipamentos = tecnico.Equipamentos;
-            
+            tecnicoPorcPF.Especialidade = tecnico.Especialidade;
+            tecnicoPorcPF.Telefone = tecnico.Telefone;
+            tecnicoPorcPF.StatusTecnico = tecnico.StatusTecnico;
+
             _dbContext.Tecnicos.Update(tecnicoPorcPF);
             await _dbContext.SaveChangesAsync();
 
