@@ -12,6 +12,8 @@ namespace SERVPRO.Models
         public int Id { get; set; }
         public DateTime dataAbertura { get; set; }
         public DateTime? dataConclusao { get; set; }
+
+        [Required(ErrorMessage = "A descrição é obrigatória.")]
         public string Descricao { get; set; }
         public string? MetodoPagamento { get; set; }
 
