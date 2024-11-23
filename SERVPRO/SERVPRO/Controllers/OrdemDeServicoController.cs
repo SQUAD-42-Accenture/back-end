@@ -12,6 +12,7 @@ namespace SERVPRO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrdemDeServicoController : ControllerBase
     {
         private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
@@ -42,6 +43,7 @@ namespace SERVPRO.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "AdministradorPolicy")]
         public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
         {
             OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
@@ -61,6 +63,7 @@ namespace SERVPRO.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize(Policy = "TecnicoPolicy")]
         public async Task<ActionResult<OrdemDeServico>> Atualizar([FromBody] OrdemDeServico ordemDeServicoModel, int id)
         {
             OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
