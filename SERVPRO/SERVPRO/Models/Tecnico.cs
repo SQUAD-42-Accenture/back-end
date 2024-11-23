@@ -11,6 +11,9 @@ namespace SERVPRO.Models
         [JsonPropertyOrder(7)]
         public string Telefone { get; set; }
 
+        [JsonPropertyOrder(8)]
+        public string StatusTecnico { get; set; }
+
         [JsonIgnore]
         public List<OrdemDeServico>? OrdensDeServico { get; set; }
 
