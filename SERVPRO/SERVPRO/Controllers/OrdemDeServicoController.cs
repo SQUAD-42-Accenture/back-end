@@ -17,12 +17,14 @@ namespace SERVPRO.Controllers
         private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
         private readonly PdfServiceRepositorio _pdfServiceRepositorio;
         private readonly EmailServiceRepositorio _emailService;
+        private readonly IHistoricoOsRepositorio _historicoOsRepositorio;
 
-        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio, EmailServiceRepositorio emailServiceRepositorio)
+        public OrdemDeServicoController(IOrdemDeServicoRepositorio ordemDeServicoRepositorio, PdfServiceRepositorio pdfServiceRepositorio, EmailServiceRepositorio emailServiceRepositorio, IHistoricoOsRepositorio historicoOsRepositorio)
         {
             _ordemDeServicoRepositorio = ordemDeServicoRepositorio;
             _pdfServiceRepositorio = pdfServiceRepositorio;
             _emailService = emailServiceRepositorio;
+            _historicoOsRepositorio = historicoOsRepositorio;
         }
 
         [HttpGet]
@@ -39,13 +41,41 @@ namespace SERVPRO.Controllers
             return Ok(ordemDeServico);
         }
 
-        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost]
         public async Task<ActionResult<OrdemDeServico>> Cadastrar([FromBody] OrdemDeServico ordemDeServicoModel)
         {
-
-            // Adiciona a ordem de serviço ao banco de dados
             OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Adicionar(ordemDeServicoModel);
+
+            var historicoOs = new HistoricoOS
+            {
+                OrdemDeServicoId = ordemDeServico.Id,
+                DataAtualizacao = DateTime.Now,
+                Comentario = "Ordem de serviço criada",
+                TecnicoCPF = ordemDeServico.TecnicoCPF
+            };
+
+            await _historicoOsRepositorio.Adicionar(historicoOs);
+
+            return Ok(ordemDeServico);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<OrdemDeServico>> Atualizar([FromBody] OrdemDeServico ordemDeServicoModel, int id)
+        {
+            OrdemDeServico ordemDeServico = await _ordemDeServicoRepositorio.Atualizar(ordemDeServicoModel, id);
+
+            if (ordemDeServico == null)
+                return NotFound();
+
+            var historicoOs = new HistoricoOS
+            {
+                OrdemDeServicoId = ordemDeServico.Id,
+                DataAtualizacao = DateTime.Now,
+                Comentario = "Ordem de serviço atualizada",
+                TecnicoCPF = ordemDeServico.TecnicoCPF
+            };
+
+            await _historicoOsRepositorio.Adicionar(historicoOs);
 
             return Ok(ordemDeServico);
         }
@@ -64,8 +94,6 @@ namespace SERVPRO.Controllers
             }
         }
 
-
-        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> Apagar(int id)
         {
@@ -73,7 +101,6 @@ namespace SERVPRO.Controllers
             return Ok(apagado);
         }
 
-        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
         {
@@ -85,30 +112,22 @@ namespace SERVPRO.Controllers
             return File(pdf, "application/pdf", $"ordem_servico_{id}.pdf");
         }
 
-  
-        //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost("{id}/enviar-por-email")]
         public async Task<IActionResult> EnviarOrdemPorEmail(int id)
         {
-
             var ordemDeServico = await _ordemDeServicoRepositorio.BuscarPorId(id);
             if (ordemDeServico == null || ordemDeServico.Cliente == null)
                 return NotFound("Ordem de serviço ou cliente não encontrados.");
 
-            // Gera o PDF da ordem de serviço
             var pdfBytes = _pdfServiceRepositorio.GeneratePdf(ordemDeServico, ordemDeServico.Cliente, ordemDeServico.Tecnico);
 
-            // Configura o envio de e-mail
             var destinatarioEmail = ordemDeServico.Cliente.Email;
             var assunto = $"Ordem de Serviço #{ordemDeServico.Id}";
             var conteudo = "Segue em anexo o PDF com os detalhes da sua ordem de serviço.";
 
-            // Envia o e-mail com o PDF anexado
             await _emailService.EnviarOrdemDeServicoPorEmail(destinatarioEmail, assunto, conteudo, pdfBytes);
 
             return Ok("Ordem de serviço enviada com sucesso para o e-mail do cliente.");
         }
-
-
     }
 }
