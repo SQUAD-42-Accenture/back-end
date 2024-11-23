@@ -12,6 +12,7 @@ namespace SERVPRO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] 
     public class TecnicoController : ControllerBase
     {
         private readonly ITecnicoRepositorio _tecnicoRepositorio;
@@ -31,6 +32,7 @@ namespace SERVPRO.Controllers
         }
 
         [HttpGet("{cpf}")]
+        [Authorize(Policy = "AdministradorPolicy")] 
         public async Task<ActionResult<Tecnico>> BuscarPorCPF(string cpf)
         {
             var usuarioLogadoCpf = User.Claims.FirstOrDefault(c => c.Type == "cpf")?.Value;
@@ -48,15 +50,16 @@ namespace SERVPRO.Controllers
                 return Ok(tecnico);
             }
 
-            return Forbid();
+            return Forbid(); 
         }
 
         [HttpPost]
+        [Authorize(Policy = "AdministradorPolicy")]  
         public async Task<ActionResult<Tecnico>> Cadastrar([FromBody] Tecnico tecnicoModel)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); 
+                return BadRequest(ModelState);
             }
             Tecnico tecnico = await _tecnicoRepositorio.Adicionar(tecnicoModel);
 
@@ -64,6 +67,7 @@ namespace SERVPRO.Controllers
         }
 
         [HttpPut("{cpf}")]
+        [Authorize(Policy = "AdministradorPolicy")]  
         public async Task<ActionResult<Tecnico>> Atualizar([FromBody] Tecnico tecnicoModel, string cpf)
         {
             tecnicoModel.CPF = cpf;
@@ -73,6 +77,7 @@ namespace SERVPRO.Controllers
         }
 
         [HttpDelete("{cpf}")]
+        [Authorize(Policy = "AdministradorPolicy")]  
         public async Task<ActionResult<Tecnico>> Apagar(string cpf)
         {
             bool apagado = await _tecnicoRepositorio.Apagar(cpf);
@@ -81,6 +86,7 @@ namespace SERVPRO.Controllers
         }
 
         [HttpGet("ordens/{cpf}")]
+        [Authorize(Policy = "TecnicoPolicy")] 
         public async Task<ActionResult<List<OrdemDeServico>>> BuscarOrdensPorCpfTecnico(string cpf)
         {
             var usuarioLogadoCpf = User.Claims.FirstOrDefault(c => c.Type == "cpf")?.Value;
@@ -92,14 +98,14 @@ namespace SERVPRO.Controllers
 
                 if (ordensDeServico == null || ordensDeServico.Count == 0)
                 {
-                    return NotFound(new { mensagem = "Nenhuma ordem de serviço encontrada para o técnico com CPF " + cpf });
+                    return NotFound(new { mensagem = $"Nenhuma ordem de serviço encontrada para o técnico com CPF {cpf}." });
                 }
 
                 return Ok(ordensDeServico);
             }
 
-            // Se o usuário não for técnico ou o CPF não for o mesmo
             return Forbid();
         }
+
     }
 }
