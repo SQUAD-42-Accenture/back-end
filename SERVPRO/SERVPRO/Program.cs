@@ -29,7 +29,7 @@ builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 // Configuração de autorização
-/*builder.Services.AddAuthorization(options =>
+builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("ClientePolicy", policy =>
         policy.RequireAssertion(context =>
@@ -43,7 +43,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
     options.AddPolicy("AdministradorPolicy", policy =>
        policy.RequireClaim("tipoUsuario", "Administrador"));
-});*/
+});
 
 // Configuração do CORS
 builder.Services.AddCors(options =>
@@ -125,7 +125,7 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty; // Coloca o Swagger na raiz (opcional)
 });
 
-/*
+
 app.Use(async (context, next) =>
 {
     await next();
@@ -158,7 +158,7 @@ app.Use(async (context, next) =>
         context.Response.ContentType = "application/json";
         await context.Response.WriteAsync("{\"mensagem\": \"Não autorizado. Por favor, faça login para acessar esta área.\"}");
     }
-});*/
+});
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp");
