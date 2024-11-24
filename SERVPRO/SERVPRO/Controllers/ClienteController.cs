@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SERVPRO.Models;
+using SERVPRO.Repositorios;
 using SERVPRO.Repositorios.interfaces;
+using SERVPRO.Repositorios.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,10 +17,12 @@ namespace SERVPRO.Controllers
     public class ClienteController : ControllerBase
     {
         private readonly IClienteRepositorio _clienteRepositorio;
+        private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
 
-        public ClienteController(IClienteRepositorio clienteRepositorio)
+        public ClienteController(IClienteRepositorio clienteRepositorio, IOrdemDeServicoRepositorio ordemDeServicoRepositorio)
         {
             _clienteRepositorio = clienteRepositorio;
+            _ordemDeServicoRepositorio = ordemDeServicoRepositorio;
         }
 
         //[Authorize(Policy = "AdministradorPolicy")]
@@ -28,7 +33,40 @@ namespace SERVPRO.Controllers
             return Ok(clientes);
         }
 
-       // [Authorize(Policy = "AdministradorPolicy")]
+        [HttpGet("ordens/{cpf}")]
+        [Authorize(Policy = "TecnicoPolicy")]
+        public async Task<ActionResult<List<OrdemDeServico>>> BuscarOrdensPorCpfCliente(string cpf)
+        {
+            var usuarioLogadoCpf = User.Claims.FirstOrDefault(c => c.Type == "cpf")?.Value;
+            var tipoUsuario = User.Claims.FirstOrDefault(c => c.Type == "tipoUsuario")?.Value;
+
+            if (tipoUsuario == "Cliente" && usuarioLogadoCpf == cpf)
+            {
+                var ordensDeServico = await _ordemDeServicoRepositorio.BuscarOrdensPorCpfCliente(cpf);
+
+                if (ordensDeServico == null || ordensDeServico.Count == 0)
+                {
+                    return NotFound(new { mensagem = $"Nenhuma ordem de serviço encontrada para o cliente com CPF {cpf}." });
+                }
+
+                return Ok(ordensDeServico);
+            }
+
+            if (tipoUsuario == "Tecnico")
+            {
+                var ordensDeServico = await _ordemDeServicoRepositorio.BuscarOrdensPorCpfCliente(cpf);
+
+                if (ordensDeServico == null || ordensDeServico.Count == 0)
+                {
+                    return NotFound(new { mensagem = $"Nenhuma ordem de serviço encontrada para o cliente com CPF {cpf}." });
+                }
+
+                return Ok(ordensDeServico);
+            }
+            return Forbid();
+        }
+
+        // [Authorize(Policy = "AdministradorPolicy")]
         [HttpGet("{cpf}")]
         public async Task<ActionResult<Cliente>> BuscarPorCPF(string cpf)
         {
@@ -96,43 +134,35 @@ namespace SERVPRO.Controllers
         [HttpPost("{cpf}/upload-foto")]
         public async Task<IActionResult> UploadFoto(string cpf, IFormFile foto)
         {
-            // Verifique se a foto foi recebida
             if (foto == null || foto.Length == 0)
             {
                 return BadRequest("Nenhuma foto foi fornecida.");
             }
 
-            // Local onde as fotos serão armazenadas
             var pastaDestino = Path.Combine(Directory.GetCurrentDirectory(), "FotosClientes");
 
-            // Crie o diretório se não existir
             if (!Directory.Exists(pastaDestino))
             {
                 Directory.CreateDirectory(pastaDestino);
             }
 
-            // Gere um nome único para o arquivo da foto (por exemplo, baseado no CPF)
             var nomeArquivo = $"{cpf}_{Path.GetFileName(foto.FileName)}";
             var caminhoArquivo = Path.Combine(pastaDestino, nomeArquivo);
 
-            // Salve o arquivo no diretório
             using (var stream = new FileStream(caminhoArquivo, FileMode.Create))
             {
                 await foto.CopyToAsync(stream);
             }
 
-            // Obtenha o cliente e atualize o campo FotoPath
             var cliente = await _clienteRepositorio.BuscarPorCPF(cpf);
             if (cliente == null)
             {
                 return NotFound($"Cliente com CPF {cpf} não encontrado.");
             }
 
-            // Armazenar apenas o caminho relativo no banco de dados
             cliente.FotoPath = $"FotosClientes/{nomeArquivo}";
             await _clienteRepositorio.Atualizar(cliente, cpf);
 
-            // Retorna a URL pública da foto
             var urlFoto = $"{Request.Scheme}://{Request.Host}/Fotos/{nomeArquivo}";
 
             return Ok(new { FotoUrl = urlFoto });

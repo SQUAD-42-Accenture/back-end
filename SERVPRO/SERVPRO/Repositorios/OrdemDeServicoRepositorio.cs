@@ -26,6 +26,15 @@ namespace SERVPRO.Repositorios
                                  .ToListAsync();
         }
 
+        public async Task<List<OrdemDeServico>> BuscarOrdensPorCpfCliente(string cpf)
+        {
+            var ordens = await _dbContext.OrdensDeServico
+                                        .Where(os => os.ClienteCPF == cpf)
+                                        .ToListAsync();
+
+            return ordens;
+        }
+
         public async Task<OrdemDeServico> BuscarPorId(int id)
         {
             return await _dbContext.OrdensDeServico
