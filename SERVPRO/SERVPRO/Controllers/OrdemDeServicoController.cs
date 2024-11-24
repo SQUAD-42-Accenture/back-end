@@ -6,6 +6,7 @@ using SERVPRO.Repositorios.interfaces;
 using SERVPRO.Repositorios.Interfaces;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SERVPRO.Controllers
@@ -74,9 +75,22 @@ namespace SERVPRO.Controllers
         }
         // [Authorize(Policy = "TecnicoPolicy")]
         [HttpPut("{id}")]
-        public async Task<ActionResult<OrdemDeServico>> Atualizar(int id, [FromBody] string status)
+        public async Task<ActionResult<OrdemDeServico>> Atualizar(int id, [FromBody] JsonElement request)
         {
             var statusPermitidos = new[] { "Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta" };
+
+            if (!request.TryGetProperty("Status", out var statusProperty))
+            {
+                return BadRequest("A propriedade 'Status' é obrigatória.");
+            }
+
+            if (statusProperty.ValueKind != JsonValueKind.String)
+            {
+                return BadRequest("O valor de 'Status' deve ser uma string.");
+            }
+
+            var status = statusProperty.GetString();
+
             if (!statusPermitidos.Contains(status))
             {
                 return BadRequest($"Status inválido. Os status permitidos são: {string.Join(", ", statusPermitidos)}.");
@@ -88,15 +102,12 @@ namespace SERVPRO.Controllers
                 return NotFound($"Ordem de serviço com ID {id} não encontrada.");
             }
 
-            // Alterando a ordem dos parâmetros na chamada do método Atualizar
             ordemExistente.Status = status;
 
             var ordemAtualizada = await _ordemDeServicoRepositorio.Atualizar(id, ordemExistente);
 
             return Ok(ordemAtualizada);
         }
-
-
 
         [HttpGet("{id}/gerar-pdf")]
         public async Task<IActionResult> GerarPdf(int id)
