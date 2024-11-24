@@ -38,8 +38,7 @@
               "RelativeToolTip": "SERVPRO\\Controllers\\TecnicoController.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T22:22:28.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T22:22:28.84Z"
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ClienteController.cs",
               "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
               "RelativeToolTip": "SERVPRO\\Controllers\\ClienteController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAACQAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T22:18:05.784Z",
               "EditorCaption": ""
@@ -64,8 +63,7 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T16:26:26.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T16:26:26.098Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T16:26:03.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T16:26:03.73Z"
             }
           ]
         }

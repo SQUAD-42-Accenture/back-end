@@ -34,7 +34,7 @@ namespace SERVPRO.Controllers
         }
 
         [HttpGet("ordens/{cpf}")]
-        [Authorize(Policy = "TecnicoPolicy")]
+        //[Authorize(Policy = "TecnicoPolicy", "ClientePolicy)]
         public async Task<ActionResult<List<OrdemDeServico>>> BuscarOrdensPorCpfCliente(string cpf)
         {
             var usuarioLogadoCpf = User.Claims.FirstOrDefault(c => c.Type == "cpf")?.Value;
