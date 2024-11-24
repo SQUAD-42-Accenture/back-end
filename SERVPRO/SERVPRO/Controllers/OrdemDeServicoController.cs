@@ -72,7 +72,7 @@ namespace SERVPRO.Controllers
             bool apagado = await _ordemDeServicoRepositorio.Apagar(id);
             return Ok(apagado);
         }
-        [Authorize(Policy = "TecnicoPolicy")]
+        // [Authorize(Policy = "TecnicoPolicy")]
         [HttpPut("{id}")]
         public async Task<ActionResult<OrdemDeServico>> AtualizarStatus(int id, [FromBody] string status)
         {
