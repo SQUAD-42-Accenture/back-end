@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\controllers\\ordemdeservicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\models\\ordemdeservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\models\\ordemdeservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\validators\\clientevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\validators\\clientevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\repositorios\\pdfservicerepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\pdfservicerepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\repositorios\\ordemdeservicorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\ordemdeservicorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\repositorios\\interfaces\\iordemdeservicorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\interfaces\\iordemdeservicorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\models\\ordemdeservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\models\\ordemdeservico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\validators\\tecnicovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,11 +38,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 796,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ClienteValidator.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Validators\\ClienteValidator.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Validators\\ClienteValidator.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Validators\\ClienteValidator.cs",
+              "RelativeToolTip": "SERVPRO\\Validators\\ClienteValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T02:43:05.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PdfServiceRepositorio.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\PdfServiceRepositorio.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\PdfServiceRepositorio.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\PdfServiceRepositorio.cs",
+              "RelativeToolTip": "SERVPRO\\Repositorios\\PdfServiceRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T02:40:37.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "IOrdemDeServicoRepositorio.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
@@ -46,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "OrdemDeServicoRepositorio.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
@@ -54,20 +88,20 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAAwCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T22:45:19.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-23T22:45:19.688Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "OrdemDeServico.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Models\\OrdemDeServico.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Models\\OrdemDeServico.cs",
               "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Models\\OrdemDeServico.cs",
               "RelativeToolTip": "SERVPRO\\Models\\OrdemDeServico.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABAAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAzwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T22:36:54.363Z"
+              "WhenOpened": "2024-11-23T22:36:54.363Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -77,14 +111,14 @@
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\OrdemDeServicoController.cs",
               "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\OrdemDeServicoController.cs",
               "RelativeToolTip": "SERVPRO\\Controllers\\OrdemDeServicoController.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAIEAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T21:16:52.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "TecnicoValidator.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Validators\\TecnicoValidator.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Validators\\TecnicoValidator.cs",
