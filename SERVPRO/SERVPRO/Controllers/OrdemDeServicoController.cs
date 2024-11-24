@@ -73,41 +73,28 @@ namespace SERVPRO.Controllers
             return Ok(apagado);
         }
         // [Authorize(Policy = "TecnicoPolicy")]
-[HttpPut("{id}")]
-public async Task<ActionResult<OrdemDeServico>> Atualizar(int id, [FromBody] JsonElement request)
-{
-    var statusPermitidos = new[] { "Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta" };
+        [HttpPut("{id}")]
+        public async Task<ActionResult<OrdemDeServico>> Atualizar(int id, [FromBody] string status)
+        {
+            var statusPermitidos = new[] { "Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta" };
+            if (!statusPermitidos.Contains(status))
+            {
+                return BadRequest($"Status inválido. Os status permitidos são: {string.Join(", ", statusPermitidos)}.");
+            }
 
-    if (!request.TryGetProperty("Status", out var statusProperty))
-    {
-        return BadRequest("A propriedade 'Status' é obrigatória.");
-    }
+            var ordemExistente = await _ordemDeServicoRepositorio.BuscarPorId(id);
+            if (ordemExistente == null)
+            {
+                return NotFound($"Ordem de serviço com ID {id} não encontrada.");
+            }
 
-    if (statusProperty.ValueKind != JsonValueKind.String)
-    {
-        return BadRequest("O valor de 'Status' deve ser uma string.");
-    }
+            // Alterando a ordem dos parâmetros na chamada do método Atualizar
+            ordemExistente.Status = status;
 
-    var status = statusProperty.GetString();
+            var ordemAtualizada = await _ordemDeServicoRepositorio.Atualizar(id, ordemExistente);
 
-    if (!statusPermitidos.Contains(status))
-    {
-        return BadRequest($"Status inválido. Os status permitidos são: {string.Join(", ", statusPermitidos)}.");
-    }
-
-    var ordemExistente = await _ordemDeServicoRepositorio.BuscarPorId(id);
-    if (ordemExistente == null)
-    {
-        return NotFound($"Ordem de serviço com ID {id} não encontrada.");
-    }
-
-    ordemExistente.Status = status;
-
-    var ordemAtualizada = await _ordemDeServicoRepositorio.Atualizar(id, ordemExistente);
-
-    return Ok(ordemAtualizada);
-}
-
+            return Ok(ordemAtualizada);
+        }
 
 
 
