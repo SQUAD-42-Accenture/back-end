@@ -279,6 +279,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SERVPRO.Controllers.ClienteController",
+    "Method": "BuscarOrdensPorCpfCliente",
+    "RelativePath": "api/Cliente/ordens/{cpf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SERVPRO.Models.OrdemDeServico, SERVPRO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SERVPRO.Controllers.ContaController",
     "Method": "Login",
     "RelativePath": "api/Conta",
