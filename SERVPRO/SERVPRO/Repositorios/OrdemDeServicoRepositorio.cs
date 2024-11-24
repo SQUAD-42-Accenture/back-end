@@ -25,21 +25,6 @@ namespace SERVPRO.Repositorios
                                  .Where(os => os.Tecnico.CPF == cpf) 
                                  .ToListAsync();
         }
-        public async Task<OrdemDeServico> Atualizar(int id, OrdemDeServico ordemDeServico)
-        {
-            var ordemExistente = await _dbContext.OrdensDeServico.FindAsync(id);
-            if (ordemExistente == null)
-            {
-                return null; 
-            }
-
-            ordemExistente.Status = ordemDeServico.Status;
-
-            _dbContext.OrdensDeServico.Update(ordemExistente);
-            await _dbContext.SaveChangesAsync();
-
-            return ordemExistente;
-        }
 
         public async Task<OrdemDeServico> BuscarPorId(int id)
         {
@@ -75,7 +60,7 @@ namespace SERVPRO.Repositorios
 
             return ordemDeServico;
         }
-        public async Task<OrdemDeServico> Atualizar(OrdemDeServico ordemDeServico, int id)
+        public async Task<OrdemDeServico> Atualizar(int id, OrdemDeServico ordemDeServico)
         {
             OrdemDeServico ordemExistente = await BuscarPorId(id);
             if (ordemExistente == null)
@@ -91,6 +76,7 @@ namespace SERVPRO.Repositorios
 
             return ordemExistente;
         }
+
 
         public async Task<bool> Apagar(int id)
         {
