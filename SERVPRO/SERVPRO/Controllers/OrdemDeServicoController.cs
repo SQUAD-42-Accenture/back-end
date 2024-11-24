@@ -74,7 +74,7 @@ namespace SERVPRO.Controllers
         }
         // [Authorize(Policy = "TecnicoPolicy")]
         [HttpPut("{id}")]
-        public async Task<ActionResult<OrdemDeServico>> AtualizarStatus(int id, [FromBody] string status)
+        public async Task<ActionResult<OrdemDeServico>> Atualizar(int id, [FromBody] string status)
         {
             var statusPermitidos = new[] { "Concluido", "Em Andamento", "Pendente", "Cancelada", "Aberta" };
             if (!statusPermitidos.Contains(status))
@@ -88,12 +88,14 @@ namespace SERVPRO.Controllers
                 return NotFound($"Ordem de serviço com ID {id} não encontrada.");
             }
 
+            // Alterando a ordem dos parâmetros na chamada do método Atualizar
             ordemExistente.Status = status;
 
             var ordemAtualizada = await _ordemDeServicoRepositorio.Atualizar(id, ordemExistente);
 
             return Ok(ordemAtualizada);
         }
+
 
 
         [HttpGet("{id}/gerar-pdf")]
