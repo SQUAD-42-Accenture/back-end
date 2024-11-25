@@ -44,7 +44,7 @@ namespace SERVPRO.Repositorios
             clientePorcPF.CEP = cliente.CEP;
             clientePorcPF.Bairro = cliente.Bairro;
             clientePorcPF.Cidade = cliente.Cidade;
-            clientePorcPF.DataNascimento = cliente.DataNascimento;
+           // clientePorcPF.DataNascimento = cliente.DataNascimento;
             clientePorcPF.Complemento = cliente.Complemento;
 
 
