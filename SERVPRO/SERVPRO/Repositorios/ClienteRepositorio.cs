@@ -28,34 +28,58 @@ namespace SERVPRO.Repositorios
                 .ToListAsync();
         }
 
-        public async Task<Cliente> Atualizar(Cliente cliente, string cpf)
+        public async Task<Cliente> Atualizar( Cliente clienteAtualizado, string cpf)
         {
-            // Buscar o cliente no banco de dados
-            Cliente clientePorcPF = await BuscarPorCPF(cpf);
-
-            if (clientePorcPF == null)
+            Cliente clienteExistente = await BuscarPorCPF(cpf);
+            if (clienteExistente == null)
             {
-                throw new Exception($"Usuário para o CPF: {cpf} não foi encontrado");
+                throw new Exception($"Cliente com CPF {cpf} não encontrado.");
             }
 
-            // Atualizar os campos somente se o valor não for nulo
-            if (!string.IsNullOrEmpty(cliente.Nome)) clientePorcPF.Nome = cliente.Nome;
-            if (!string.IsNullOrEmpty(cliente.Telefone)) clientePorcPF.Telefone = cliente.Telefone;
-            if (!string.IsNullOrEmpty(cliente.Email)) clientePorcPF.Email = cliente.Email;
-            if (!string.IsNullOrEmpty(cliente.Senha)) clientePorcPF.Senha = cliente.Senha;
-            if (!string.IsNullOrEmpty(cliente.CEP)) clientePorcPF.CEP = cliente.CEP;
-            if (!string.IsNullOrEmpty(cliente.Bairro)) clientePorcPF.Bairro = cliente.Bairro;
-            if (!string.IsNullOrEmpty(cliente.Cidade)) clientePorcPF.Cidade = cliente.Cidade;
-            if (!string.IsNullOrEmpty(cliente.Complemento)) clientePorcPF.Complemento = cliente.Complemento;
+            // Atualiza os campos, mas apenas se não forem nulos ou vazios
+            if (!string.IsNullOrEmpty(clienteAtualizado.Nome))
+            {
+                clienteExistente.Nome = clienteAtualizado.Nome;
+            }
+            if (!string.IsNullOrEmpty(clienteAtualizado.Telefone))
+            {
+                clienteExistente.Telefone = clienteAtualizado.Telefone;
+            }
 
-            // Se você não quer atualizar o campo DataNascimento, deixe-o de fora
+            if (!string.IsNullOrEmpty(clienteAtualizado.Email))
+            {
+                clienteExistente.Email = clienteAtualizado.Email;
+            }
 
-            // Atualizar no banco
-            _dbContext.Clientes.Update(clientePorcPF);
+            if (!string.IsNullOrEmpty(clienteAtualizado.CEP))
+            {
+                clienteExistente.CEP = clienteAtualizado.CEP;
+            }
+
+            if (!string.IsNullOrEmpty(clienteAtualizado.Bairro))
+            {
+                clienteExistente.Bairro = clienteAtualizado.Bairro;
+            }
+
+            if (!string.IsNullOrEmpty(clienteAtualizado.Cidade))
+            {
+                clienteExistente.Cidade = clienteAtualizado.Cidade;
+            }
+
+            if (!string.IsNullOrEmpty(clienteAtualizado.Complemento))
+            {
+                clienteExistente.Complemento = clienteAtualizado.Complemento;
+            }
+
+
+
+            // Atualiza no banco de dados
+            _dbContext.Clientes.Update(clienteExistente);
             await _dbContext.SaveChangesAsync();
 
-            return clientePorcPF;
+            return clienteExistente;
         }
+
 
         public async Task<Cliente> Adicionar(Cliente cliente)
         {

@@ -7,6 +7,7 @@ using SERVPRO.Repositorios;
 using SERVPRO.Repositorios.interfaces;
 using SERVPRO.Repositorios.Interfaces;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SERVPRO.Controllers
@@ -114,20 +115,17 @@ namespace SERVPRO.Controllers
         }
 
         //[Authorize(Policy = "AdministradorPolicy")]
-        [HttpPatch("{cpf}")]
-        public async Task<ActionResult<Cliente>> Atualizar([FromBody] Cliente clienteModel, string cpf)
+        [HttpPut("{cpf}")]
+        public async Task<ActionResult<Cliente>> Atualizar(string cpf, [FromBody] JsonElement request)
         {
-            try
-            {
-                Cliente cliente = await _clienteRepositorio.Atualizar(clienteModel, cpf);
+            // Busca o cliente pelo CPF
+            var clienteExistente = await _clienteRepositorio.BuscarPorCPF(cpf);
 
-                return Ok(cliente);
-            }
-            catch (Exception ex)
-            {
-                return NotFound(ex.Message);
-            }
+            var clienteAtualizado = await _clienteRepositorio.Atualizar(clienteExistente, cpf);
+
+            return Ok(clienteAtualizado);
         }
+
 
 
         //[Authorize(Policy = "AdministradorPolicy")]
