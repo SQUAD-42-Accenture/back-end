@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\workspace\\back-end\\SERVPRO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\repositorios\\clienterepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\clienterepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\workspace\\back-end\\servpro\\servpro\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 796,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "ClienteRepositorio.cs",
+              "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\ClienteRepositorio.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\ClienteRepositorio.cs",
+              "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\ClienteRepositorio.cs*",
+              "RelativeToolTip": "SERVPRO\\Repositorios\\ClienteRepositorio.cs*",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAADwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T02:11:37.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TecnicoController.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\TecnicoController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\TecnicoController.cs",
@@ -38,25 +55,24 @@
               "RelativeToolTip": "SERVPRO\\Controllers\\TecnicoController.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T22:22:28.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T22:22:28.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ClienteController.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ClienteController.cs",
               "ToolTip": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
               "RelativeToolTip": "SERVPRO\\Controllers\\ClienteController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAACQAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T22:18:05.784Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IOrdemDeServicoRepositorio.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
@@ -64,12 +80,11 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T16:26:26.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T16:26:26.098Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "OrdemDeServicoRepositorio.cs",
               "DocumentMoniker": "C:\\workspace\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
@@ -77,8 +92,7 @@
               "RelativeToolTip": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T16:26:03.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T16:26:03.73Z"
             }
           ]
         }

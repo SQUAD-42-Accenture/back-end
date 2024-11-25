@@ -28,13 +28,6 @@ namespace SERVPRO.Repositorios
                 .ToListAsync();
         }
 
-        public async Task<Cliente> Adicionar(Cliente cliente)
-        {
-            await _dbContext.Clientes.AddAsync(cliente);
-            await _dbContext.SaveChangesAsync();
-            return cliente;
-        }
-
         public async Task<Cliente> Atualizar(Cliente cliente, string cpf)
         {
             Cliente clientePorcPF = await BuscarPorCPF(cpf);
@@ -49,15 +42,22 @@ namespace SERVPRO.Repositorios
             clientePorcPF.Email = cliente.Email;
             clientePorcPF.Senha = cliente.Senha;
             clientePorcPF.CEP = cliente.CEP;
-            clientePorcPF.Bairro = cliente.Bairro; 
+            clientePorcPF.Bairro = cliente.Bairro;
             clientePorcPF.Cidade = cliente.Cidade;
-            clientePorcPF.DataNascimento = cliente.DataNascimento; 
-            clientePorcPF.Equipamentos = cliente.Equipamentos;
+            clientePorcPF.DataNascimento = cliente.DataNascimento;
+            clientePorcPF.Complemento = cliente.Complemento;
+
 
             _dbContext.Clientes.Update(clientePorcPF);
             await _dbContext.SaveChangesAsync();
 
             return clientePorcPF;
+        }
+        public async Task<Cliente> Adicionar(Cliente cliente)
+        {
+            await _dbContext.Clientes.AddAsync(cliente);
+            await _dbContext.SaveChangesAsync();
+            return cliente;
         }
 
         public async Task<bool> Apagar(string cpf)
