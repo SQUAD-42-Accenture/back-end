@@ -13,7 +13,7 @@ namespace SERVPRO.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] 
+    // [Authorize] 
     public class OrdemDeServicoController : ControllerBase
     {
         private readonly IOrdemDeServicoRepositorio _ordemDeServicoRepositorio;
