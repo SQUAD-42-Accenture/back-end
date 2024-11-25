@@ -114,14 +114,13 @@ namespace SERVPRO.Controllers
         }
 
         //[Authorize(Policy = "AdministradorPolicy")]
-        [HttpPut("{cpf}")]
-
+        [HttpPatch("{cpf}")]
         public async Task<ActionResult<Cliente>> Atualizar([FromBody] Cliente clienteModel, string cpf)
         {
-            clienteModel.CPF = cpf;
             try
             {
                 Cliente cliente = await _clienteRepositorio.Atualizar(clienteModel, cpf);
+
                 return Ok(cliente);
             }
             catch (Exception ex)
@@ -129,6 +128,7 @@ namespace SERVPRO.Controllers
                 return NotFound(ex.Message);
             }
         }
+
 
         //[Authorize(Policy = "AdministradorPolicy")]
         [HttpPost("{cpf}/upload-foto")]

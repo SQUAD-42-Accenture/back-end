@@ -11,6 +11,14 @@
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\controllers\\ordemdeservicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\controllers\\ordemdeservicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\repositorios\\interfaces\\iclienterepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\interfaces\\iclienterepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\controllers\\tecnicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\controllers\\tecnicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\repositorios\\ordemdeservicorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|solutionrelative:servpro\\repositorios\\ordemdeservicorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BCDBCA5A-B34F-457B-91FB-491B731A9783}|SERVPRO\\SERVPRO.csproj|c:\\users\\amdlocacao\\documents\\github\\back-end\\servpro\\servpro\\repositorios\\interfaces\\iordemdeservicorepositorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 796,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,28 +50,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Usuario.cs",
-              "RelativeToolTip": "SERVPRO\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T17:37:27.106Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Cliente.cs",
-              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Cliente.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Models\\Cliente.cs",
-              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Cliente.cs",
-              "RelativeToolTip": "SERVPRO\\Models\\Cliente.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "OrdemDeServicoController.cs",
+              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\OrdemDeServicoController.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Controllers\\OrdemDeServicoController.cs",
+              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\OrdemDeServicoController.cs",
+              "RelativeToolTip": "SERVPRO\\Controllers\\OrdemDeServicoController.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAuwGMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T17:37:22.62Z",
+              "WhenOpened": "2024-11-25T22:29:38.612Z",
               "EditorCaption": ""
             },
             {
@@ -78,14 +69,14 @@
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\ClienteRepositorio.cs",
               "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\ClienteRepositorio.cs",
               "RelativeToolTip": "SERVPRO\\Repositorios\\ClienteRepositorio.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAA6wC4AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T02:11:37.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "TecnicoController.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\TecnicoController.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Controllers\\TecnicoController.cs",
@@ -97,20 +88,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClienteController.cs",
-              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ClienteController.cs",
-              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
-              "RelativeToolTip": "SERVPRO\\Controllers\\ClienteController.cs",
-              "ViewState": "AgIAAJwAAAAAAAAAAAArwIMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Cliente.cs",
+              "RelativeToolTip": "SERVPRO\\Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T22:18:05.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T17:37:22.62Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Models\\Usuario.cs",
+              "RelativeToolTip": "SERVPRO\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T17:37:27.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "IOrdemDeServicoRepositorio.cs",
               "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
               "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IOrdemDeServicoRepositorio.cs",
@@ -119,18 +121,38 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T16:26:26.098Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 796,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IClienteRepositorio.cs",
+              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IClienteRepositorio.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\interfaces\\IClienteRepositorio.cs",
+              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\interfaces\\IClienteRepositorio.cs",
+              "RelativeToolTip": "SERVPRO\\Repositorios\\interfaces\\IClienteRepositorio.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T22:44:50.048Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "OrdemDeServicoRepositorio.cs",
-              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
-              "RelativeDocumentMoniker": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
-              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
-              "RelativeToolTip": "SERVPRO\\Repositorios\\OrdemDeServicoRepositorio.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "SERVPRO\\Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\Users\\AMDLOCACAO\\Documents\\GitHub\\back-end\\SERVPRO\\SERVPRO\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "SERVPRO\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAqwHQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T16:26:03.73Z"
+              "WhenOpened": "2024-11-24T22:18:05.784Z",
+              "EditorCaption": ""
             }
           ]
         }
