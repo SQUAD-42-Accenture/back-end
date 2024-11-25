@@ -121,7 +121,7 @@ namespace SERVPRO.Controllers
         }
 
   
-        //[Authorize(Policy = "AdministradorPolicy")]
+        [Authorize(Policy = "AdministradorPolicy", "TecnicoPolicy", "ClientePolicy")]
         [HttpPost("{id}/enviar-por-email")]
         public async Task<IActionResult> EnviarOrdemPorEmail(int id)
         {
