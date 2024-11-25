@@ -30,6 +30,7 @@ namespace SERVPRO.Repositorios
 
         public async Task<Cliente> Atualizar(Cliente cliente, string cpf)
         {
+            // Buscar o cliente no banco de dados
             Cliente clientePorcPF = await BuscarPorCPF(cpf);
 
             if (clientePorcPF == null)
@@ -37,22 +38,25 @@ namespace SERVPRO.Repositorios
                 throw new Exception($"Usuário para o CPF: {cpf} não foi encontrado");
             }
 
-            clientePorcPF.Nome = cliente.Nome;
-            clientePorcPF.Telefone = cliente.Telefone;
-            clientePorcPF.Email = cliente.Email;
-            clientePorcPF.Senha = cliente.Senha;
-            clientePorcPF.CEP = cliente.CEP;
-            clientePorcPF.Bairro = cliente.Bairro;
-            clientePorcPF.Cidade = cliente.Cidade;
-           // clientePorcPF.DataNascimento = cliente.DataNascimento;
-            clientePorcPF.Complemento = cliente.Complemento;
+            // Atualizar os campos somente se o valor não for nulo
+            if (!string.IsNullOrEmpty(cliente.Nome)) clientePorcPF.Nome = cliente.Nome;
+            if (!string.IsNullOrEmpty(cliente.Telefone)) clientePorcPF.Telefone = cliente.Telefone;
+            if (!string.IsNullOrEmpty(cliente.Email)) clientePorcPF.Email = cliente.Email;
+            if (!string.IsNullOrEmpty(cliente.Senha)) clientePorcPF.Senha = cliente.Senha;
+            if (!string.IsNullOrEmpty(cliente.CEP)) clientePorcPF.CEP = cliente.CEP;
+            if (!string.IsNullOrEmpty(cliente.Bairro)) clientePorcPF.Bairro = cliente.Bairro;
+            if (!string.IsNullOrEmpty(cliente.Cidade)) clientePorcPF.Cidade = cliente.Cidade;
+            if (!string.IsNullOrEmpty(cliente.Complemento)) clientePorcPF.Complemento = cliente.Complemento;
 
+            // Se você não quer atualizar o campo DataNascimento, deixe-o de fora
 
+            // Atualizar no banco
             _dbContext.Clientes.Update(clientePorcPF);
             await _dbContext.SaveChangesAsync();
 
             return clientePorcPF;
         }
+
         public async Task<Cliente> Adicionar(Cliente cliente)
         {
             await _dbContext.Clientes.AddAsync(cliente);

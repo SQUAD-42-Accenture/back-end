@@ -204,7 +204,7 @@
     "ContainingType": "SERVPRO.Controllers.ClienteController",
     "Method": "Atualizar",
     "RelativePath": "api/Cliente/{cpf}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
