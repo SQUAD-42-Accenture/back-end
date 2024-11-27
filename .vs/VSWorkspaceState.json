@@ -3,6 +3,7 @@
     "",
     "\\SERVPRO",
     "\\SERVPRO\\SERVPRO",
+    "\\SERVPRO\\SERVPRO.Tests",
     "\\SERVPRO\\SERVPRO\\Migrations",
     "\\SERVPRO\\SERVPRO\\Repositorios"
   ],
