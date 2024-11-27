@@ -61,6 +61,226 @@ Utilizamos o framework ASP.NET Core MVC desenvolvimento web de código aberto, p
 
 <img width="944" alt="apischema" src="https://github.com/user-attachments/assets/8d906182-914e-4420-b5c2-170e6d6a04c5">
 
+# **🎲Testes Automatizados **SERVPRO** **
+
+## Testes no .NET
+
+Os testes do projeto foram implementados utilizando o framework de testes **xUnit**, uma das bibliotecas de testes mais populares e amplamente usadas no ecossistema .NET. Além disso, utilizamos outras ferramentas para garantir que os testes sejam eficientes e bem integrados ao processo de desenvolvimento.
+
+### Ferramentas e Frameworks Utilizados
+
+1. **xUnit**:
+   - O xUnit é um framework de testes unitários que foi utilizado para escrever os testes para o projeto. Ele fornece uma maneira simples e eficiente de organizar e executar testes.
+   - Pacote NuGet: `xunit`
+
+2. **Microsoft.EntityFrameworkCore.InMemory**:
+   - Para os testes que envolvem interações com o banco de dados, usamos o pacote `Microsoft.EntityFrameworkCore.InMemory`. Este pacote permite que criemos um banco de dados em memória, que é útil para testar o acesso ao banco de dados sem a necessidade de uma instância de banco de dados real.
+   - Pacote NuGet: `Microsoft.EntityFrameworkCore.InMemory`
+
+3. **Mocking com Moq**:
+   - Utilizamos a biblioteca **Moq** para criar objetos simulados (mocks), permitindo testar partes isoladas do código sem a necessidade de depender de implementações reais de serviços ou repositórios.
+   - Pacote NuGet: `Moq`
+
+4. **FluentAssertions**:
+   - Para melhorar a legibilidade dos testes e permitir uma sintaxe mais fluente nas asserções, usamos a biblioteca **FluentAssertions**. Com ela, é possível escrever verificações de maneira mais natural e expressiva.
+   - Pacote NuGet: `FluentAssertions`
+
+# Estrutura dos Testes
+
+Os testes estão organizados na pasta `SERVPRO.Tests`, que contém o projeto de testes. Este projeto foi criado usando o modelo de projeto **xUnit**:
+
+
+## Cenários de Teste para `AdministradorRepositorio`
+
+Este arquivo descreve os cenários de teste para o repositório `AdministradorRepositorio`, utilizado para realizar operações no banco de dados com a entidade `Administrador`.
+
+## Cenários de Teste
+
+### 1. Adicionar Administrador
+**Objetivo**: Verificar se um administrador é corretamente adicionado ao banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se o administrador é adicionado com todos os dados corretamente preenchidos.
+- **Ação**: Chamar o método `Adicionar` passando um objeto `Administrador`.
+- **Resultado Esperado**: O administrador deve ser adicionado ao banco e o CPF deve ser igual ao informado.
+
+---
+
+### 2. Buscar Todos os Administradores
+**Objetivo**: Verificar se todos os administradores cadastrados são retornados corretamente.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao chamar o método `BuscarTodosAdministradores` todos os administradores armazenados no banco são retornados.
+- **Ação**: Chamar o método `BuscarTodosAdministradores` após adicionar dois administradores ao banco de dados.
+- **Resultado Esperado**: O número total de administradores retornados deve ser igual ao número de administradores cadastrados, e todos devem ser retornados corretamente.
+
+---
+
+### 3. Buscar Administrador por CPF
+**Objetivo**: Verificar se um administrador pode ser encontrado corretamente pelo seu CPF.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao buscar um administrador pelo CPF, o administrador correspondente é retornado.
+- **Ação**: Chamar o método `BuscarPorCPF` passando um CPF válido de um administrador existente.
+- **Resultado Esperado**: O administrador encontrado deve ter o CPF igual ao CPF informado na busca e seus dados devem ser correspondentes aos dados armazenados no banco de dados.
+
+---
+
+### 4. Atualizar Dados do Administrador
+**Objetivo**: Verificar se os dados de um administrador podem ser atualizados corretamente no banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao atualizar os dados de um administrador, as mudanças são refletidas corretamente.
+- **Ação**: Chamar o método `Atualizar` após modificar alguns dados de um administrador existente (como nome, departamento, etc.).
+- **Resultado Esperado**: O administrador deve ser atualizado no banco de dados com os novos dados, e os dados alterados devem corresponder ao que foi informado na atualização.
+
+---
+
+### 5. Apagar Administrador
+**Objetivo**: Verificar se um administrador pode ser removido corretamente do banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao chamar o método `Apagar` com o CPF de um administrador existente, o administrador é removido do banco.
+- **Ação**: Chamar o método `Apagar` passando o CPF de um administrador já existente no banco.
+- **Resultado Esperado**: O administrador deve ser removido com sucesso e ao tentar buscar esse administrador pelo CPF, o resultado deve ser `null` (administrador não encontrado).
+
+---
+
+## Cenários de Teste para `ClienteRepositorio`
+
+Este arquivo descreve os cenários de teste para o repositório `ClienteRepositorio`, utilizado para realizar operações no banco de dados com a entidade `Cliente`.
+
+## Cenários de Teste
+
+### 1. Atualizar Dados do Cliente
+**Objetivo**: Verificar se os dados de um cliente podem ser atualizados corretamente no banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao atualizar os dados de um cliente, as mudanças são refletidas corretamente.
+- **Ação**: Chamar o método `Atualizar` após modificar alguns dados do cliente (como senha, tipo de usuário, e data de nascimento).
+- **Resultado Esperado**: O cliente deve ser atualizado no banco de dados com os novos dados, e os dados alterados devem corresponder aos que foram informados na atualização.
+
+---
+
+### 2. Buscar Todos os Clientes
+**Objetivo**: Verificar se todos os clientes cadastrados são retornados corretamente.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao chamar o método `BuscarTodosClientes` todos os clientes cadastrados são retornados.
+- **Ação**: Chamar o método `BuscarTodosClientes` após adicionar dois clientes ao banco de dados.
+- **Resultado Esperado**: O número total de clientes retornados deve ser igual ao número de clientes cadastrados, e todos devem ser retornados corretamente.
+
+---
+
+### 3. Buscar Cliente por CPF
+**Objetivo**: Verificar se um cliente pode ser encontrado corretamente pelo seu CPF.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao buscar um cliente pelo CPF, o cliente correspondente é retornado.
+- **Ação**: Chamar o método `BuscarPorCPF` passando o CPF de um cliente existente.
+- **Resultado Esperado**: O cliente encontrado deve ter o CPF igual ao CPF informado e seus dados devem ser correspondentes aos dados armazenados no banco de dados.
+
+---
+
+### 4. Adicionar Cliente
+**Objetivo**: Verificar se um cliente é corretamente adicionado ao banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se o cliente é adicionado corretamente com todos os dados preenchidos.
+- **Ação**: Chamar o método `Adicionar` passando um objeto `Cliente`.
+- **Resultado Esperado**: O cliente deve ser adicionado ao banco de dados, e o CPF do cliente deve ser igual ao informado.
+- 
+---
+
+### 5. Apagar Cliente
+**Objetivo**: Verificar se um cliente pode ser removido corretamente do banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao chamar o método `Apagar` com o CPF de um cliente existente, o cliente é removido do banco.
+- **Ação**: Chamar o método `Apagar` passando o CPF de um cliente já existente no banco.
+- **Resultado Esperado**: O cliente deve ser removido com sucesso e ao tentar buscar esse cliente pelo CPF, o resultado deve ser `null` (cliente não encontrado).
+
+---
+
+## Cenários de Teste para `TecnicoRepositorio`
+
+Este arquivo descreve os cenários de teste para o repositório `TecnicoRepositorio`, utilizado para realizar operações no banco de dados com a entidade `Tecnico`.
+
+## Cenários de Teste
+
+### 1. Buscar Técnico por CPF
+**Objetivo**: Verificar se um técnico pode ser encontrado corretamente pelo seu CPF.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao buscar um técnico pelo CPF, o técnico correspondente é retornado.
+- **Ação**: Chamar o método `BuscarPorCPF` passando o CPF de um técnico existente.
+- **Resultado Esperado**: O técnico encontrado deve ter o CPF igual ao CPF informado e seus dados (como nome e especialidade) devem ser correspondentes aos dados armazenados no banco de dados.
+---
+
+### 2. Buscar Todos os Técnicos
+**Objetivo**: Verificar se todos os técnicos cadastrados são retornados corretamente.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao chamar o método `BuscarTodosTecnicos` todos os técnicos cadastrados são retornados.
+- **Ação**: Chamar o método `BuscarTodosTecnicos` e verificar o número de técnicos no banco de dados.
+- **Resultado Esperado**: O número de técnicos retornados deve ser igual ao número de técnicos cadastrados, e todos devem ser retornados corretamente.
+
+---
+
+### 3. Adicionar Técnico
+**Objetivo**: Verificar se um técnico é corretamente adicionado ao banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se o técnico é adicionado corretamente com todos os dados preenchidos.
+- **Ação**: Chamar o método `Adicionar` passando um objeto `Tecnico`.
+- **Resultado Esperado**: O técnico deve ser adicionado ao banco de dados, e o CPF do técnico deve ser igual ao informado.
+
+---
+
+### 4. Apagar Técnico Existente
+**Objetivo**: Verificar se um técnico pode ser removido corretamente do banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao chamar o método `Apagar` com o CPF de um técnico existente, o técnico é removido do banco de dados.
+- **Ação**: Chamar o método `Apagar` passando o CPF de um técnico já existente no banco.
+- **Resultado Esperado**: O técnico deve ser removido com sucesso e ao tentar buscar esse técnico pelo CPF, o resultado deve ser `null` (técnico não encontrado).
+
+---
+
+# Cenários de Teste para `UsuarioRepositorio`
+
+Este arquivo descreve os cenários de teste para o repositório `UsuarioRepositorio`, que realiza operações no banco de dados com a entidade `Usuario`.
+
+## Cenários de Teste
+
+### 1. Buscar Usuário por CPF
+**Objetivo**: Verificar se um usuário pode ser recuperado corretamente pelo seu CPF.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao buscar um usuário pelo CPF, o usuário correspondente é retornado.
+- **Ação**: Chamar o método `BuscarPorCpf` passando o CPF de um usuário.
+- **Resultado Esperado**: O usuário retornado deve ter o CPF igual ao informado e os dados do usuário devem ser corretos.
+
+---
+
+### 2. Buscar Usuários por Tipo de Usuário
+**Objetivo**: Verificar se os usuários de um tipo especificado são retornados corretamente.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao buscar usuários por tipo, todos os usuários do tipo especificado são retornados.
+- **Ação**: Chamar o método `BuscarPorTipoUsuario` passando um tipo de usuário (ex: "Tecnico").
+- **Resultado Esperado**: Todos os usuários retornados devem ter o tipo de usuário correspondente ao informado.
+
+---
+
+### 3. Buscar Todos os Usuários
+**Objetivo**: Verificar se todos os usuários são corretamente retornados do banco de dados.
+
+#### Caso de Teste:
+- **Descrição**: O teste valida se ao buscar todos os usuários, a lista de usuários é retornada corretamente.
+- **Ação**: Chamar o método `BuscarTodosUsuarios`.
+- **Resultado Esperado**: A lista de usuários não deve estar vazia e o número de usuários retornados deve ser o esperado (2 no caso de dados iniciais).
+
 
 <br><br>
 # **📱Como Rodar o Projeto**
