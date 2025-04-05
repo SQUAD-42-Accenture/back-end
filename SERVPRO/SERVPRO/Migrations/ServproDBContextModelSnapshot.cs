@@ -17,7 +17,7 @@ namespace SERVPRO.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "9.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -67,8 +67,7 @@ namespace SERVPRO.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("DataAtualizacao")
-                        .IsRequired()
+                    b.Property<DateTime>("DataAtualizacao")
                         .HasMaxLength(255)
                         .HasColumnType("timestamp with time zone");
 
@@ -300,8 +299,7 @@ namespace SERVPRO.Migrations
                     b.Property<string>("Complemento")
                         .HasColumnType("text");
 
-                    b.Property<DateTime?>("DataNascimento")
-                        .IsRequired()
+                    b.Property<DateTime>("DataNascimento")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("FotoPath")
